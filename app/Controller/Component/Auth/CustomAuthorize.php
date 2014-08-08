@@ -9,7 +9,7 @@ class CustomAuthorize extends BaseAuthorize {
 			return true;
 		}
 
-		$context = $this->get_context($user, $request);
+		$context = $this->getContext($user, $request);
 		if (isset($context['user'])) {
 			return $context['user']['User']['id'] == $user['id'];
 		} else if (isset($context['project'])) {
@@ -23,7 +23,7 @@ class CustomAuthorize extends BaseAuthorize {
 		return !in_array($context['action'], $this->settings['adminOnly']);
 	}
 
-	private function get_context($user, $request) {
+	private function getContext($user, $request) {
 		$context = array();
 		$UserProjectRole = ClassRegistry::init('UserProjectRole');
 		$context['controller'] = $request->params['controller'];

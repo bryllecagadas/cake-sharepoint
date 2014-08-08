@@ -7,15 +7,15 @@ class AclExtComponent extends Component {
 		'File'
 	);
 
-	public $aco_alias = 'files';
+	public $acoAlias = 'files';
 
-	public $permission_defaults = array(
+	public $permissionDefaults = array(
 		'project_manager' => '*',
 		'consultant' => 'read',
 		'client' => 'read',
 	);
 
-	public function aro_create($aro_alias) {
+	public function aroCreate($aro_alias) {
 		$node = $this->Acl->Aro->node($aro_alias);
 
 		if (!$node) {
@@ -26,12 +26,43 @@ class AclExtComponent extends Component {
 		return $node;
 	}
 
-	public function aco_create($path) {
+	public function acoCreate($path) {
+		$parts = explode("/", $path);
+		$alias = $parts[count($parts) - 1];
+		unset($parts[count($parts) - 1]);
+		$parent = $this->Acl->Aco->node(implode("/", $parts));
+
+		if ($parent) {
+			$this->Acl->Aco->create(array('parent_id' => $parent[0]['Aco']['id'], 'model' => null, 'alias' => $alias));
+			return $this->Acl->Aco->save();
+		}
+
+		return false;
+	}
+
+	public function defaultPermissions($project, $aco_path) {
+		$project_id = $project[$this->File->projectModel]['id'];
+		$base = $this->File->projectDir($project);
+
+		$this->Acl->allow('1', $aco_path);
+		foreach ($this->roles() as $name => $role) {
+			$aro_alias = $this->generateProjectRoleAlias($project_id, $role['Role']['id']);
+			$this->aroCreate($aro_alias);
+			$permission = isset($this->permissionDefaults[$name]) ? $this->permissionDefaults[$name] : '';
+
+			if ($permission) {
+				$this->Acl->allow($aro_alias, $aco_path, $permission);
+			}
+		}
+	}
+
+	public function generateProjectRoleAlias($project_id, $role_id) {
+		return $project_id . ':' . $role_id;
 	}
 
 	public function initialize(Controller $controller) {
-		if (!$this->Acl->Aco->find('first', array('conditions' => array('alias' => 'files')))) {
-			$this->Acl->Aco->create(array('parent_id' => null, 'alias' => $this->aco_alias));
+		if (!$this->Acl->Aco->find('first', array('conditions' => array('alias' => $this->acoAlias)))) {
+			$this->Acl->Aco->create(array('parent_id' => null, 'alias' => $this->acoAlias));
 			$this->Acl->Aco->save();
 		}
 
@@ -46,29 +77,18 @@ class AclExtComponent extends Component {
 		}
 	}
 
-	public function project_init($project) {
-		$dir = $this->File->project_dir($project);
-		$project_id = $project[$this->File->project_model]['id'];
-		$path = $this->aco_alias . '/' . $dir;
-		$parent = $this->Acl->Aco->node($path);
+	public function projectInit($project) {
+		$dir = $this->File->projectDir($project);
+		$path = $this->acoAlias . '/' . $dir;
+		$node = $this->Acl->Aco->node($path);
 
-		if (!$parent) {
-			$parent = $this->Acl->Aco->node($this->aco_alias);
+		if (!$node) {
+			$parent = $this->Acl->Aco->node($this->acoAlias);
 			$this->Acl->Aco->create(array('parent_id' => $parent[0]['Aco']['id'], 'model' => null, 'alias' => $dir));
 			$this->Acl->Aco->save();
 		}
 
-		$this->Acl->allow('1', $path);
-
-		foreach ($this->roles() as $name => $role) {
-			$aro_alias = $project_id . ':' . $role['Role']['id'];
-			$this->aro_create($aro_alias);
-			$permission = isset($this->permission_defaults[$name]) ? $this->permission_defaults[$name] : '';
-
-			if ($permission) {
-				$this->Acl->allow($aro_alias, $path, $permission);
-			}
-		}
+		$this->defaultPermissions($project, $path);
 	}
 
 	public function roles() {

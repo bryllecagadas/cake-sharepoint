@@ -2,9 +2,9 @@
 
 class UsersController extends AppController {
 	public function beforeFilter() {
-		$this->auth_admin_only('add', 'edit');
-		$this->Auth->allow('login', 'logout');
 		parent::beforeFilter();
+		$this->authAdminOnly('add', 'edit');
+		$this->Auth->allow('login', 'logout');
 	}
 
 	public function add() {

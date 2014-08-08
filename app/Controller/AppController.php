@@ -68,7 +68,7 @@ class AppController extends Controller {
 		return $item;
 	}
 
-	public function auth_admin_only() {
+	protected function authAdminOnly() {
 		$args = func_get_args();
 		if (is_array($args[0])) {
 			$actions = $args[0];

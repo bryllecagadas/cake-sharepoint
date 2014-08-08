@@ -3,8 +3,8 @@
 class ProjectsController extends AppController {
 
 	public function beforeFilter() {
-		$this->auth_admin_only('add');
 		parent::beforeFilter();
+		$this->authAdminOnly('add');
 	}
 
 	public function add() {
@@ -14,11 +14,11 @@ class ProjectsController extends AppController {
 				if ($this->Project->save($this->request->data)) {
 					$project = $this->Project->findByid($this->Project->id);
 
-					if (!$this->File->project_init($project)) {
+					if (!$this->File->projectInit($project)) {
 						$this->Session->setFlash('Cannot create project directory.');
 					}
 
-					$this->AclExt->project_init($project);
+					$this->AclExt->projectInit($project);
 					$this->redirect(array('action' => 'index'));
 				}
 			}
@@ -56,12 +56,13 @@ class ProjectsController extends AppController {
 
 	public function files($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
-		$items = $this->File->project_files($project);
+		$items = $this->File->projectFiles($project);
+		die(pr($items));
 	}
 
 	public function files_test($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
-		$this->File->dir_create($project, 'test');
+		$this->File->dirCreate($project, 'test');
 	}
 
 	public function index() {

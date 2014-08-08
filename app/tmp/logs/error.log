@@ -874,3 +874,222 @@ Stack Trace:
 #3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
 #4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-08-08 20:47:19 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 20:51:36 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 20:52:04 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 21:38:46 Error: [MissingControllerException] Controller class UisersController could not be found.
+Exception Attributes: array (
+  'class' => 'UisersController',
+  'plugin' => NULL,
+)
+Request URL: /uisers/logout
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-08 21:39:50 Error: Fatal Error (1): Call to undefined method AclExtComponent::default_folder_permissions() in [/home/gemango/workspace/cake/sharepoint/app/Controller/Component/FileComponent.php, line 30]
+2014-08-08 21:39:50 Error: [FatalErrorException] Call to undefined method AclExtComponent::default_folder_permissions()
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/gemango/w...', 30)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/gemango/w...', 30, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/gemango/w...', 30, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:40:01 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 21:40:34 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 21:41:38 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 21:56:24 Error: Fatal Error (1): Call to undefined method ProjectsController::authAdminOnly() in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:24 Error: [FatalErrorException] Call to undefined method ProjectsController::authAdminOnly()
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:56:27 Error: Fatal Error (1): Call to undefined method ProjectsController::authAdminOnly() in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:27 Error: [FatalErrorException] Call to undefined method ProjectsController::authAdminOnly()
+Request URL: /projects/
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:56:45 Error: Fatal Error (1): Call to private method AppController::authAdminOnly() from context 'ProjectsController' in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:45 Error: [FatalErrorException] Call to private method AppController::authAdminOnly() from context 'ProjectsController'
+Request URL: /projects/
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:56:47 Error: Fatal Error (1): Call to private method AppController::authAdminOnly() from context 'ProjectsController' in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:47 Error: [FatalErrorException] Call to private method AppController::authAdminOnly() from context 'ProjectsController'
+Request URL: /projects/
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:56:47 Error: Fatal Error (1): Call to private method AppController::authAdminOnly() from context 'ProjectsController' in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:47 Error: [FatalErrorException] Call to private method AppController::authAdminOnly() from context 'ProjectsController'
+Request URL: /projects/
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:56:48 Error: Fatal Error (1): Call to private method AppController::authAdminOnly() from context 'ProjectsController' in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:48 Error: [FatalErrorException] Call to private method AppController::authAdminOnly() from context 'ProjectsController'
+Request URL: /projects/
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:56:48 Error: Fatal Error (1): Call to private method AppController::authAdminOnly() from context 'ProjectsController' in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 7]
+2014-08-08 21:56:48 Error: [FatalErrorException] Call to private method AppController::authAdminOnly() from context 'ProjectsController'
+Request URL: /projects/
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', '/home/gemango/w...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to private...', '/home/gemango/w...', 7, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:57:09 Error: Fatal Error (1): Call to undefined method AclExtComponent::project_init() in [/home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php, line 21]
+2014-08-08 21:57:09 Error: [FatalErrorException] Call to undefined method AclExtComponent::project_init()
+Request URL: /projects/add
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/gemango/w...', 21)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/gemango/w...', 21, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/gemango/w...', 21, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-08 21:57:51 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 21:58:20 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 21:59:39 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-08 22:30:25 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
