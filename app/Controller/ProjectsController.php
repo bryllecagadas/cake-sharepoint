@@ -14,11 +14,10 @@ class ProjectsController extends AppController {
 				if ($this->Project->save($this->request->data)) {
 					$project = $this->Project->findByid($this->Project->id);
 
-					if (!$this->File->projectInit($project)) {
-						$this->Session->setFlash('Cannot create project directory.');
+					if (!$this->ProjectAcl->projectInit($project)) {
+						$this->Session->setFlash('Cannot initialize project.');
 					}
 
-					$this->AclExt->projectInit($project);
 					$this->redirect(array('action' => 'index'));
 				}
 			}
@@ -48,6 +47,50 @@ class ProjectsController extends AppController {
 		$this->set(compact('users', 'project', 'roles'));
 	}
 
+	public function ajax_files() {
+		$project_id = null;
+		$action = null;
+		$this->layout = null;
+		$this->autoRender = false;
+
+		if ($this->request->is('post')) {
+			$project_id = $this->request->data['project_id'];
+			$data = $this->request->data;
+			if (isset($this->request->data['action'])) {
+				$action = $this->request->data['action'];
+			}
+		}
+
+		$project = $this->verify('Project', $project_id, true);
+		$this->ProjectAcl->setProject($project);
+
+		if (!isset($action)) {
+			$node_id = isset($data['node_id']) && $data['node_id'] != "#" ? $data['node_id'] : null;
+			$items = $this->ProjectAcl->projectFiles($node_id);
+		} else {
+			$items = $this->ProjectAcl->processAction($action, $data);
+		}
+
+		echo json_encode($items);
+	}
+
+	public function ajax_node_permissions() {
+		$this->layout = null;
+		$this->autoRender = false;
+		$project_id = null;
+
+		if ($this->request->is('post')) {
+			$project_id = $this->request->data['project_id'];
+			$data = $this->request->data;
+		}
+
+		$project = $this->verify('Project', $project_id, true);
+		$this->ProjectAcl->setProject($project);
+		$response = $this->ProjectAcl->checkPermission($data);
+
+		echo json_encode($response);
+	}
+
 	public function edit($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
 		$this->layout = null;
@@ -56,13 +99,16 @@ class ProjectsController extends AppController {
 
 	public function files($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
-		$items = $this->File->projectFiles($project);
-		die(pr($items));
+		$this->ProjectAcl->setProject($project);
+		$secureId = $this->ProjectAcl->secureProjectId;
+		$files = json_encode($this->ProjectAcl->projectFiles());
+		$this->set(compact('project', 'secureId', 'files'));
 	}
 
 	public function files_test($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
-		$this->File->dirCreate($project, 'test');
+		$this->ProjectAcl->setProject($project);
+		$this->ProjectAcl->dirCreate('test');
 	}
 
 	public function index() {
@@ -87,6 +133,6 @@ class ProjectsController extends AppController {
 	}
 
 	public function view() {
-
+		
 	}
 }

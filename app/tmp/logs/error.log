@@ -1093,3 +1093,1276 @@ Stack Trace:
 #3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
 #4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-08-11 14:41:56 Error: Fatal Error (1): Maximum function nesting level of '100' reached, aborting! in [/home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/Folder.php, line 790]
+2014-08-11 14:41:56 Error: [FatalErrorException] Maximum function nesting level of '100' reached, aborting!
+Request URL: /projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Maximum functio...', '/home/gemango/w...', 790)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum functio...', '/home/gemango/w...', 790, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum functio...', '/home/gemango/w...', 790, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-11 14:47:05 Error: Fatal Error (1): Maximum function nesting level of '100' reached, aborting! in [/home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/Debugger.php, line 812]
+2014-08-11 14:47:05 Error: [FatalErrorException] Maximum function nesting level of '100' reached, aborting!
+Request URL: /projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Maximum functio...', '/home/gemango/w...', 812)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum functio...', '/home/gemango/w...', 812, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum functio...', '/home/gemango/w...', 812, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-11 14:47:10 Error: Fatal Error (1): Maximum function nesting level of '100' reached, aborting! in [/home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/Debugger.php, line 812]
+2014-08-11 14:47:10 Error: [FatalErrorException] Maximum function nesting level of '100' reached, aborting!
+Request URL: /projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Maximum functio...', '/home/gemango/w...', 812)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum functio...', '/home/gemango/w...', 812, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum functio...', '/home/gemango/w...', 812, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-11 14:48:07 Error: Fatal Error (1): Maximum function nesting level of '100' reached, aborting! in [/home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/Debugger.php, line 812]
+2014-08-11 14:48:07 Error: [FatalErrorException] Maximum function nesting level of '100' reached, aborting!
+Request URL: /projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Maximum functio...', '/home/gemango/w...', 812)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum functio...', '/home/gemango/w...', 812, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum functio...', '/home/gemango/w...', 812, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-11 15:39:23 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-11 16:47:03 Error: Fatal Error (1): Class 'Folder' not found in [/home/gemango/workspace/cake/sharepoint/app/Controller/Component/ProjectAclComponent.php, line 133]
+2014-08-11 16:47:03 Error: [FatalErrorException] Class 'Folder' not found
+Request URL: /projects/add
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Folder' ...', '/home/gemango/w...', 133)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Folder' ...', '/home/gemango/w...', 133, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'Folder' ...', '/home/gemango/w...', 133, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-11 16:48:18 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-11 17:01:18 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-11 18:39:18 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-11 19:25:48 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/jstree.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:26:12 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/styles.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:26:15 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/styles.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:26:15 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/styles.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:26:16 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/styles.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:26:16 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/styles.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:26:22 Error: [MissingControllerException] Controller class Jstree-themesController could not be found.
+Exception Attributes: array (
+  'class' => 'Jstree-themesController',
+  'plugin' => NULL,
+)
+Request URL: /jstree-themes/default/styles.min.css
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-08-11 19:42:50 Error: [MissingActionException] Action UsersController::ajax_login() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'ajax_login',
+)
+Request URL: /ajax/users/login
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-11 19:42:57 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Users/json/login.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Users/json/login.ctp',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-11 21:39:32 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(68): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(51): AppController->verify('Project', 0)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 21:39:40 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-11 21:41:00 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-11 21:41:10 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-11 21:46:25 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(67): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...')
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 21:59:06 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-11 22:00:38 Error: [MissingActionException] Action ProjectsController::1() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => '1',
+)
+Request URL: /projects/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-11 22:01:13 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(99): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:01:43 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(99): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:03:21 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(99): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:03:22 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(99): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:06:12 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(99): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:06:33 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:06:36 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:07:22 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', '356a192b7913b04...', true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:18:08 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:18:09 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:18:10 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:18:11 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-11 22:18:11 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(100): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(57): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-12 15:28:28 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-12 15:28:28 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-12 15:30:02 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-12 15:34:43 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-12 16:02:20 Error: [MissingActionException] Action UsersController::logut() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'logut',
+)
+Request URL: /users/logut
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-12 16:02:57 Error: [MissingActionException] Action ProjectsController::fiiles() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'fiiles',
+)
+Request URL: /projects/fiiles
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-12 21:11:17 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(99): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(62): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_files()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-12 21:35:10 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-12 21:48:06 Error: Fatal Error (4): syntax error, unexpected T_EXIT, expecting ')' in [/home/gemango/workspace/cake/sharepoint/app/Controller/Component/ProjectAclComponent.php, line 155]
+2014-08-12 21:48:06 Error: [FatalErrorException] syntax error, unexpected T_EXIT, expecting ')'
+Request URL: /projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/gemango/w...', 155)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/gemango/w...', 155, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/gemango/w...', 155, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-18 15:39:13 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 15:39:13 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 15:42:53 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/files_test.ctp',
+)
+Request URL: /projects/files_test/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): View->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 15:58:41 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:14 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:32 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:42 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:43 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:43 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:43 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:43 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:43 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects?project_id=1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 15:59:53 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 16:00:09 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 16:11:18 Error: Fatal Error (4): syntax error, unexpected T_BREAK in [/home/gemango/workspace/cake/sharepoint/app/Controller/Component/ProjectAclComponent.php, line 122]
+2014-08-18 16:11:18 Error: [FatalErrorException] syntax error, unexpected T_BREAK
+Request URL: /projects/files/1
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/gemango/w...', 122)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/gemango/w...', 122, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/gemango/w...', 122, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-18 18:12:29 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:15:43 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:17:36 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:18:56 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:19:05 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-18 18:20:37 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:20:42 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:49:01 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 18:49:40 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 19:13:06 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 19:13:28 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 20:20:44 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 20:21:21 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 20:26:35 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 20:44:28 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 21:02:44 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 21:03:18 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 21:04:33 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 21:04:44 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 21:05:37 Error: [MissingViewException] View file "/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/gemango/workspace/cake/sharepoint/app/View/Projects/json/ajax_files.ctp',
+)
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/View/JsonView.php(107): View->_getViewFileName(NULL)
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(954): JsonView->render(NULL, NULL)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(198): Controller->render()
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#4 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-08-18 22:14:52 Error: Fatal Error (1): Call to undefined function rrmdir() in [/home/gemango/workspace/cake/sharepoint/app/Controller/Component/ProjectAclComponent.php, line 375]
+2014-08-18 22:14:52 Error: [FatalErrorException] Call to undefined function rrmdir()
+Request URL: /ajax/projects/files
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/gemango/w...', 375)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/gemango/w...', 375, Array)
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/gemango/w...', 375, Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-08-18 23:15:47 Error: [MissingActionException] Action ProjectsController::f() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'f',
+)
+Request URL: /projects/f
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-08-19 16:27:46 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/node_permissions?node_id=2&type=contextmenu
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(101): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(86): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_node_permissions()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-19 16:27:50 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/node_permissions?node_id=2&type=contextmenu
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(101): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(86): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_node_permissions()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-19 16:27:57 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/node_permissions?node_id=2&type=contextmenu
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(101): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(86): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_node_permissions()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-19 16:28:17 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/node_permissions
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(101): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(86): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_node_permissions()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-19 16:28:25 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects/node_permissions
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/lib/Cake/Core/Object.php(106): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse), Array)
+#3 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Component/RequestHandlerComponent.php(271): Object->requestAction('/ajax/projects', Array)
+#4 [internal function]: RequestHandlerComponent->beforeRedirect(Object(ProjectsController), Array, NULL, true)
+#5 /home/gemango/workspace/cake/sharepoint/lib/Cake/Utility/ObjectCollection.php(128): call_user_func_array(Array, Array)
+#6 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#7 /home/gemango/workspace/cake/sharepoint/lib/Cake/Event/CakeEventManager.php(242): call_user_func(Array, Object(CakeEvent))
+#8 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(765): CakeEventManager->dispatch(Object(CakeEvent))
+#9 /home/gemango/workspace/cake/sharepoint/app/Controller/AppController.php(101): Controller->redirect(Array)
+#10 /home/gemango/workspace/cake/sharepoint/app/Controller/ProjectsController.php(86): AppController->verify('Project', NULL, true)
+#11 [internal function]: ProjectsController->ajax_node_permissions()
+#12 /home/gemango/workspace/cake/sharepoint/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#13 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#14 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#15 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-08-19 20:10:07 Error: [MissingActionException] Action ProjectsController::ajax_index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProjectsController',
+  'action' => 'ajax_index',
+)
+Request URL: /ajax/projects
+Stack Trace:
+#0 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#1 /home/gemango/workspace/cake/sharepoint/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(ProjectsController), Object(CakeRequest))
+#2 /home/gemango/workspace/cake/sharepoint/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}

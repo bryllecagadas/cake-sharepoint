@@ -33,7 +33,6 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 	public $components = array(
 		'Acl',
-		'AclExt',
 		'Auth' => array(
 			'loginRedirect' => array(
 				'controller' => 'projects',
@@ -46,27 +45,10 @@ class AppController extends Controller {
 			),
 			'authError' => 'You must log-in to continue',
 		),
-		'File',
+		'ProjectAcl',
+		'RequestHandler',
 		'Session',
 	);
-
-	public function beforeFilter() {
-		parent::beforeFilter();
-	}
-
-	public function verify($model, $id) {
-		if (!isset($this->{$model})) {
-			$this->loadModel($model);
-		}
-
-		$item = $this->{$model}->findByid($id);
-		if (!$item) {
-			$this->Session->setFlash($model . ' was not found');
-			$this->redirect(array('action' => 'index'));
-		}
-
-		return $item;
-	}
 
 	protected function authAdminOnly() {
 		$args = func_get_args();
@@ -79,5 +61,46 @@ class AppController extends Controller {
 		foreach ($actions as $action) {
 			$this->Auth->authorize['Custom']['adminOnly'][] = $action;
 		}
+	}
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == 'ajax') {
+			$this->RequestHandler->ext = 'json';
+			$this->layout = null;
+			$this->autoRender = false;
+		}
+	}
+
+	public function verify($model, $id, $hashed = false) {
+		if (!isset($this->{$model})) {
+			$this->loadModel($model);
+		}
+
+		$notFound = true;
+
+		if ($id) {
+			if (!$hashed) {
+				$item = $this->{$model}->findByid($id);
+			} else {
+				$salt = Configure::read('Security.salt');
+				$item = $this->{$model}->find('first', array(
+					'conditions' => array(
+						"SHA1(CONCAT('$salt', {$model}.id))" => $id,
+					)
+				));
+			}
+		}
+
+		if ($item) {
+			$notFound = false;
+		}
+
+		if ($notFound) {
+			$this->Session->setFlash($model . ' was not found');
+			$this->redirect(array('action' => 'index'));
+		}
+
+		return $item;
 	}
 }
