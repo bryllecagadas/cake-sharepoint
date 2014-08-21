@@ -4,30 +4,76 @@
 	
 	Files.permissions = {};
 
+	Files.plugins = ['types', 'contextmenu'];
+	Files.defaultPlugins = Files.plugins.slice(0);
+
+	Files.disable = function() {
+		if (typeof Files.jstree != 'undefined') {
+			var jstree = Files.jstree.data('jstree');
+			jstree.disable_node(jstree.get_node('#').children_d);
+		}
+	};
+
+	Files.enable = function() {
+		// if (typeof Files.jstree != 'undefined') {
+		// 	var jstree = Files.jstree.data('jstree');
+		// 	jstree.select_all();
+		// 	jstree.disable_node(jstree.get_selected());
+		// }
+	};
+
 	Files.init = function() {
 		if (typeof Files.url === 'undefined' || typeof Files.secureId === 'undefined') {
 			return false;
 		}
 
-		Files.jstree = $('#tree').jstree({
+		Files.jstree = $('#tree').on('ready.jstree', function (e, data) {
+			var jstree = Files.jstree.data('jstree');
+			var items = jstree.get_node('#').children_d;
+
+			if ($.inArray('checkbox', jstree.settings.plugins) === -1) {
+				return;
+			}
+
+			jstree.check_node('#');
+
+			for (var i in items) {
+				var node = jstree.get_node(items[i]);
+				var uncheck = false;
+				if (typeof node.original != 'undefined') {
+					var original = node.original;
+					if (typeof original.disabled != 'undefined' && original.disabled) {
+						uncheck = true;
+					}
+				}
+
+				if (uncheck) {
+					console.log('uncheck: ' + items[i]);
+					jstree.uncheck_node(items[i]);
+				} else {
+					console.log('check: ' + items[i]);
+					jstree.check_node(items[i]);
+				}
+			}
+		})
+		.jstree({
 			core: {
 				data : {
 					url: Files.url,
 					method: 'POST',
 					data: function(node) { 
-						return {
+						var data = {
 							node_id: node.id,
 							project_id: Files.secureId
 						};
+
+						if (typeof Files.role != 'undefined') {
+							data.role = Files.role;
+						}
+						return data;
 					}
 				},
-				check_callback : function(o, n, p, i, m) {
-					if(m && m.dnd && m.pos !== 'i') { return false; }
-					if(o === "move_node" || o === "copy_node") {
-						if(this.get_node(n).parent === this.get_node(p).id) { return false; }
-					}
-					return true;
-				},
+				check_callback : true,
 				themes : {
 					responsive : false,
 					variant : 'small',
@@ -39,6 +85,7 @@
 			},
 			contextmenu : {
 				items : function(node) {
+					console.log(node);
 					var tmp = $.jstree.defaults.contextmenu.items();
 					if (typeof Files.permissions[node.id] == 'undefined') {
 						$.ajax({
@@ -65,6 +112,7 @@
 
 					} else {
 						tmp.create.label = "New";
+						delete tmp.create.action;
 						tmp.create.submenu = {
 							create_folder : {
 								separator_after	: true,
@@ -72,7 +120,7 @@
 								action : function (data) {
 									var inst = $.jstree.reference(data.reference),
 										obj = inst.get_node(data.reference);
-									inst.create_node(obj, { type : "default", text : "New folder" }, "last", function (new_node) {
+									inst.create_node(obj, { type : "folder", text : "New folder" }, "last", function (new_node) {
 										setTimeout(function () { inst.edit(new_node); },0);
 									});
 								}
@@ -80,11 +128,6 @@
 							create_file : {
 								label	: "File",
 								action : function (data) {
-									var inst = $.jstree.reference(data.reference),
-										obj = inst.get_node(data.reference);
-									inst.create_node(obj, { type : "file", text : "New file" }, "last", function (new_node) {
-										setTimeout(function () { inst.edit(new_node); },0);
-									});
 								}
 							}
 						};
@@ -101,22 +144,18 @@
 			},
 			types : {
 				default : { 
-					icon : 'file' 
+					icon : 'jstree-file' 
 				},
 				file : { 
-					valid_children : [], icon : 'file' 
+					valid_children : [], icon : 'jstree-file' 
 				},
 				folder : { 
-					icon : 'folder' 
+					icon : 'jstree-folder' 
 				}
 			},
-			plugins : ['types','contextmenu']
+			plugins : Files.plugins
 		})
 		.on('changed.jstree', function (e, data) {
-			// console.log(data.selected);
-			if(data && data.selected && data.selected.length) {
-				// console.log(data);
-			}
 		})
 		.on('delete_node.jstree', function (e, data) {
 			Files.request(data.instance, 'delete', {
@@ -125,8 +164,9 @@
 		})
 		.on('create_node.jstree', function (e, data) {
 			Files.request(data.instance, 'create', {
-				path: data.node.id,
-				parent: data.node.parent
+				path: data.node.text,
+				parent: data.node.parent,
+				node: data.node
 			});
 		})
 		.on('rename_node.jstree', function (e, data) {
@@ -153,9 +193,11 @@
 		});
 	}
 
-	Files.request = function(instance, action, data) {
+	Files.request = function(instance, action, data, callback) {
 		data.project_id = Files.secureId;
 		data.action = action;
+
+		Files.disable();
 
 		$.ajax({
 			url: Files.url,
@@ -163,13 +205,36 @@
 			type: 'POST',
 			data: data,
 			success: function(response) {
-				console.log(response);
-				// instance.refresh();
+				Files.enable();
 			}
 		})
 	};
 
 	$(document).ready(function() {
 		Files.init();
+
+		if ($('.role-switcher').length) {
+			$('.role-switcher .role').click(function() {
+				if (typeof Files.jstree != 'undefined') {
+					var jstree = Files.jstree.data('jstree');
+					var role = $(this).data('role');
+
+					if (typeof Files.role != 'undefined' && Files.role == role) {
+						Files.plugins = Files.defaultPlugins.slice(0);
+						delete Files.role;
+					} else {
+						Files.role = $(this).data('role');
+						if ($.inArray('checkbox', Files.plugins) == -1) {
+							Files.plugins.push('checkbox');
+						}
+					}
+
+					Files.disable();
+					jstree.destroy(true);
+					Files.init();
+				}
+				return false;
+			});
+		}
 	});
 })(jQuery);

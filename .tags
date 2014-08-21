@@ -4,6 +4,106 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+$.fn.jstree	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.core	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.core.init	app/webroot/js/jstree.js	/^		},$/;"	m
+$.jstree.core.init._model.data	app/webroot/js/jstree.js	/^			this._model = {$/;"	p
+$.jstree.core.plugin	app/webroot/js/jstree.js	/^	$.jstree.core.prototype = {$/;"	m
+$.jstree.defaults	app/webroot/js/jstree.js	/^		version : '3.0.3',$/;"	p
+$.jstree.defaults.checkbox.cascade	app/webroot/js/jstree.js	/^		keep_selected_style	: true,$/;"	p
+$.jstree.defaults.checkbox.keep_selected_style	app/webroot/js/jstree.js	/^		whole_node			: true,$/;"	p
+$.jstree.defaults.checkbox.three_state	app/webroot/js/jstree.js	/^		visible				: true,$/;"	p
+$.jstree.defaults.checkbox.tie_selection	app/webroot/js/jstree.js	/^		cascade				: '',$/;"	p
+$.jstree.defaults.checkbox.visible	app/webroot/js/jstree.js	/^	$.jstree.defaults.checkbox = {$/;"	p
+$.jstree.defaults.checkbox.whole_node	app/webroot/js/jstree.js	/^		three_state			: true,$/;"	p
+$.jstree.defaults.contextmenu.items	app/webroot/js/jstree.js	/^		show_at_node : true,$/;"	m
+$.jstree.defaults.contextmenu.select_node	app/webroot/js/jstree.js	/^	$.jstree.defaults.contextmenu = {$/;"	p
+$.jstree.defaults.contextmenu.show_at_node	app/webroot/js/jstree.js	/^		select_node : true,$/;"	p
+$.jstree.defaults.core.check_callback	app/webroot/js/jstree.js	/^		strings			: false,$/;"	p
+$.jstree.defaults.core.data	app/webroot/js/jstree.js	/^	$.jstree.defaults.core = {$/;"	p
+$.jstree.defaults.core.error	app/webroot/js/jstree.js	/^		check_callback	: false,$/;"	p
+$.jstree.defaults.core.strings	app/webroot/js/jstree.js	/^		data			: false,$/;"	p
+$.jstree.defaults.dnd.always_copy	app/webroot/js/jstree.js	/^		check_while_dragging : true,$/;"	p
+$.jstree.defaults.dnd.check_while_dragging	app/webroot/js/jstree.js	/^		is_draggable : true,$/;"	p
+$.jstree.defaults.dnd.copy	app/webroot/js/jstree.js	/^	$.jstree.defaults.dnd = {$/;"	p
+$.jstree.defaults.dnd.inside_pos	app/webroot/js/jstree.js	/^		always_copy : false,$/;"	p
+$.jstree.defaults.dnd.is_draggable	app/webroot/js/jstree.js	/^		open_timeout : 500,$/;"	p
+$.jstree.defaults.dnd.open_timeout	app/webroot/js/jstree.js	/^		copy : true,$/;"	p
+$.jstree.defaults.search.ajax	app/webroot/js/jstree.js	/^	$.jstree.defaults.search = {$/;"	p
+$.jstree.defaults.search.case_sensitive	app/webroot/js/jstree.js	/^		fuzzy : false,$/;"	p
+$.jstree.defaults.search.close_opened_onclear	app/webroot/js/jstree.js	/^		show_only_matches : false,$/;"	p
+$.jstree.defaults.search.fuzzy	app/webroot/js/jstree.js	/^		ajax : false,$/;"	p
+$.jstree.defaults.search.search_callback	app/webroot/js/jstree.js	/^		search_leaves_only : false,$/;"	p
+$.jstree.defaults.search.search_leaves_only	app/webroot/js/jstree.js	/^		close_opened_onclear : true,$/;"	p
+$.jstree.defaults.search.show_only_matches	app/webroot/js/jstree.js	/^		case_sensitive : false,$/;"	p
+$.jstree.defaults.sort	app/webroot/js/jstree.js	/^	}($));$/;"	f
+$.jstree.defaults.state.events	app/webroot/js/jstree.js	/^		key		: 'jstree',$/;"	p
+$.jstree.defaults.state.filter	app/webroot/js/jstree.js	/^		ttl		: false,$/;"	p
+$.jstree.defaults.state.key	app/webroot/js/jstree.js	/^	$.jstree.defaults.state = {$/;"	p
+$.jstree.defaults.state.ttl	app/webroot/js/jstree.js	/^		events	: 'changed.jstree open_node.jstree close_node.jstree',$/;"	p
+$.jstree.defaults.types.#	app/webroot/js/jstree.js	/^	$.jstree.defaults.types = {$/;"	p
+$.jstree.defaults.unique.case_sensitive	app/webroot/js/jstree.js	/^	$.jstree.defaults.unique = {$/;"	p
+$.jstree.defaults.unique.duplicate	app/webroot/js/jstree.js	/^		case_sensitive : false,$/;"	m
+$.jstree.plugins.checkbox	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.checkbox._undetermined	app/webroot/js/jstree.js	/^		this._undetermined = function () {$/;"	m
+$.jstree.plugins.checkbox.activate_node	app/webroot/js/jstree.js	/^		this.activate_node = function (obj, e) {$/;"	m
+$.jstree.plugins.checkbox.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.checkbox.check_all	app/webroot/js/jstree.js	/^		this.check_all = function () {$/;"	m
+$.jstree.plugins.checkbox.check_node	app/webroot/js/jstree.js	/^		this.check_node = function (obj, e) {$/;"	m
+$.jstree.plugins.checkbox.get_bottom_checked	app/webroot/js/jstree.js	/^		this.get_bottom_checked = function (full) {$/;"	m
+$.jstree.plugins.checkbox.get_checked	app/webroot/js/jstree.js	/^		this.get_checked = function (full) {$/;"	m
+$.jstree.plugins.checkbox.get_top_checked	app/webroot/js/jstree.js	/^		this.get_top_checked = function (full) {$/;"	m
+$.jstree.plugins.checkbox.hide_checkboxes	app/webroot/js/jstree.js	/^		this.hide_checkboxes = function () { this._data.core.themes.checkboxes = false; this.get_container_ul().addClass("jstree-no-checkboxes"); };$/;"	m
+$.jstree.plugins.checkbox.is_checked	app/webroot/js/jstree.js	/^		this.is_checked = function (obj) {$/;"	m
+$.jstree.plugins.checkbox.is_undetermined	app/webroot/js/jstree.js	/^		this.is_undetermined = function (obj) {$/;"	m
+$.jstree.plugins.checkbox.redraw_node	app/webroot/js/jstree.js	/^		this.redraw_node = function(obj, deep, is_callback) {$/;"	m
+$.jstree.plugins.checkbox.show_checkboxes	app/webroot/js/jstree.js	/^		this.show_checkboxes = function () { this._data.core.themes.checkboxes = true; this.get_container_ul().removeClass("jstree-no-checkboxes"); };$/;"	m
+$.jstree.plugins.checkbox.toggle_checkboxes	app/webroot/js/jstree.js	/^		this.toggle_checkboxes = function () { if(this._data.core.themes.checkboxes) { this.hide_checkboxes(); } else { this.show_checkboxes(); } };$/;"	m
+$.jstree.plugins.checkbox.uncheck_all	app/webroot/js/jstree.js	/^		this.uncheck_all = function () {$/;"	m
+$.jstree.plugins.checkbox.uncheck_node	app/webroot/js/jstree.js	/^		this.uncheck_node = function (obj, e) {$/;"	m
+$.jstree.plugins.contextmenu	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.contextmenu._show_contextmenu	app/webroot/js/jstree.js	/^		this._show_contextmenu = function (obj, x, y, i) {$/;"	m
+$.jstree.plugins.contextmenu.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.contextmenu.show_contextmenu	app/webroot/js/jstree.js	/^		this.show_contextmenu = function (obj, x, y, e) {$/;"	m
+$.jstree.plugins.contextmenu.teardown	app/webroot/js/jstree.js	/^		this.teardown = function () {$/;"	m
+$.jstree.plugins.dnd	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.dnd.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.search	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.search._search_open	app/webroot/js/jstree.js	/^		this._search_open = function (d) {$/;"	m
+$.jstree.plugins.search.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.search.clear_search	app/webroot/js/jstree.js	/^		this.clear_search = function () {$/;"	m
+$.jstree.plugins.search.search	app/webroot/js/jstree.js	/^		this.search = function (str, skip_async) {$/;"	m
+$.jstree.plugins.sort	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.sort.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.sort.sort	app/webroot/js/jstree.js	/^		this.sort = function (obj, deep) {$/;"	m
+$.jstree.plugins.state	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.state.$.jstree.plugins.state.save_state.st.state	app/webroot/js/jstree.js	/^			var st = { 'state' : this.get_state(), 'ttl' : this.settings.state.ttl, 'sec' : +(new Date()) };$/;"	p
+$.jstree.plugins.state.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.state.clear_state	app/webroot/js/jstree.js	/^		this.clear_state = function () {$/;"	m
+$.jstree.plugins.state.restore_state	app/webroot/js/jstree.js	/^		this.restore_state = function () {$/;"	m
+$.jstree.plugins.state.save_state	app/webroot/js/jstree.js	/^		this.save_state = function () {$/;"	m
+$.jstree.plugins.types	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.types._delete_ids	app/webroot/js/jstree.js	/^		this._delete_ids = function (tmp) {$/;"	m
+$.jstree.plugins.types.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.types.check	app/webroot/js/jstree.js	/^		this.check = function (chk, obj, par, pos, more) {$/;"	m
+$.jstree.plugins.types.get_json	app/webroot/js/jstree.js	/^		this.get_json = function (obj, options, flat) {$/;"	m
+$.jstree.plugins.types.init	app/webroot/js/jstree.js	/^		this.init = function (el, options) {$/;"	m
+$.jstree.plugins.types.refresh	app/webroot/js/jstree.js	/^		this.refresh = function (skip_loading, forget_state) {$/;"	m
+$.jstree.plugins.unique	app/webroot/js/jstree.js	/^	};$/;"	c
+$.jstree.plugins.unique.check	app/webroot/js/jstree.js	/^		this.check = function (chk, obj, par, pos, more) {$/;"	m
+$.jstree.plugins.unique.create_node	app/webroot/js/jstree.js	/^		this.create_node = function (par, node, pos, callback, is_loaded) {$/;"	m
+$.jstree.plugins.wholerow	app/webroot/js/jstree.js	/^	div.innerHTML = '&#160;';$/;"	c
+$.jstree.plugins.wholerow.bind	app/webroot/js/jstree.js	/^		this.bind = function () {$/;"	m
+$.jstree.plugins.wholerow.redraw_node	app/webroot/js/jstree.js	/^		this.redraw_node = function(obj, deep, callback) {$/;"	m
+$.jstree.plugins.wholerow.teardown	app/webroot/js/jstree.js	/^		this.teardown = function () {$/;"	m
+$.jstree.reference	app/webroot/js/jstree.js	/^	};$/;"	f
+$.jstree.version	app/webroot/js/jstree.js	/^	$.jstree = {$/;"	p
+$.vakata.array_remove	app/webroot/js/jstree.js	/^	};$/;"	f
+$.vakata.array_remove_item	app/webroot/js/jstree.js	/^	};$/;"	f
+$.vakata.array_unique	app/webroot/js/jstree.js	/^	};$/;"	f
+$.vakata.attributes	app/webroot/js/jstree.js	/^	$.vakata = {};$/;"	f
+$.vakata.context.settings	app/webroot/js/jstree.js	/^		$.vakata.context = {$/;"	p
+$.vakata.dnd.settings	app/webroot/js/jstree.js	/^		$.vakata.dnd = {$/;"	p
 APP	lib/Cake/Console/ShellDispatcher.php	/^			define('APP', $this->params['working'] . DS);$/;"	d
 APP	lib/Cake/bootstrap.php	/^	define('APP', ROOT . DS . APP_DIR . DS);$/;"	d
 APPLIBS	lib/Cake/bootstrap.php	/^	define('APPLIBS', APP . 'Lib' . DS);$/;"	d
@@ -159,6 +259,8 @@ AroTwoFixture	lib/Cake/Test/Fixture/AroTwoFixture.php	/^class AroTwoFixture exte
 AroTwoTest	lib/Cake/Test/Case/Controller/Component/Acl/DbAclTest.php	/^class AroTwoTest extends AclNodeTwoTestBase {$/;"	c
 ArosAcoFixture	lib/Cake/Test/Fixture/ArosAcoFixture.php	/^class ArosAcoFixture extends CakeTestFixture {$/;"	c
 ArosAcoTwoFixture	lib/Cake/Test/Fixture/ArosAcoTwoFixture.php	/^class ArosAcoTwoFixture extends CakeTestFixture {$/;"	c
+Array	app/webroot/js/jstree.js	/^					this._model.data[obj.children_d[i]].parents = this._model.data[obj.children_d[i]].parents.slice(0,p*-1);$/;"	c
+Array.push	app/webroot/js/jstree.js	/^					Array.prototype.push.apply(this._model.data[obj.children_d[i]].parents, tmp);$/;"	m
 Article	lib/Cake/Test/Case/Console/Command/Task/FixtureTaskTest.php	/^		$Article = ClassRegistry::init('Article');$/;"	v
 Article	lib/Cake/Test/Case/Model/Behavior/ContainableBehaviorTest.php	/^		$this->Article = ClassRegistry::init('Article');$/;"	v
 Article	lib/Cake/Test/Case/Model/BehaviorCollectionTest.php	/^		$Article = new Article();$/;"	v
@@ -392,6 +494,7 @@ CategoryThreadFixture	lib/Cake/Test/Fixture/CategoryThreadFixture.php	/^class Ca
 Cd	lib/Cake/Test/Case/Model/ModelDeleteTest.php	/^		$Cd = new Cd();$/;"	v
 Cd	lib/Cake/Test/Case/Model/models.php	/^class Cd extends CakeTestModel {$/;"	c
 CdFixture	lib/Cake/Test/Fixture/CdFixture.php	/^class CdFixture extends CakeTestFixture {$/;"	c
+Child	app/webroot/js/jstree.js	/^				this._data[deco] = {};$/;"	c
 ClassRegisterModel	lib/Cake/Test/Case/Utility/ClassRegistryTest.php	/^class ClassRegisterModel extends CakeTestModel {$/;"	c
 ClassRegistry	lib/Cake/Utility/ClassRegistry.php	/^class ClassRegistry {$/;"	c
 ClassRegistryAbstractModel	lib/Cake/Test/Case/Utility/ClassRegistryTest.php	/^abstract class ClassRegistryAbstractModel extends ClassRegisterModel {$/;"	c
@@ -754,7 +857,6 @@ File	lib/Cake/Test/Case/Utility/ValidationTest.php	/^		$File = new File($image, 
 File	lib/Cake/Test/Case/View/Helper/RssHelperTest.php	/^		$File = new File($tmpFile, true);$/;"	v
 File	lib/Cake/Utility/File.php	/^class File {$/;"	c
 File	lib/Cake/Utility/Validation.php	/^		$File = new File($check);$/;"	v
-FileComponent	app/Controller/Component/FileComponent.php	/^class FileComponent extends Component {$/;"	c
 FileEngine	lib/Cake/Cache/Engine/FileEngine.php	/^class FileEngine extends CacheEngine {$/;"	c
 FileEngineTest	lib/Cake/Test/Case/Cache/Engine/FileEngineTest.php	/^class FileEngineTest extends CakeTestCase {$/;"	c
 FileLog	lib/Cake/Log/Engine/FileLog.php	/^class FileLog extends BaseLog {$/;"	c
@@ -762,6 +864,8 @@ FileLogTest	lib/Cake/Test/Case/Log/Engine/FileLogTest.php	/^class FileLogTest ex
 FileOne	lib/Cake/Test/Case/Cache/Engine/FileEngineTest.php	/^		$FileOne = new FileEngine();$/;"	v
 FileTest	lib/Cake/Test/Case/Utility/FileTest.php	/^class FileTest extends CakeTestCase {$/;"	c
 FileTwo	lib/Cake/Test/Case/Cache/Engine/FileEngineTest.php	/^		$FileTwo = new FileEngine();$/;"	v
+Files.init	app/webroot/js/files.js	/^	Files.permissions = {};$/;"	f
+Files.request	app/webroot/js/files.js	/^	}$/;"	f
 FilmFile	lib/Cake/Test/Case/Model/models.php	/^class FilmFile extends CakeTestModel {$/;"	c
 FilmFileFixture	lib/Cake/Test/Fixture/FilmFileFixture.php	/^class FilmFileFixture extends CakeTestFixture {$/;"	c
 FirstBehavior	lib/Cake/Test/Case/Model/BehaviorCollectionTest.php	/^class FirstBehavior extends ModelBehavior {$/;"	c
@@ -1831,7 +1935,7 @@ UserForm	lib/Cake/Test/Case/View/Helper/FormHelperTest.php	/^		$this->UserForm =
 UserForm	lib/Cake/Test/Case/View/Helper/FormHelperTest.php	/^class UserForm extends CakeTestModel {$/;"	c
 UserProjectRole	app/Controller/Component/Auth/CustomAuthorize.php	/^			$UserProjectRole = ClassRegistry::init('UserProjectRole');$/;"	v
 UserProjectRole	app/Controller/Component/Auth/CustomAuthorize.php	/^		$UserProjectRole = ClassRegistry::init('UserProjectRole');$/;"	v
-UserProjectRole	app/Controller/Component/ProjectAclComponent.php	/^		$UserProjectRole = ClassRegistry::init('UserProjectRole');$/;"	v
+UserProjectRole	app/Controller/Component/ProjectAclComponent.php	/^				$UserProjectRole = ClassRegistry::init('UserProjectRole');$/;"	v
 UserProjectRole	app/Model/UserProjectRole.php	/^class UserProjectRole extends AppModel {$/;"	c
 UsersController	app/Controller/UsersController.php	/^class UsersController extends AppController {$/;"	c
 UsersController	lib/Cake/Test/Case/Console/Command/BakeShellTest.php	/^	class UsersController extends Controller {$/;"	c
@@ -2831,6 +2935,7 @@ _htmlEntities	lib/Cake/TestSuite/Reporter/CakeHtmlReporter.php	/^	protected func
 _htmlMessage	lib/Cake/Network/Email/CakeEmail.php	/^			$this->_htmlMessage = $rendered['html'];$/;"	v
 _htmlMessage	lib/Cake/Network/Email/CakeEmail.php	/^		$this->_htmlMessage = '';$/;"	v
 _htmlMessage	lib/Cake/Network/Email/CakeEmail.php	/^	protected $_htmlMessage = '';$/;"	v
+_i	app/webroot/js/jstree.js	/^	var _i = document.createElement('I');$/;"	v
 _id	lib/Cake/Model/Model.php	/^			$_id = $this->id;$/;"	v
 _implode	lib/Cake/Controller/Component/CookieComponent.php	/^	protected function _implode(array $array) {$/;"	f
 _implode	lib/Cake/Test/Case/Controller/Component/CookieComponentTest.php	/^	protected function _implode(array $array) {$/;"	f
@@ -3028,6 +3133,7 @@ _model	lib/Cake/Model/Datasource/Session/DatabaseSession.php	/^		$this->_model =
 _model	lib/Cake/Model/Datasource/Session/DatabaseSession.php	/^	protected $_model;$/;"	v
 _model	lib/Cake/Model/ModelValidator.php	/^		$this->_model = $Model;$/;"	v
 _model	lib/Cake/Model/ModelValidator.php	/^	protected $_model = array();$/;"	v
+_model.data.#	app/webroot/js/jstree.js	/^			this._model.data = {$/;"	p
 _modelKey	lib/Cake/Console/Shell.php	/^	protected function _modelKey($name) {$/;"	f
 _modelMethods	lib/Cake/Model/ModelValidator.php	/^	protected $_modelMethods = array();$/;"	v
 _modelName	lib/Cake/Console/Shell.php	/^	protected function _modelName($name) {$/;"	f
@@ -3679,6 +3785,7 @@ access	lib/Cake/Controller/Component/Acl/PhpAcl.php	/^	public function access($a
 accuracy	lib/Cake/Utility/CakeTime.php	/^					$accuracy = array_merge($accuracy, $options['accuracy']);$/;"	v
 accuracy	lib/Cake/Utility/CakeTime.php	/^		$accuracy = self::$wordAccuracy;$/;"	v
 aclConfig	lib/Cake/Controller/Component/Acl/IniAcl.php	/^		$aclConfig = $this->config;$/;"	v
+aco	app/Controller/Component/ProjectAclComponent.php	/^				$aco = $this->Acl->Aco->findByid($data['id']);$/;"	v
 aco	lib/Cake/Console/Command/AclShell.php	/^			$aco = $this->parseIdentifier($aco);$/;"	v
 aco	lib/Cake/Console/Command/AclShell.php	/^		$aco = is_numeric($this->args[1]) ? intval($this->args[1]) : $this->args[1];$/;"	v
 aco	lib/Cake/Controller/Component/Acl/PhpAcl.php	/^		$aco = $this->resolve($aco);$/;"	v
@@ -3692,11 +3799,13 @@ acoData	lib/Cake/Test/Case/Model/Behavior/AclBehaviorTest.php	/^		$acoData = arr
 acoIDs	lib/Cake/Model/Permission.php	/^		$acoIDs = Hash::extract($acoPath, '{n}.' . $this->Aco->alias . '.id');$/;"	v
 acoName	lib/Cake/Console/Command/AclShell.php	/^		$acoName = $aco;$/;"	v
 acoPath	lib/Cake/Model/Permission.php	/^		$acoPath = $this->Aco->node($aco);$/;"	v
-aco_path	app/Controller/Component/FileComponent.php	/^		$aco_path = $this->AclExt->acoAlias . '\/' . $base . '\/';$/;"	v
+aco_path	app/Controller/Component/ProjectAclComponent.php	/^					$aco_path = str_replace(DS, '\/' . $aco_path);$/;"	v
+aco_path	app/Controller/Component/ProjectAclComponent.php	/^					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($new_path, true, true)) . $aco['Aco']['alias'];$/;"	v
+aco_path	app/Controller/Component/ProjectAclComponent.php	/^				$aco_path = $this->acoAlias . '\/' . $this->projectDir() . $aco_path;$/;"	v
+aco_path	app/Controller/Component/ProjectAclComponent.php	/^				$aco_path = str_replace(WWW_ROOT . $this->acoAlias . DS . $this->projectDir(TRUE), '', $path);$/;"	v
+aco_path	app/Controller/Component/ProjectAclComponent.php	/^				$aco_path = str_replace(WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true), '', $new_parent . DS . $path);$/;"	v
 aco_path	app/Controller/Component/ProjectAclComponent.php	/^			$aco_path = $this->acoAlias . '\/' . $dir;$/;"	v
-aco_path	app/Controller/Component/ProjectAclComponent.php	/^		$aco_path = $this->acoAlias . '\/' . $base . '\/' . $aco_path;$/;"	v
-aco_path	app/Controller/Component/ProjectAclComponent.php	/^		$aco_path = $this->acoAlias . '\/' . $base . '\/';$/;"	v
-aco_path	app/Controller/Component/ProjectAclComponent.php	/^		$aco_path = str_replace(WWW_ROOT . $this->acoAlias . DS . $base, '', $path);$/;"	v
+aco_path	app/Controller/Component/ProjectAclComponent.php	/^		$aco_path = $this->acoAlias . '\/' . $base;$/;"	v
 aco_sync	app/Plugin/AclExtras/Console/Command/AclExtrasShell.php	/^	public function aco_sync() {$/;"	f
 aco_sync	app/Plugin/AclExtras/Lib/AclExtras.php	/^	public function aco_sync($params = array()) {$/;"	f
 aco_update	app/Plugin/AclExtras/Console/Command/AclExtrasShell.php	/^	public function aco_update() {$/;"	f
@@ -3720,6 +3829,8 @@ acos.parent_id	app/Config/Schema/db_acl.sql	/^  id INTEGER(10) UNSIGNED NOT NULL
 acos.parent_id	lib/Cake/Console/Templates/skel/Config/Schema/db_acl.sql	/^  id INTEGER(10) UNSIGNED NOT NULL AUTO_INCREMENT,$/;"	F
 acos.rght	app/Config/Schema/db_acl.sql	/^  lft INTEGER(10) DEFAULT NULL,$/;"	F
 acos.rght	lib/Cake/Console/Templates/skel/Config/Schema/db_acl.sql	/^  lft INTEGER(10) DEFAULT NULL,$/;"	F
+action	app/Controller/ProjectsController.php	/^				$action = $this->request->data['action'];$/;"	v
+action	app/Controller/ProjectsController.php	/^		$action = null;$/;"	v
 action	lib/Cake/Console/Command/AclShell.php	/^			$action = $this->args[2];$/;"	v
 action	lib/Cake/Console/Command/AclShell.php	/^		$action = '*';$/;"	v
 action	lib/Cake/Console/Command/Task/ViewTask.php	/^			$action = $this->args[2];$/;"	v
@@ -3740,6 +3851,7 @@ actionName	lib/Cake/View/Helper/FormHelper.php	/^			$actionName = __d('cake', 'N
 actionNodes	app/Plugin/AclExtras/Lib/AclExtras.php	/^			$actionNodes = $this->Aco->children($node['Aco']['id']);$/;"	v
 actions	app/Controller/AppController.php	/^			$actions = $args;$/;"	v
 actions	app/Controller/AppController.php	/^			$actions = $args[0];$/;"	v
+actions	app/Controller/Component/ProjectAclComponent.php	/^				$actions = array($/;"	v
 actions	app/Plugin/AclExtras/Lib/AclExtras.php	/^		$actions = get_class_methods($className);$/;"	v
 actions	lib/Cake/Console/Command/Task/ControllerTask.php	/^				$actions = $this->bakeActions($controller);$/;"	v
 actions	lib/Cake/Console/Command/Task/ControllerTask.php	/^				$actions = 'scaffold';$/;"	v
@@ -3920,7 +4032,8 @@ ajax2_layout	lib/Cake/Test/Case/Controller/Component/RequestHandlerComponentTest
 ajaxLayout	lib/Cake/Controller/Component/RequestHandlerComponent.php	/^	public $ajaxLayout = 'ajax';$/;"	v
 ajaxLogin	lib/Cake/Controller/Component/AuthComponent.php	/^	public $ajaxLogin = null;$/;"	v
 ajaxProvider	lib/Cake/View/Helper/PaginatorHelper.php	/^		$ajaxProvider = isset($settings['ajax']) ? $settings['ajax'] : 'Js';$/;"	v
-ajax_files	app/Controller/ProjectsController.php	/^	public function ajax_files($project_id = 0) {$/;"	f
+ajax_files	app/Controller/ProjectsController.php	/^	public function ajax_files() {$/;"	f
+ajax_node_permissions	app/Controller/ProjectsController.php	/^	public function ajax_node_permissions() {$/;"	f
 alert	lib/Cake/Log/CakeLog.php	/^	public static function alert($message, $scope = array()) {$/;"	f
 alert	lib/Cake/View/Helper/JsBaseEngineHelper.php	/^	public function alert($message) {$/;"	f
 algorithm	lib/Cake/Utility/Security.php	/^		$algorithm = MCRYPT_RIJNDAEL_128;$/;"	v
@@ -4128,8 +4241,8 @@ aroData	lib/Cake/Test/Case/Model/Behavior/AclBehaviorTest.php	/^		$aroData = arr
 aroModel	lib/Cake/Controller/Component/Acl/PhpAcl.php	/^					$aroModel = Inflector::camelize($aroModel);$/;"	v
 aroName	lib/Cake/Console/Command/AclShell.php	/^		$aroName = $aro;$/;"	v
 aroPath	lib/Cake/Model/Permission.php	/^		$aroPath = $this->Aro->node($aro);$/;"	v
-aro_alias	app/Controller/Component/ProjectAclComponent.php	/^			$aro_alias = $this->generateProjectRoleAlias($project_id, $role['Role']['id']);$/;"	v
-aro_checks	app/Controller/Component/ProjectAclComponent.php	/^		$aro_checks = array($user['admin']);$/;"	v
+aro_alias	app/Controller/Component/ProjectAclComponent.php	/^			$aro_alias = $this->generateProjectRoleAlias($this->projectId, $role['Role']['id']);$/;"	v
+aro_checks	app/Controller/Component/ProjectAclComponent.php	/^				$aro_checks = array();$/;"	v
 aros	app/Config/Schema/db_acl.php	/^	public $aros = array($/;"	v
 aros	app/Config/Schema/db_acl.sql	/^CREATE TABLE aros ($/;"	t
 aros	lib/Cake/Console/Templates/skel/Config/Schema/db_acl.php	/^	public $aros = array($/;"	v
@@ -4414,6 +4527,7 @@ autoLinkProvider	lib/Cake/Test/Case/View/Helper/TextHelperTest.php	/^	public sta
 autoLinkUrls	lib/Cake/View/Helper/TextHelper.php	/^	public function autoLinkUrls($text, $options = array()) {$/;"	f
 autoMock	lib/Cake/TestSuite/ControllerTestCase.php	/^	public $autoMock = true;$/;"	v
 autoParagraph	lib/Cake/View/Helper/TextHelper.php	/^	public function autoParagraph($text) {$/;"	f
+autoRender	app/Controller/AppController.php	/^			$this->autoRender = false;$/;"	v
 autoRender	app/Controller/ProjectsController.php	/^		$this->autoRender = false;$/;"	v
 autoRender	lib/Cake/Controller/Controller.php	/^			$this->autoRender = false;$/;"	v
 autoRender	lib/Cake/Controller/Controller.php	/^		$this->autoRender = false;$/;"	v
@@ -4492,7 +4606,6 @@ baked	lib/Cake/Console/Command/Task/ControllerTask.php	/^			$baked = $this->bake
 baked	lib/Cake/Console/Command/Task/ControllerTask.php	/^		$baked = false;$/;"	v
 bar	lib/Cake/Test/Case/Console/ShellTest.php	/^		$bar = '---------------------------------------------------------------';$/;"	v
 bareName	lib/Cake/View/Helper/RssHelper.php	/^		$bareName = $name;$/;"	v
-base	app/Controller/Component/FileComponent.php	/^		$base = $this->projectDir($project);$/;"	v
 base	app/Controller/Component/ProjectAclComponent.php	/^		$base = $this->projectDir();$/;"	v
 base	lib/Cake/Console/Command/UpgradeShell.php	/^				$base = $match[0];$/;"	v
 base	lib/Cake/Console/Command/UpgradeShell.php	/^			$base = $cwd . DS;$/;"	v
@@ -5044,6 +5157,7 @@ checkHeaders	lib/Cake/Test/Case/Network/Email/CakeEmailTest.php	/^		$checkHeader
 checkLimit	lib/Cake/Controller/Component/PaginatorComponent.php	/^	public function checkLimit(array $options) {$/;"	f
 checkMultibyte	lib/Cake/I18n/Multibyte.php	/^	public static function checkMultibyte($string) {$/;"	f
 checkNotModified	lib/Cake/Network/CakeResponse.php	/^	public function checkNotModified(CakeRequest $request) {$/;"	f
+checkPermission	app/Controller/Component/ProjectAclComponent.php	/^	public function checkPermission($data = array()) {$/;"	f
 checkRequired	lib/Cake/Model/Validator/CakeValidationRule.php	/^	public function checkRequired($field, &$data) {$/;"	f
 checkRequired	lib/Cake/Model/Validator/CakeValidationSet.php	/^			$checkRequired = $rule->checkRequired($this->field, $data);$/;"	v
 checkSecurityKeys	lib/Cake/Utility/Debugger.php	/^	public static function checkSecurityKeys() {$/;"	f
@@ -5062,6 +5176,7 @@ childNS	lib/Cake/Utility/Xml.php	/^				$childNS = $value['xmlns:'];$/;"	v
 childNS	lib/Cake/Utility/Xml.php	/^		$childNS = $childValue = null;$/;"	v
 childValue	lib/Cake/Utility/Xml.php	/^				$childValue = (string)$value['@'];$/;"	v
 childValue	lib/Cake/Utility/Xml.php	/^			$childValue = (string)$value;$/;"	v
+children	app/Controller/Component/ProjectAclComponent.php	/^			$children = $this->readRecursive($folder, $parent, NULL, false);$/;"	v
 children	app/Plugin/AclExtras/Test/Case/Lib/AclExtrasTest.php	/^		$children = $Aco->children($result[0]['Aco']['id']);$/;"	v
 children	lib/Cake/Model/Behavior/ContainableBehavior.php	/^						$children = Hash::merge($children, $newChildren);$/;"	v
 children	lib/Cake/Model/Behavior/ContainableBehavior.php	/^				$children = array();$/;"	v
@@ -5401,7 +5516,6 @@ componentClass	lib/Cake/Controller/ComponentCollection.php	/^		$componentClass =
 componentClass	lib/Cake/TestSuite/ControllerTestCase.php	/^			$componentClass = $name . 'Component';$/;"	v
 componentObj	lib/Cake/TestSuite/ControllerTestCase.php	/^			$componentObj = $this->getMock($componentClass, $methods, array($controllerObj->Components, $config));$/;"	v
 components	app/Controller/AppController.php	/^	public $components = array($/;"	v
-components	app/Controller/Component/FileComponent.php	/^	public $components = array($/;"	v
 components	app/Controller/Component/ProjectAclComponent.php	/^	public $components = array($/;"	v
 components	lib/Cake/Console/Command/Task/ControllerTask.php	/^				$components = $this->doComponents();$/;"	v
 components	lib/Cake/Console/Command/Task/ControllerTask.php	/^		$components = array('Paginator');$/;"	v
@@ -5791,9 +5905,7 @@ contentType	lib/Cake/Network/CakeResponse.php	/^			$contentType = $this->_mimeTy
 contentType	lib/Cake/Network/CakeResponse.php	/^			$contentType = is_array($contentType) ? current($contentType) : $contentType;$/;"	v
 contentType	lib/Cake/Routing/Filter/AssetDispatcher.php	/^				$contentType = 'application\/octetstream';$/;"	v
 contentType	lib/Cake/Routing/Filter/AssetDispatcher.php	/^			$contentType = 'application\/octet-stream';$/;"	v
-contents	app/Controller/Component/FileComponent.php	/^		$contents = $this->readRecursive($folder, $parent);$/;"	v
-contents	app/Controller/Component/FileComponent.php	/^		$contents = array();$/;"	v
-contents	app/Controller/Component/ProjectAclComponent.php	/^		$contents = $this->readRecursive($folder, $parent);$/;"	v
+contents	app/Controller/Component/ProjectAclComponent.php	/^		$contents = array($/;"	v
 contents	app/Controller/Component/ProjectAclComponent.php	/^		$contents = array();$/;"	v
 contents	lib/Cake/Cache/Engine/FileEngine.php	/^		$contents = $expires . $lineBreak . $data . $lineBreak;$/;"	v
 contents	lib/Cake/Cache/Engine/FileEngine.php	/^		$contents = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::SELF_FIRST);$/;"	v
@@ -5958,6 +6070,7 @@ cookies	lib/Cake/Test/Case/Network/Http/HttpSocketTest.php	/^		$cookies = array(
 copy	lib/Cake/Test/Case/Utility/FolderTest.php	/^		$copy = TMP . 'test_folder_copy';$/;"	v
 copy	lib/Cake/Utility/File.php	/^	public function copy($dest, $overwrite = true) {$/;"	f
 copy	lib/Cake/Utility/Folder.php	/^	public function copy($options) {$/;"	f
+core	app/webroot/js/jstree.js	/^			var state	= {$/;"	p
 core	lib/Cake/Console/Command/Task/TemplateTask.php	/^		$core = current(App::core('Console'));$/;"	v
 core	lib/Cake/Console/Command/Task/TemplateTask.php	/^		$core = preg_replace('#shells' . $separator . '$#', '', $core);$/;"	v
 core	lib/Cake/Core/App.php	/^	public static function core($type) {$/;"	f
@@ -6163,7 +6276,11 @@ customValidatorWithParams	lib/Cake/Test/Case/Model/models.php	/^	public function
 customValidatorWithSixParams	lib/Cake/Test/Case/Model/models.php	/^	public function customValidatorWithSixParams($data, $one = 1, $two = 2, $three = 3, $four = 4, $five = 5, $six = 6) {$/;"	f
 cut	lib/Cake/Network/Email/CakeEmail.php	/^		$cut = ($wrapLength == CakeEmail::LINE_LENGTH_MUST);$/;"	v
 cwd	lib/Cake/Console/Command/UpgradeShell.php	/^		$cwd = getcwd();$/;"	v
+d	app/webroot/js/jstree.js	/^				var d  = false, w  = false,$/;"	v
 d	lib/Cake/Utility/CakeTime.php	/^		$d = self::_strftime("%w", $date);$/;"	v
+dat	app/webroot/js/jstree.js	/^			var dat = data.is('ul') ? data.children() : data,$/;"	v
+data	app/Controller/ProjectsController.php	/^			$data = $this->request->data;$/;"	v
+data	app/webroot/js/jstree.js	/^			helper_w: 0,$/;"	p
 data	lib/Cake/Cache/Engine/FileEngine.php	/^				$data = serialize($data);$/;"	v
 data	lib/Cake/Cache/Engine/FileEngine.php	/^				$data = str_replace('\\\\', '\\\\\\\\\\\\\\\\', serialize($data));$/;"	v
 data	lib/Cake/Cache/Engine/FileEngine.php	/^				$data = str_replace('\\\\\\\\\\\\\\\\', '\\\\', $data);$/;"	v
@@ -6853,6 +6970,7 @@ delete	lib/Cake/Utility/File.php	/^	public function delete() {$/;"	f
 delete	lib/Cake/Utility/Folder.php	/^	public function delete($path = null) {$/;"	f
 deleteAll	lib/Cake/Model/Model.php	/^	public function deleteAll($conditions, $cascade = true, $callbacks = false) {$/;"	f
 deleteMe	lib/Cake/Test/Case/Model/ModelWriteTest.php	/^	public function deleteMe($event) {$/;"	f
+delete_path	app/Controller/Component/ProjectAclComponent.php	/^				$delete_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['id'], 'aco', true));$/;"	v
 delimiter	lib/Cake/I18n/I18n.php	/^			$delimiter = $this->_escape . 'd';$/;"	v
 delimiter	lib/Cake/I18n/I18n.php	/^			$delimiter = $this->_escape . 'x';$/;"	v
 delimiter	lib/Cake/I18n/I18n.php	/^			$delimiter = $this->_escape;$/;"	v
@@ -6937,8 +7055,6 @@ digest	lib/Cake/Controller/Component/Auth/DigestAuthenticate.php	/^		$digest = e
 digest	lib/Cake/Test/Case/Controller/Component/Auth/DigestAuthenticateTest.php	/^		$digest = <<<DIGEST$/;"	v
 dimensions	lib/Cake/Utility/Hash.php	/^	public static function dimensions(array $data) {$/;"	f
 dims	lib/Cake/Console/Command/Task/ExtractTask.php	/^		$dims = Hash::dimensions($rules);$/;"	v
-dir	app/Controller/Component/FileComponent.php	/^		$dir = $this->projectDir($project);$/;"	v
-dir	app/Controller/Component/FileComponent.php	/^		$dir = false;$/;"	v
 dir	app/Controller/Component/ProjectAclComponent.php	/^		$dir = $this->projectDir();$/;"	v
 dir	app/Controller/Component/ProjectAclComponent.php	/^		$dir = false;$/;"	v
 dir	lib/Cake/Cache/Engine/FileEngine.php	/^		$dir = $this->settings['path'] . $groups;$/;"	v
@@ -6970,7 +7086,6 @@ dir	lib/Cake/View/Helper/PaginatorHelper.php	/^			$dir = strtolower(current($opt
 dir	lib/Cake/View/Helper/PaginatorHelper.php	/^			$dir = strtolower(current($params['order']));$/;"	v
 dir	lib/Cake/View/Helper/PaginatorHelper.php	/^		$dir = $defaultDir;$/;"	v
 dir	lib/Cake/View/Helper/PaginatorHelper.php	/^		$dir = null;$/;"	v
-dirCreate	app/Controller/Component/FileComponent.php	/^	public function dirCreate($project, $dir, $parents = array()) {$/;"	f
 dirCreate	app/Controller/Component/ProjectAclComponent.php	/^	public function dirCreate($dir, $parents = array()) {$/;"	f
 dirPath	lib/Cake/Console/Command/Task/PluginTask.php	/^				$dirPath = $this->path . $plugin . DS . $directory;$/;"	v
 direct	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorNumberTest.php	/^		$direct = $this->Tree->childCount(null, true);$/;"	v
@@ -7048,6 +7163,7 @@ displayField	lib/Cake/Model/I18nModel.php	/^	public $displayField = 'field';$/;"
 displayField	lib/Cake/Model/Model.php	/^	public $displayField = null;$/;"	v
 displayField	lib/Cake/Test/Case/Model/models.php	/^	public $displayField = 'field';$/;"	v
 district	lib/Cake/Utility/Validation.php	/^					$district = '[ABCEGHJKLMNPRSTVYX]';$/;"	v
+div	app/webroot/js/jstree.js	/^	var div = document.createElement('DIV');$/;"	v
 div	lib/Cake/View/Helper/FormHelper.php	/^			$div = $options['div'];$/;"	v
 div	lib/Cake/View/Helper/FormHelper.php	/^		$div = $this->_extractOption('div', $options, true);$/;"	v
 div	lib/Cake/View/Helper/FormHelper.php	/^		$div = true;$/;"	v
@@ -7082,6 +7198,9 @@ docRoot	lib/Cake/Network/CakeRequest.php	/^		$docRoot = env('DOCUMENT_ROOT');$/;
 docRootContainsWebroot	lib/Cake/Network/CakeRequest.php	/^		$docRootContainsWebroot = strpos($docRoot, $dir . DS . $webroot);$/;"	v
 docType	lib/Cake/View/Helper/HtmlHelper.php	/^	public function docType($type = 'html5') {$/;"	f
 document	lib/Cake/View/Helper/RssHelper.php	/^	public function document($attrib = array(), $content = null) {$/;"	f
+dom	app/webroot/js/jstree.js	/^			var dom = obj.id === '#' ? this.get_container_ul() : this.get_node(obj, true), i, j, _this;$/;"	v
+dom	app/webroot/js/jstree.js	/^			var dom = obj.id === '#' ? this.get_container_ul() : this.get_node(obj, true),$/;"	v
+dom	app/webroot/js/jstree.js	/^			var dom;$/;"	v
 dom	lib/Cake/Utility/Xml.php	/^		$dom = new DOMDocument($options['version'], $options['encoding']);$/;"	v
 dom	lib/Cake/View/Helper.php	/^		$dom = $model . implode('', array_map(array('Inflector', 'camelize'), $entity));$/;"	v
 domId	lib/Cake/View/Helper.php	/^	public function domId($options = null, $id = 'id') {$/;"	f
@@ -7155,11 +7274,13 @@ duration	lib/Cake/Console/Templates/skel/Config/core.php	/^$duration = '+999 day
 dynamic	lib/Cake/Model/Model.php	/^						$dynamic = !empty($relation['dynamicWith']);$/;"	v
 dynamicWith	lib/Cake/Model/Model.php	/^						$dynamicWith = true;$/;"	v
 dynamicWith	lib/Cake/Model/Model.php	/^		$dynamicWith = false;$/;"	v
+e	app/webroot/js/jstree.js	/^				var e = o.children("ul"),$/;"	v
 e	lib/Cake/Console/Command/Task/ExtractTask.php	/^					$e = DS . $e;$/;"	v
 e	lib/Cake/Network/CakeRequest.php	/^		$e = new MethodNotAllowedException();$/;"	v
 e	lib/Cake/Utility/Debugger.php	/^		$e = '<pre class="cake-error">';$/;"	v
 e	lib/Cake/Utility/Debugger.php	/^		$e = '<pre class="cake-error"><b>{:error}<\/b> ({:code}) : {:description} ';$/;"	v
 e	lib/Cake/View/Helper/FormHelper.php	/^					$e = __d('cake', 'Error in field %s', Inflector::humanize($this->field()));$/;"	v
+e.currentTarget.onselectstart	app/webroot/js/jstree.js	/^					e.currentTarget.unselectable = "on";$/;"	f
 each	lib/Cake/Test/Case/View/Helper/JsHelperTest.php	/^	public function each($callback) {$/;"	f
 each	lib/Cake/View/Helper/JqueryEngineHelper.php	/^	public function each($callback) {$/;"	f
 each	lib/Cake/View/Helper/MootoolsEngineHelper.php	/^	public function each($callback) {$/;"	f
@@ -7186,6 +7307,7 @@ effect	lib/Cake/View/Helper/PrototypeEngineHelper.php	/^		$effect = '';$/;"	v
 effect	lib/Cake/View/Helper/PrototypeEngineHelper.php	/^	public function effect($name, $options = array()) {$/;"	f
 elem	lib/Cake/View/Helper/RssHelper.php	/^		$elem = Xml::build($xml, array('return' => 'domdocument'));$/;"	v
 elem	lib/Cake/View/Helper/RssHelper.php	/^	public function elem($name, $attrib = array(), $content = null, $endTag = true) {$/;"	f
+element	app/webroot/js/jstree.js	/^		var vakata_dnd = {$/;"	p
 element	lib/Cake/Test/Case/View/ViewTest.php	/^		$element = 'test_element';$/;"	v
 element	lib/Cake/Utility/Folder.php	/^		$element = (array)$element;$/;"	v
 element	lib/Cake/Utility/Hash.php	/^			$element = $data[$key];$/;"	v
@@ -10405,6 +10527,7 @@ filename	lib/Cake/basics.php	/^				$filename = WWW_ROOT . $path;$/;"	v
 filename	lib/Cake/basics.php	/^				$filename = env('SCRIPT_FILENAME');$/;"	v
 filepath	lib/Cake/Log/Engine/FileLog.php	/^		$filepath = $this->_path . $filename;$/;"	v
 filepath	lib/Cake/View/Helper.php	/^			$filepath = preg_replace($/;"	v
+files	app/Controller/ProjectsController.php	/^		$files = json_encode($this->ProjectAcl->projectFiles());$/;"	v
 files	app/Controller/ProjectsController.php	/^	public function files($project_id = 0) {$/;"	f
 files	lib/Cake/Console/Command/Task/ExtractTask.php	/^					$files = $details['references'];$/;"	v
 files	lib/Cake/Console/Command/Task/ExtractTask.php	/^				$files = array_values($files);$/;"	v
@@ -10673,9 +10796,7 @@ flattened	lib/Cake/Test/Case/Utility/HashTest.php	/^		$flattened = Hash::flatten
 floats	lib/Cake/Model/Datasource/Database/Postgres.php	/^		$floats = array($/;"	v
 flush	lib/Cake/Utility/ClassRegistry.php	/^	public static function flush() {$/;"	f
 flushMethodCache	lib/Cake/Model/Datasource/DboSource.php	/^	public function flushMethodCache() {$/;"	f
-folder	app/Controller/Component/FileComponent.php	/^		$folder = new Folder($parent);$/;"	v
-folder	app/Controller/Component/FileComponent.php	/^		$folder = new Folder();$/;"	v
-folder	app/Controller/Component/ProjectAclComponent.php	/^		$folder = new Folder($parent);$/;"	v
+folder	app/Controller/Component/ProjectAclComponent.php	/^			$folder = new Folder($parent);$/;"	v
 folder	app/Controller/Component/ProjectAclComponent.php	/^		$folder = new Folder();$/;"	v
 folder	lib/Cake/Console/Command/UpgradeShell.php	/^				$folder = str_replace('\/', DS, $this->_map[$type]);$/;"	v
 folder	lib/Cake/Test/Case/Utility/FolderTest.php	/^		$folder = $path . DS . 'sub';$/;"	v
@@ -10825,6 +10946,7 @@ generateDiff	lib/Cake/TestSuite/Coverage/HtmlCoverageReport.php	/^	public functi
 generateDiff	lib/Cake/TestSuite/Coverage/TextCoverageReport.php	/^	public function generateDiff($filename, $fileLines, $coverageData) {$/;"	f
 generateFixtureFile	lib/Cake/Console/Command/Task/FixtureTask.php	/^	public function generateFixtureFile($model, $otherVars) {$/;"	f
 generateFixtureList	lib/Cake/Console/Command/Task/TestTask.php	/^	public function generateFixtureList($subject) {$/;"	f
+generateParentPath	app/Controller/Component/ProjectAclComponent.php	/^	public function generateParentPath($parents, $file = false) {$/;"	f
 generateProjectRoleAlias	app/Controller/Component/ProjectAclComponent.php	/^	public function generateProjectRoleAlias($project_id, $role_id) {$/;"	f
 generateResponseHash	lib/Cake/Controller/Component/Auth/DigestAuthenticate.php	/^	public function generateResponseHash($digest, $password) {$/;"	f
 generateTable	lib/Cake/Model/CakeSchema.php	/^	public function generateTable($table, $fields) {$/;"	f
@@ -10979,6 +11101,8 @@ getVersion	lib/Cake/Model/Datasource/DboSource.php	/^	public function getVersion
 getViewFileName	lib/Cake/Test/Case/View/ThemeViewTest.php	/^	public function getViewFileName($name = null) {$/;"	f
 getViewFileName	lib/Cake/Test/Case/View/ViewTest.php	/^	public function getViewFileName($name = null) {$/;"	f
 getVirtualField	lib/Cake/Model/Model.php	/^	public function getVirtualField($field = null) {$/;"	f
+get_rules	app/webroot/js/jstree.js	/^		this.get_rules = function (obj) {$/;"	f
+get_type	app/webroot/js/jstree.js	/^		this.get_type = function (obj, rules) {$/;"	f
 global	lib/Cake/Controller/Component/AuthComponent.php	/^			$global = $config[AuthComponent::ALL];$/;"	v
 global	lib/Cake/Controller/Component/AuthComponent.php	/^		$global = array();$/;"	v
 globalListeners	lib/Cake/Event/CakeEventManager.php	/^		$globalListeners = empty($globalListeners) ? array() : $globalListeners;$/;"	v
@@ -11263,12 +11387,14 @@ help	lib/Cake/Console/ConsoleInputOption.php	/^	public function help($width = 0)
 help	lib/Cake/Console/ConsoleInputSubcommand.php	/^	public function help($width = 0) {$/;"	f
 help	lib/Cake/Console/ConsoleOptionParser.php	/^	public function help($subcommand = null, $format = 'text', $width = 72) {$/;"	f
 help	lib/Cake/Console/ShellDispatcher.php	/^	public function help() {$/;"	f
+helper	app/webroot/js/jstree.js	/^			is_drag	: false,$/;"	p
 helper	lib/Cake/Console/Command/UpgradeShell.php	/^			$helper = preg_replace('\/Helper$\/', '', $helper);$/;"	v
 helper	lib/Cake/Controller/Component/RequestHandlerComponent.php	/^		$helper = ucfirst($type);$/;"	v
 helper	lib/Cake/Test/Case/View/Helper/HtmlHelperTest.php	/^		$helper = new Html5TestHelper($this->View);$/;"	v
 helper	lib/Cake/Test/Case/View/Helper/HtmlHelperTest.php	/^		$helper = new TestHtmlHelper($this->View);$/;"	v
 helper	lib/Cake/View/HelperCollection.php	/^			$helper = $settings['className'];$/;"	v
 helperClass	lib/Cake/View/HelperCollection.php	/^		$helperClass = $name . 'Helper';$/;"	v
+helper_w	app/webroot/js/jstree.js	/^			helper	: false,$/;"	p
 helpers	lib/Cake/Console/Command/Task/ControllerTask.php	/^				$helpers = $this->doHelpers();$/;"	v
 helpers	lib/Cake/Console/Command/Task/ControllerTask.php	/^		$helpers = $components = array();$/;"	v
 helpers	lib/Cake/Console/Command/UpgradeShell.php	/^		$helpers = App::objects('helper');$/;"	v
@@ -11370,6 +11496,10 @@ httpVersion	lib/Cake/Network/Http/HttpSocketResponse.php	/^			$this->httpVersion
 httpVersion	lib/Cake/Network/Http/HttpSocketResponse.php	/^	public $httpVersion = 'HTTP\/1.1';$/;"	v
 httpX	lib/Cake/Controller/Component/RequestHandlerComponent.php	/^		$httpX = env('HTTP_X_PROTOTYPE_VERSION');$/;"	v
 humanize	lib/Cake/Utility/Inflector.php	/^	public static function humanize($lowerCaseAndUnderscoredWord) {$/;"	f
+i	app/webroot/js/jstree.js	/^				var i = vakata_dnd.scroll_e.scrollTop(),$/;"	v
+i	app/webroot/js/jstree.js	/^				var i, j,$/;"	v
+i	app/webroot/js/jstree.js	/^			var i, j, p = [];$/;"	v
+i	app/webroot/js/jstree.js	/^			var i, j, p = obj.parents;$/;"	v
 i	lib/Cake/Console/Command/ApiShell.php	/^				$i = 0;$/;"	v
 i	lib/Cake/Console/Command/Task/ModelTask.php	/^			$i = ($count > 0) ? $count : 0;$/;"	v
 i	lib/Cake/Console/Command/Task/TemplateTask.php	/^		$i = 1;$/;"	v
@@ -11409,6 +11539,8 @@ i18n.model	app/Config/Schema/i18n.sql	/^	locale varchar(6) NOT NULL,$/;"	F
 i18n.model	lib/Cake/Console/Templates/skel/Config/Schema/i18n.sql	/^	locale varchar(6) NOT NULL,$/;"	F
 i18nFormat	lib/Cake/Utility/CakeTime.php	/^	public static function i18nFormat($date, $format = null, $default = false, $timezone = null) {$/;"	f
 i18nFormat	lib/Cake/View/Helper/TimeHelper.php	/^	public function i18nFormat($date, $format = null, $invalid = false, $timezone = null) {$/;"	f
+id	app/Controller/Component/ProjectAclComponent.php	/^				$id = $data['node_id'];$/;"	v
+id	app/Controller/Component/ProjectAclComponent.php	/^			$id = $node[0]['Aco']['id'];$/;"	v
 id	lib/Cake/Console/Command/AclShell.php	/^		$id = $this->_getNodeId($class, $identifier);$/;"	v
 id	lib/Cake/Controller/Component/SessionComponent.php	/^	public function id($id = null) {$/;"	f
 id	lib/Cake/Controller/Scaffold.php	/^				$id = $request->params['pass'][0];$/;"	v
@@ -11645,6 +11777,8 @@ init	lib/Cake/Model/Datasource/CakeSession.php	/^	public static function init($b
 init	lib/Cake/TestSuite/Fixture/CakeTestFixture.php	/^	public function init() {$/;"	f
 init	lib/Cake/Utility/ClassRegistry.php	/^	public static function init($class, $strict = false) {$/;"	f
 initValidations	lib/Cake/Console/Command/Task/ModelTask.php	/^	public function initValidations() {$/;"	f
+init_x	app/webroot/js/jstree.js	/^			data	: false,$/;"	p
+init_y	app/webroot/js/jstree.js	/^			init_x	: 0,$/;"	p
 initalState	lib/Cake/Network/CakeSocket.php	/^				$initalState = get_class_vars(__CLASS__);$/;"	v
 initalState	lib/Cake/Network/CakeSocket.php	/^			static $initalState = array();$/;"	v
 initalState	lib/Cake/Network/Http/HttpSocket.php	/^			$initalState = get_class_vars(__CLASS__);$/;"	v
@@ -11803,6 +11937,7 @@ instance	lib/Cake/Utility/ClassRegistry.php	/^						$instance = new $appModel($s
 instance	lib/Cake/Utility/ClassRegistry.php	/^						$instance = null;$/;"	v
 instance	lib/Cake/Utility/ClassRegistry.php	/^		static $instance = array();$/;"	v
 instance	lib/Cake/Utility/Debugger.php	/^		static $instance = array();$/;"	v
+instance_counter	app/webroot/js/jstree.js	/^	var instance_counter = 0,$/;"	v
 intLength	lib/Cake/Test/Case/Model/ModelIntegrationTest.php	/^			$intLength = $this->db->columns['integer']['length'];$/;"	v
 intLength	lib/Cake/Test/Case/Model/ModelIntegrationTest.php	/^			$intLength = $this->db->columns['primary_key']['length'];$/;"	v
 intLength	lib/Cake/Test/Case/Model/ModelIntegrationTest.php	/^			$intLength = 11;$/;"	v
@@ -11951,7 +12086,11 @@ isWindowsPath	lib/Cake/Utility/Folder.php	/^	public static function isWindowsPat
 isWithinNext	lib/Cake/Utility/CakeTime.php	/^	public static function isWithinNext($timeInterval, $dateString, $timezone = null) {$/;"	f
 isWithinNext	lib/Cake/View/Helper/TimeHelper.php	/^	public function isWithinNext($timeInterval, $dateString, $timezone = null) {$/;"	f
 isXml	lib/Cake/Controller/Component/RequestHandlerComponent.php	/^	public function isXml() {$/;"	f
-item	app/Controller/AppController.php	/^		$item = $this->{$model}->findByid($id);$/;"	v
+is_down	app/webroot/js/jstree.js	/^			target	: false,$/;"	p
+is_drag	app/webroot/js/jstree.js	/^			is_down	: false,$/;"	p
+is_touch	app/webroot/js/jstree.js	/^			scroll_i: false,$/;"	p
+item	app/Controller/AppController.php	/^				$item = $this->{$model}->find('first', array($/;"	v
+item	app/Controller/AppController.php	/^				$item = $this->{$model}->findByid($id);$/;"	v
 item	app/Controller/Component/ProjectAclComponent.php	/^				$item = array($/;"	v
 item	lib/Cake/Model/Behavior/TreeBehavior.php	/^		$item = $result[0];$/;"	v
 item	lib/Cake/Test/Case/View/Helper/RssHelperTest.php	/^		$item = array($/;"	v
@@ -11962,7 +12101,9 @@ item	lib/Cake/View/Helper/FormHelper.php	/^						$item = $this->Html->useTag('ch
 item	lib/Cake/View/Helper/HtmlHelper.php	/^				$item = $key . $this->nestedList($item, $options, $itemOptions, $tag);$/;"	v
 item	lib/Cake/View/Helper/RssHelper.php	/^	public function item($att = array(), $elements = array()) {$/;"	f
 itemData	lib/Cake/Utility/Xml.php	/^							$itemData = compact('dom', 'node', 'key', 'format');$/;"	v
-items	app/Controller/ProjectsController.php	/^		$items = $this->ProjectAcl->projectFiles('jstree');$/;"	v
+items	app/Controller/Component/ProjectAclComponent.php	/^		$items = array();$/;"	v
+items	app/Controller/ProjectsController.php	/^			$items = $this->ProjectAcl->processAction($action, $data);$/;"	v
+items	app/Controller/ProjectsController.php	/^			$items = $this->ProjectAcl->projectFiles($node_id);$/;"	v
 items	lib/Cake/Model/Datasource/DboSource.php	/^			$items = explode('.', $data);$/;"	v
 items	lib/Cake/Network/Http/HttpSocket.php	/^			$items = explode('&', $query);$/;"	v
 items	lib/Cake/Test/Case/Utility/HashTest.php	/^		$items = array($/;"	v
@@ -12292,6 +12433,7 @@ lastTag	lib/Cake/Utility/String.php	/^					$lastTag = array_pop($lastTagMatches[
 laterCount	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorNumberTest.php	/^		$laterCount = $this->Tree->find('count');$/;"	v
 laterCount	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorUuidTest.php	/^		$laterCount = $this->Tree->find('count');$/;"	v
 laterTopNodes	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorNumberTest.php	/^		$laterTopNodes = $this->Tree->childCount(false);$/;"	v
+layout	app/Controller/AppController.php	/^			$this->layout = null;$/;"	v
 layout	app/Controller/ProjectsController.php	/^		$this->layout = null;$/;"	v
 layout	lib/Cake/Controller/Component/EmailComponent.php	/^			$this->layout = $layout;$/;"	v
 layout	lib/Cake/Controller/Component/EmailComponent.php	/^	public $layout = 'default';$/;"	v
@@ -12669,6 +12811,7 @@ match	lib/Cake/Routing/Router.php	/^			$match = false;$/;"	v
 match	lib/Cake/Test/Case/Utility/StringTest.php	/^			$match = (bool)preg_match($pattern, $result);$/;"	v
 match	lib/Cake/Test/Case/Utility/StringTest.php	/^		$match = (bool)preg_match($pattern, $result);$/;"	v
 match	lib/Cake/Utility/Hash.php	/^			$match = self::_matchToken($k, $token);$/;"	v
+match_bitapScore	app/webroot/js/jstree.js	/^				}());$/;"	f
 matched	lib/Cake/I18n/Multibyte.php	/^										$matched = true;$/;"	v
 matched	lib/Cake/I18n/Multibyte.php	/^								$matched = true;$/;"	v
 matched	lib/Cake/I18n/Multibyte.php	/^							$matched = true;$/;"	v
@@ -13533,8 +13676,10 @@ newTestSuiteDb	lib/Cake/Test/Case/TestSuite/CakeTestFixtureTest.php	/^		$newTest
 newTime	lib/Cake/View/Helper/FormHelper.php	/^			$newTime = explode(' ', $current->format($format));$/;"	v
 newUnique	lib/Cake/Model/CakeSchema.php	/^				$newUnique = isset($value['unique']) ? $value['unique'] : 0;$/;"	v
 newValues	lib/Cake/Model/Model.php	/^					$newValues = array_values($newValues);$/;"	v
-new_parent	app/Controller/Component/FileComponent.php	/^		$new_parent = $parent;$/;"	v
 new_parent	app/Controller/Component/ProjectAclComponent.php	/^		$new_parent = $parent;$/;"	v
+new_path	app/Controller/Component/ProjectAclComponent.php	/^				$new_path = $old_path . DS . $data['new_name'];$/;"	v
+new_path	app/Controller/Component/ProjectAclComponent.php	/^				$new_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['new_parent'], 'aco', true)) . DS . $aco['Aco']['alias'];$/;"	v
+new_path	app/Controller/Component/ProjectAclComponent.php	/^				$new_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['new_parent'], 'aco', true));$/;"	v
 newdir	lib/Cake/Utility/Folder.php	/^		$newdir = $dir . $path;$/;"	v
 newone	lib/Cake/Test/Case/Console/Command/SchemaShellTest.php	/^	public $newone = array($/;"	v
 newparts	lib/Cake/Utility/Folder.php	/^		$newparts = array();$/;"	v
@@ -13579,7 +13724,12 @@ noPrefixWith	lib/Cake/Model/CakeSchema.php	/^						$noPrefixWith = $this->_noPre
 noTemplateActions	lib/Cake/Console/Command/Task/ViewTask.php	/^	public $noTemplateActions = array('delete');$/;"	v
 no_access	lib/Cake/Test/Case/Console/ShellTest.php	/^	protected function no_access() {$/;"	f
 nocache_multiple_element	lib/Cake/Test/Case/View/ViewTest.php	/^	public function nocache_multiple_element() {$/;"	f
+node	app/Controller/Component/ProjectAclComponent.php	/^						$node = $this->Acl->Aco->node($aco_path);$/;"	v
+node	app/Controller/Component/ProjectAclComponent.php	/^					$node = $this->Acl->Aco->node($old_aco_path);$/;"	v
+node	app/Controller/Component/ProjectAclComponent.php	/^				$node = $this->Acl->Aco->node($aco_path);$/;"	v
 node	app/Controller/Component/ProjectAclComponent.php	/^			$node = $this->Acl->Aco->node($aco_path);$/;"	v
+node	app/Controller/Component/ProjectAclComponent.php	/^			$node = $this->Acl->Aco->node($path);$/;"	v
+node	app/Controller/Component/ProjectAclComponent.php	/^			$node = $this->Acl->Aco->node($this->acoAlias . DS . $this->projectDir());$/;"	v
 node	app/Controller/Component/ProjectAclComponent.php	/^			$node = $this->Acl->Aro->save(array('alias' => $aro_alias));$/;"	v
 node	app/Controller/Component/ProjectAclComponent.php	/^		$node = $this->Acl->Aro->node($aro_alias);$/;"	v
 node	app/Plugin/AclExtras/Lib/AclExtras.php	/^			$node = $node[0];$/;"	v
@@ -13607,6 +13757,7 @@ node	lib/Cake/Utility/String.php	/^			$node = explode(':', $node);$/;"	v
 node	lib/Cake/Utility/String.php	/^			$node = ip2long($node);$/;"	v
 node	lib/Cake/Utility/String.php	/^			$node = null;$/;"	v
 node	lib/Cake/Utility/String.php	/^		$node = env('SERVER_ADDR');$/;"	v
+node.text	app/webroot/js/jstree.js	/^			if(!node) { node = { "text" : this.get_string('New node') }; }$/;"	p
 node1	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorNumberTest.php	/^		$node1 = $this->Tree->id;$/;"	v
 node1	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorScopedTest.php	/^		$node1 = $this->Tree->id;$/;"	v
 node11	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorNumberTest.php	/^		$node11 = $this->Tree->id;$/;"	v
@@ -13614,6 +13765,7 @@ node11	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorScopedTest.php	/^		$node11 
 node12	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorNumberTest.php	/^		$node12 = $this->Tree->id;$/;"	v
 node12	lib/Cake/Test/Case/Model/Behavior/TreeBehaviorScopedTest.php	/^		$node12 = $this->Tree->id;$/;"	v
 nodeExists	lib/Cake/Console/Command/AclShell.php	/^	public function nodeExists() {$/;"	f
+node_id	app/Controller/ProjectsController.php	/^			$node_id = $data['node_id'];$/;"	v
 nodes	lib/Cake/Console/Command/AclShell.php	/^			$nodes = $this->Acl->{$class}->find('all', array($/;"	v
 nodes	lib/Cake/Console/Command/AclShell.php	/^			$nodes = $this->Acl->{$class}->find('all', array('order' => $class . '.lft ASC'));$/;"	v
 nodes	lib/Cake/Console/Command/AclShell.php	/^		$nodes = $this->Acl->{$class}->getPath($id);$/;"	v
@@ -13637,6 +13789,8 @@ noschema	lib/Cake/Test/Case/Model/Datasource/DboSourceTest.php	/^		$noschema = C
 not	lib/Cake/Model/Datasource/DboSource.php	/^					$not = 'NOT ';$/;"	v
 not	lib/Cake/Model/Datasource/DboSource.php	/^			$not = null;$/;"	v
 notEmpty	lib/Cake/Utility/Validation.php	/^	public static function notEmpty($check) {$/;"	f
+notFound	app/Controller/AppController.php	/^			$notFound = false;$/;"	v
+notFound	app/Controller/AppController.php	/^		$notFound = true;$/;"	v
 notFound	lib/Cake/Test/Case/Error/ErrorHandlerTest.php	/^		$notFound = new NotFoundException('Kaboom!');$/;"	v
 notModified	lib/Cake/Network/CakeResponse.php	/^		$notModified = !in_array(false, $checks, true);$/;"	v
 notModified	lib/Cake/Network/CakeResponse.php	/^	public function notModified() {$/;"	f
@@ -13735,6 +13889,7 @@ objectPriority	lib/Cake/Utility/ObjectCollection.php	/^					$objectPriority = $t
 objectVars	lib/Cake/Utility/Debugger.php	/^			$objectVars = get_object_vars($var);$/;"	v
 objectWithToString	lib/Cake/Test/Case/View/ViewTest.php	/^		$objectWithToString = new TestObjectWithToString();$/;"	v
 objectWithToString	lib/Cake/Test/Case/View/ViewTest.php	/^		$objectWithToString = new TestObjectWithoutToString();$/;"	v
+objects	app/Controller/Component/ProjectAclComponent.php	/^     $objects = scandir($dir); $/;"	v
 objects	lib/Cake/Console/Command/ApiShell.php	/^		$objects = App::objects('class', $path);$/;"	v
 objects	lib/Cake/Controller/Controller.php	/^		$objects = func_get_args();$/;"	v
 objects	lib/Cake/Core/App.php	/^			$objects = array();$/;"	v
@@ -13812,6 +13967,9 @@ oldStyleEmail	lib/Cake/Test/Case/Network/Email/CakeEmailTest.php	/^		$oldStyleEm
 oldStyleEmail	lib/Cake/Test/Case/Network/Email/CakeEmailTest.php	/^		$oldStyleEmail = $this->_getEmailByOldStyleCharset('utf-8', 'iso-2022-jp');$/;"	v
 oldStyleHeaders	lib/Cake/Test/Case/Network/Email/CakeEmailTest.php	/^		$oldStyleHeaders = $oldStyleEmail->getHeaders($checkHeaders);$/;"	v
 oldUnique	lib/Cake/Model/CakeSchema.php	/^				$oldUnique = isset($old[$name]['unique']) ? $old[$name]['unique'] : 0;$/;"	v
+old_aco_path	app/Controller/Component/ProjectAclComponent.php	/^				$old_aco_path = $this->acoAlias . '\/' . $this->projectDir();$/;"	v
+old_path	app/Controller/Component/ProjectAclComponent.php	/^				$old_path = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);$/;"	v
+old_path	app/Controller/Component/ProjectAclComponent.php	/^				$old_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['id'], 'aco', true));$/;"	v
 oldstring	lib/Cake/View/Helper.php	/^			$oldstring = $this->_cleaned;$/;"	v
 on	lib/Cake/Model/Validator/CakeValidationRule.php	/^	public $on = null;$/;"	v
 on	lib/Cake/Routing/Dispatcher.php	/^				$on = strtolower($filter['on']);$/;"	v
@@ -13887,7 +14045,7 @@ optionText	lib/Cake/Console/Command/Task/ModelTask.php	/^				$optionText = '';$/
 optional	lib/Cake/Console/ConsoleInputArgument.php	/^			$optional = __d('cake_console', ' <comment>(optional)<\/comment>');$/;"	v
 optional	lib/Cake/Console/ConsoleInputArgument.php	/^		$optional = '';$/;"	v
 options	app/Controller/Component/Auth/CustomAuthorize.php	/^			$options = array($/;"	v
-options	app/Controller/Component/ProjectAclComponent.php	/^		$options = array($/;"	v
+options	app/Controller/Component/ProjectAclComponent.php	/^				$options = array($/;"	v
 options	lib/Cake/Console/Command/CompletionShell.php	/^		$options = $this->Command->commands();$/;"	v
 options	lib/Cake/Console/Command/CompletionShell.php	/^		$options = $this->Command->options($commandName);$/;"	v
 options	lib/Cake/Console/Command/CompletionShell.php	/^		$options = $this->Command->subCommands($this->args[0]);$/;"	v
@@ -14450,10 +14608,10 @@ params	lib/Cake/View/Helper/RssHelper.php	/^	public $params = array();$/;"	v
 params	lib/Cake/basics.php	/^			$params = preg_replace('\/\\\/\\\/\/', '\/', $params);$/;"	v
 params_pass	lib/Cake/Test/Case/Core/ObjectTest.php	/^	public function params_pass() {$/;"	f
 paranoid	lib/Cake/Utility/Sanitize.php	/^	public static function paranoid($string, $allowed = array()) {$/;"	f
-parent	app/Controller/Component/FileComponent.php	/^		$parent = WWW_ROOT . $this->AclExt->acoAlias . DS . $base;$/;"	v
 parent	app/Controller/Component/ProjectAclComponent.php	/^				$parent = $this->Acl->Aco->node($this->acoAlias);$/;"	v
+parent	app/Controller/Component/ProjectAclComponent.php	/^			$parent = WWW_ROOT . $this->preparePath($path);$/;"	v
 parent	app/Controller/Component/ProjectAclComponent.php	/^		$parent = $this->Acl->Aco->node(implode("\/", $parts));$/;"	v
-parent	app/Controller/Component/ProjectAclComponent.php	/^		$parent = WWW_ROOT . $this->acoAlias . DS . $base;$/;"	v
+parent	app/Controller/Component/ProjectAclComponent.php	/^		$parent = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);$/;"	v
 parent	lib/Cake/Console/Command/AclShell.php	/^			$parent = $this->_getNodeId($class, $parent);$/;"	v
 parent	lib/Cake/Console/Command/AclShell.php	/^			$parent = null;$/;"	v
 parent	lib/Cake/Console/Command/AclShell.php	/^		$parent = $this->parseIdentifier($this->args[1]);$/;"	v
@@ -14499,7 +14657,12 @@ parentNode	lib/Cake/Model/Behavior/TreeBehavior.php	/^				$parentNode = $Model->
 parentNode	lib/Cake/Model/Behavior/TreeBehavior.php	/^			$parentNode = $parentNode[0];$/;"	v
 parentNode	lib/Cake/Model/Behavior/TreeBehavior.php	/^			$parentNode = array_values($values);$/;"	v
 parentNode	lib/Cake/Test/Case/Model/Behavior/AclBehaviorTest.php	/^	public function parentNode() {$/;"	f
+parent_id	app/Controller/Component/ProjectAclComponent.php	/^			$parent_id = $node[$type]['parent_id'];$/;"	v
+parent_id	app/Controller/Component/ProjectAclComponent.php	/^		$parent_id = $id;$/;"	v
 parenthesis	lib/Cake/Console/Command/Task/ExtractTask.php	/^		$parenthesis = 1;$/;"	v
+parents	app/Controller/Component/ProjectAclComponent.php	/^				$parents = explode('\/', $this->pathFromId($data['parent'], 'aco'));$/;"	v
+parents	app/Controller/Component/ProjectAclComponent.php	/^		$parents = array_reverse($parents);$/;"	v
+parentsFromJs	app/Controller/Component/ProjectAclComponent.php	/^	public function parentsFromJs($parents = array()) {$/;"	f
 parse	lib/Cake/Configure/IniReader.php	/^					$parse = $this->_parseNestedValues(array($attribs));$/;"	v
 parse	lib/Cake/Console/ConsoleOptionParser.php	/^	public function parse($argv, $command = null) {$/;"	f
 parse	lib/Cake/Routing/Route/CakeRoute.php	/^	public function parse($url) {$/;"	f
@@ -14623,10 +14786,9 @@ passwordHasher	lib/Cake/Test/Case/Controller/Component/Auth/FormAuthenticateTest
 pastTime	lib/Cake/Utility/CakeTime.php	/^			$pastTime = $now;$/;"	v
 pastTime	lib/Cake/Utility/CakeTime.php	/^		$pastTime = $inSeconds;$/;"	v
 patch	lib/Cake/Network/Http/HttpSocket.php	/^	public function patch($uri = null, $data = array(), $request = array()) {$/;"	f
-path	app/Controller/Component/FileComponent.php	/^		$path = WWW_ROOT . $this->AclExt->acoAlias . DS . $base;$/;"	v
-path	app/Controller/Component/FileComponent.php	/^		$path = WWW_ROOT . $this->AclExt->acoAlias . DS . $dir;$/;"	v
-path	app/Controller/Component/ProjectAclComponent.php	/^		$path = WWW_ROOT . $this->acoAlias . DS . $base;$/;"	v
-path	app/Controller/Component/ProjectAclComponent.php	/^		$path = WWW_ROOT . $this->acoAlias . DS . $dir;$/;"	v
+path	app/Controller/Component/ProjectAclComponent.php	/^				$path = WWW_ROOT . $this->preparePath($this->pathFromId($id));$/;"	v
+path	app/Controller/Component/ProjectAclComponent.php	/^			$path = $this->pathFromId($node_id);$/;"	v
+path	app/Controller/Component/ProjectAclComponent.php	/^		$path = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);$/;"	v
 path	app/Controller/PagesController.php	/^		$path = func_get_args();$/;"	v
 path	app/Plugin/AclExtras/Lib/AclExtras.php	/^						$path = $this->rootNode . '\/' . $controllerName . '\/' . $action['Aco']['alias'];$/;"	v
 path	app/Plugin/AclExtras/Lib/AclExtras.php	/^			$path = $this->rootNode . '\/' . $plugin;$/;"	v
@@ -14796,12 +14958,14 @@ path	lib/Cake/View/Helper/JsHelper.php	/^			$path = WWW_ROOT . Configure::read('
 path	lib/Cake/View/MediaView.php	/^		$path = $path . $id;$/;"	v
 pathFilter	lib/Cake/TestSuite/Coverage/HtmlCoverageReport.php	/^		$pathFilter = $this->getPathFilter();$/;"	v
 pathFilter	lib/Cake/TestSuite/Coverage/TextCoverageReport.php	/^		$pathFilter = $this->getPathFilter();$/;"	v
+pathFromId	app/Controller/Component/ProjectAclComponent.php	/^	public function pathFromId($id, $type = 'aco', $file = false) {$/;"	f
 pathOptions	lib/Cake/Console/Command/Task/PluginTask.php	/^		$pathOptions = App::path('plugins');$/;"	v
 pathOptions	lib/Cake/Console/Command/Task/PluginTask.php	/^		$pathOptions = array_values($pathOptions);$/;"	v
 pathSegments	lib/Cake/Routing/Filter/AssetDispatcher.php	/^		$pathSegments = explode('.', $url);$/;"	v
 pathTokenArray	lib/Cake/TestSuite/Fixture/CakeFixtureManager.php	/^		$pathTokenArray = explode('\/', $fixturePath);$/;"	v
 pathname	lib/Cake/Log/Engine/FileLog.php	/^		$pathname = $this->_path . $filename;$/;"	v
 pathname	lib/Cake/Utility/Folder.php	/^		$pathname = rtrim($pathname, DS);$/;"	v
+paths	app/Controller/Component/ProjectAclComponent.php	/^		$paths = array();$/;"	v
 paths	lib/Cake/Console/Command/ApiShell.php	/^		$this->paths = array_merge($this->paths, array($/;"	v
 paths	lib/Cake/Console/Command/ApiShell.php	/^	public $paths = array();$/;"	v
 paths	lib/Cake/Console/Command/Task/ExtractTask.php	/^		$paths = $this->_paths;$/;"	v
@@ -14901,6 +15065,7 @@ permAlias	lib/Cake/Model/Permission.php	/^			$permAlias = $this->alias;$/;"	v
 permKeys	lib/Cake/Model/Permission.php	/^		$permKeys = $this->getAcoKeys($this->schema());$/;"	v
 permission	app/Controller/Component/ProjectAclComponent.php	/^			$permission = isset($this->permissionDefaults[$name]) ? $this->permissionDefaults[$name] : '';$/;"	v
 permissionDefaults	app/Controller/Component/ProjectAclComponent.php	/^	public $permissionDefaults = array($/;"	v
+permissions	app/Controller/Component/ProjectAclComponent.php	/^		static $permissions = array();$/;"	v
 permissions	lib/Cake/Test/Case/Controller/Component/Acl/DbAclTest.php	/^		$permissions = array_map(array(&$this, '_pad'), $permissions);$/;"	v
 perms	lib/Cake/Model/Permission.php	/^			$perms = $this->find('all', array($/;"	v
 perms	lib/Cake/Model/Permission.php	/^			$perms = Hash::extract($perms, '{n}.' . $this->alias);$/;"	v
@@ -15180,6 +15345,7 @@ preg	lib/Cake/Network/CakeResponse.php	/^			$preg = '@' . str_replace('*', '.*',
 preg	lib/Cake/Utility/Sanitize.php	/^		$preg = array($/;"	v
 prepare	lib/Cake/Utility/File.php	/^	public static function prepare($data, $forceWindows = false) {$/;"	f
 prepareFields	lib/Cake/Model/Datasource/DboSource.php	/^	public function prepareFields(Model $Model, $queryData) {$/;"	f
+preparePath	app/Controller/Component/ProjectAclComponent.php	/^	public function preparePath($path, $full = false, $reverse = false) {$/;"	f
 prepend	lib/Cake/Model/Datasource/Database/Postgres.php	/^						$prepend = 'DISTINCT ';$/;"	v
 prepend	lib/Cake/Model/Datasource/Database/Postgres.php	/^					$prepend = '';$/;"	v
 prepend	lib/Cake/Model/Datasource/Database/Postgres.php	/^			$prepend = 'DISTINCT ';$/;"	v
@@ -15254,30 +15420,26 @@ private_m	lib/Cake/Test/Case/Controller/ControllerTest.php	/^	private function p
 proceed	lib/Cake/Console/Command/Task/ControllerTask.php	/^		$proceed = $this->in($prompt, array('y', 'n'), 'n');$/;"	v
 proceed	lib/Cake/Console/Command/Task/TestTask.php	/^		$proceed = $this->in(__d('cake_console', 'Bake could not detect fixtures, would you like to add some?'), array('y', 'n'), 'n');$/;"	v
 process	lib/Cake/Model/Validator/CakeValidationRule.php	/^	public function process($field, &$data, &$methods) {$/;"	f
+processAction	app/Controller/Component/ProjectAclComponent.php	/^	public function processAction($action, $data) {$/;"	f
 project	app/Controller/Component/ProjectAclComponent.php	/^		$project = $this->project;$/;"	v
 project	app/Controller/Component/ProjectAclComponent.php	/^		$this->project = $project;$/;"	v
 project	app/Controller/Component/ProjectAclComponent.php	/^	private $project;$/;"	v
 project	app/Controller/ProjectsController.php	/^					$project = $this->Project->findByid($this->Project->id);$/;"	v
 project	app/Controller/ProjectsController.php	/^		$project = $this->verify('Project', $project_id);$/;"	v
+project	app/Controller/ProjectsController.php	/^		$project = $this->verify('Project', $project_id, true);$/;"	v
 project	app/Controller/ProjectsController.php	/^ 		$project = $this->verify('Project', $project_id);$/;"	v
 project	lib/Cake/Console/Command/Task/ProjectTask.php	/^			$project = $_SERVER['PWD'] . DS . $project;$/;"	v
 project	lib/Cake/Console/Command/Task/ProjectTask.php	/^			$project = $this->args[0];$/;"	v
 project	lib/Cake/Console/Command/Task/ProjectTask.php	/^			$project = $this->in($prompt, null, $suggestedPath);$/;"	v
 project	lib/Cake/Console/Command/Task/ProjectTask.php	/^		$project = null;$/;"	v
-projectDir	app/Controller/Component/FileComponent.php	/^	public function projectDir($project) {$/;"	f
-projectDir	app/Controller/Component/ProjectAclComponent.php	/^	public function projectDir() {$/;"	f
-projectFiles	app/Controller/Component/FileComponent.php	/^	public function projectFiles($project) {$/;"	f
-projectFiles	app/Controller/Component/ProjectAclComponent.php	/^	public function projectFiles() {$/;"	f
-projectInit	app/Controller/Component/FileComponent.php	/^	public function projectInit($project) {$/;"	f
+projectDir	app/Controller/Component/ProjectAclComponent.php	/^	public function projectDir($path = false) {$/;"	f
+projectFiles	app/Controller/Component/ProjectAclComponent.php	/^	public function projectFiles($node_id = NULL) {$/;"	f
+projectId	app/Controller/Component/ProjectAclComponent.php	/^		$this->projectId = $this->project[$this->projectModel]['id'];$/;"	v
+projectId	app/Controller/Component/ProjectAclComponent.php	/^	private $projectId;$/;"	v
 projectInit	app/Controller/Component/ProjectAclComponent.php	/^	public function projectInit($project) {$/;"	f
-projectModel	app/Controller/Component/FileComponent.php	/^	public $projectModel = 'Project';$/;"	v
 projectModel	app/Controller/Component/ProjectAclComponent.php	/^	public $projectModel = 'Project';$/;"	v
-project_id	app/Controller/Component/FileComponent.php	/^			$project_id = $project[$this->projectModel]['id'];$/;"	v
-project_id	app/Controller/Component/ProjectAclComponent.php	/^			$project_id = $project[$this->projectModel]['id'];$/;"	v
-project_id	app/Controller/Component/ProjectAclComponent.php	/^		$project_id = $project[$this->projectModel]['id'];$/;"	v
-project_id	app/Controller/Component/ProjectAclComponent.php	/^		$project_id = $this->project[$this->projectModel]['id'];$/;"	v
-projects	app/Controller/Component/FileComponent.php	/^		static $projects;$/;"	v
-projects	app/Controller/Component/ProjectAclComponent.php	/^		static $projects;$/;"	v
+project_id	app/Controller/ProjectsController.php	/^			$project_id = $this->request->data['project_id'];$/;"	v
+project_id	app/Controller/ProjectsController.php	/^		$project_id = null;$/;"	v
 projects	app/Controller/ProjectsController.php	/^		$projects = $this->Project->find('all');$/;"	v
 promote	lib/Cake/Routing/Router.php	/^	public static function promote($which = null) {$/;"	f
 prompt	lib/Cake/Console/Command/SchemaShell.php	/^			$prompt = __d('cake_console', "Schema file exists.\\n [O]verwrite\\n [S]napshot\\n [Q]uit\\nWould you like to do?");$/;"	v
@@ -15633,8 +15795,7 @@ readConfigFile	lib/Cake/Controller/Component/Acl/IniAcl.php	/^	public function r
 readFds	lib/Cake/Console/ConsoleInput.php	/^		$readFds = array($this->_input);$/;"	v
 readReceipt	lib/Cake/Controller/Component/EmailComponent.php	/^	public $readReceipt = null;$/;"	v
 readReceipt	lib/Cake/Network/Email/CakeEmail.php	/^	public function readReceipt($email = null, $name = null) {$/;"	f
-readRecursive	app/Controller/Component/FileComponent.php	/^	public function readRecursive(&$folder, $parent, $path = NULL) {$/;"	f
-readRecursive	app/Controller/Component/ProjectAclComponent.php	/^	public function readRecursive(&$folder, $parent, $path = NULL) {$/;"	f
+readRecursive	app/Controller/Component/ProjectAclComponent.php	/^	public function readRecursive(&$folder, $parent, $path = NULL, $recurse = true) {$/;"	f
 readTableParameters	lib/Cake/Model/Datasource/DboSource.php	/^	public function readTableParameters($name) {$/;"	f
 readable	lib/Cake/Utility/File.php	/^	public function readable() {$/;"	f
 reader	lib/Cake/Core/Configure.php	/^		$reader = self::_getReader($config);$/;"	v
@@ -15941,6 +16102,8 @@ renderer	lib/Cake/Test/Case/Error/ExceptionRendererTest.php	/^		$renderer = new 
 renew	lib/Cake/Controller/Component/SessionComponent.php	/^	public function renew() {$/;"	f
 renew	lib/Cake/Model/Datasource/CakeSession.php	/^	public static function renew() {$/;"	f
 reorder	lib/Cake/Model/Behavior/TreeBehavior.php	/^	public function reorder(Model $Model, $options = array()) {$/;"	f
+replace	app/Controller/Component/ProjectAclComponent.php	/^			$replace = WWW_ROOT . $replace;$/;"	v
+replace	app/Controller/Component/ProjectAclComponent.php	/^		$replace = $this->acoAlias . DS . ($reverse ? $this->projectDir() : $this->projectDir(true));$/;"	v
 replace	lib/Cake/I18n/Multibyte.php	/^						$replace = 0;$/;"	v
 replace	lib/Cake/Test/Case/Log/Engine/ConsoleLogTest.php	/^	public static function replace($key, &$engine) {$/;"	f
 replace	lib/Cake/Test/Case/Utility/FileTest.php	/^		$replace = array('This should be a', 'welcome.tmp file', 'in the Lib directory');$/;"	v
@@ -16157,6 +16320,7 @@ resources	lib/Cake/Test/Case/Routing/RouterTest.php	/^		$resources = Router::map
 resources	lib/Cake/Test/Case/Routing/RouterTest.php	/^		$resources = Router::mapResources('TestPlugin.TestPlugin');$/;"	v
 resources	lib/Cake/Test/Case/Routing/RouterTest.php	/^		$resources = Router::mapResources('TestPlugin.TestPlugin', array('prefix' => '\/api\/'));$/;"	v
 respondAs	lib/Cake/Controller/Component/RequestHandlerComponent.php	/^	public function respondAs($type, $options = array()) {$/;"	f
+response	app/Controller/ProjectsController.php	/^		$response = $this->ProjectAcl->checkPermission($data);$/;"	v
 response	lib/Cake/Console/Command/Task/ExtractTask.php	/^							$response = $this->in(__d('cake_console', "What would you like to name this file?"), null, 'new_' . $filename);$/;"	v
 response	lib/Cake/Console/Command/Task/ExtractTask.php	/^						$response = '';$/;"	v
 response	lib/Cake/Console/Command/Task/ExtractTask.php	/^					$response = $this->in($/;"	v
@@ -16259,7 +16423,6 @@ restore	lib/Cake/Test/Case/Utility/ValidationTest.php	/^		$restore = setlocale(L
 restore	lib/Cake/TestSuite/ControllerTestCase.php	/^		$restore = array('get' => $_GET, 'post' => $_POST);$/;"	v
 restore	lib/Cake/View/View.php	/^		$restore = $this->_currentType;$/;"	v
 restored	lib/Cake/Test/Case/TestSuite/ControllerTestCaseTest.php	/^		$restored = array('new' => 'value');$/;"	v
-result	app/Controller/Component/FileComponent.php	/^		$result = file_exists($path) ? TRUE : $folder->create($path);$/;"	v
 result	app/Controller/Component/ProjectAclComponent.php	/^		$result = file_exists($path) ? TRUE : $folder->create($path);$/;"	v
 result	app/Plugin/AclExtras/Test/Case/Lib/AclExtrasTest.php	/^		$result = $Aco->children($result[0]['Aco']['id']);$/;"	v
 result	app/Plugin/AclExtras/Test/Case/Lib/AclExtrasTest.php	/^		$result = $Aco->node('controllers\/BigLongNames');$/;"	v
@@ -20482,6 +20645,7 @@ resultsFkFalse	lib/Cake/Test/Case/Model/ModelWriteTest.php	/^		$resultsFkFalse =
 ret	lib/Cake/Controller/Component/CookieComponent.php	/^			$ret = json_decode($string, true);$/;"	v
 ret	lib/Cake/Model/Datasource/DboSource.php	/^						$ret = $this->conditionKeysToString($value, $quoteValues, $Model);$/;"	v
 ret	lib/Cake/Test/Case/Model/ModelWriteTest.php	/^		$ret = $UnderscoreField->save($data);$/;"	v
+return	app/Controller/Component/ProjectAclComponent.php	/^		$return = array();$/;"	v
 return	app/Plugin/AclExtras/Lib/AclExtras.php	/^		$return = $this->Acl->{$type}->recover();$/;"	v
 return	app/Plugin/AclExtras/Lib/AclExtras.php	/^		$return = $this->Acl->{$type}->verify();$/;"	v
 return	lib/Cake/Cache/Engine/MemcacheEngine.php	/^					$return = true;$/;"	v
@@ -20691,6 +20855,13 @@ row	lib/Cake/Model/Datasource/Session/DatabaseSession.php	/^		$row = $this->_mod
 row	lib/Cake/Test/Case/Controller/Component/Acl/DbAclTest.php	/^			$row = array();$/;"	v
 rowCounter	lib/Cake/Model/Datasource/Database/Sqlserver.php	/^					$rowCounter = self::ROW_COUNTER;$/;"	v
 rows	lib/Cake/Test/Case/Model/ModelReadTest.php	/^		$rows = $Thread->find('all', array($/;"	v
+rrmdir	app/Controller/Component/ProjectAclComponent.php	/^	public function rrmdir($dir) {$/;"	f
+rslt.add	app/webroot/js/jstree.js	/^							'dpc' : dpc,$/;"	p
+rslt.cnt	app/webroot/js/jstree.js	/^						rslt = {$/;"	p
+rslt.dpc	app/webroot/js/jstree.js	/^							'par' : par,$/;"	p
+rslt.mod	app/webroot/js/jstree.js	/^							'cnt' : t_cnt,$/;"	p
+rslt.par	app/webroot/js/jstree.js	/^							'sel' : sel,$/;"	p
+rslt.sel	app/webroot/js/jstree.js	/^							'mod' : m,$/;"	p
 rss	lib/Cake/Test/Case/Utility/XmlTest.php	/^		$rss = array($/;"	v
 rss	lib/Cake/Test/Case/Utility/XmlTest.php	/^		$rss = file_get_contents(CAKE . 'Test' . DS . 'Fixture' . DS . 'rss.xml');$/;"	v
 rssAsArray	lib/Cake/Test/Case/Utility/XmlTest.php	/^		$rssAsArray = Xml::toArray(Xml::build($rss));$/;"	v
@@ -20745,6 +20916,7 @@ safe	lib/Cake/View/Helper/JsHelper.php	/^		$safe = isset($options['safe']) ? $op
 safe	lib/Cake/View/Helper/MootoolsEngineHelper.php	/^		$safe = array_merge(array_keys($this->_callbackArguments['drop']), array('droppables'));$/;"	v
 safe	lib/Cake/View/Helper/PrototypeEngineHelper.php	/^		$safe = array_keys($this->_callbackArguments['request']);$/;"	v
 safeKeys	lib/Cake/View/Helper/JsBaseEngineHelper.php	/^		$safeKeys = array_flip($safeKeys);$/;"	v
+salt	app/Controller/AppController.php	/^				$salt = Configure::read('Security.salt');$/;"	v
 salt	lib/Cake/Test/Case/Utility/SecurityTest.php	/^		$salt = 'humpty dumpty had a great fall.';$/;"	v
 salt	lib/Cake/Test/Case/Utility/SecurityTest.php	/^		$salt = 'this is a delicious salt!';$/;"	v
 salt	lib/Cake/Utility/Security.php	/^				$salt = Configure::read('Security.salt');$/;"	v
@@ -20856,6 +21028,13 @@ scriptStart	lib/Cake/View/Helper/HtmlHelper.php	/^	public function scriptStart($
 scripts	lib/Cake/Test/Case/View/ViewTest.php	/^	public function scripts() {$/;"	f
 scripts	lib/Cake/View/Helper/JsHelper.php	/^		$scripts = $this->_bufferedScripts;$/;"	v
 scripts	lib/Cake/View/View.php	/^		$scripts = implode("\\n\\t", $this->_scripts);$/;"	v
+scroll_e	app/webroot/js/jstree.js	/^			scroll_t: 0,$/;"	p
+scroll_i	app/webroot/js/jstree.js	/^			scroll_e: false,$/;"	p
+scroll_l	app/webroot/js/jstree.js	/^			init_y	: 0,$/;"	p
+scroll_t	app/webroot/js/jstree.js	/^			scroll_l: 0,$/;"	p
+search	app/Controller/Component/ProjectAclComponent.php	/^			$search = WWW_ROOT . $search;$/;"	v
+search	app/Controller/Component/ProjectAclComponent.php	/^		$search = $this->acoAlias . DS . ($reverse ? $this->projectDir(true) : $this->projectDir());$/;"	v
+search	app/webroot/js/jstree.js	/^			}$/;"	f
 search	lib/Cake/Controller/Component/EmailComponent.php	/^		$search = '#(?:' . $search . ')#i';$/;"	v
 search	lib/Cake/Controller/Component/EmailComponent.php	/^		$search = '%0a|%0d|Content-(?:Type|Transfer-Encoding)\\:';$/;"	v
 search	lib/Cake/Core/App.php	/^	public static $search = array();$/;"	v
@@ -20882,6 +21061,9 @@ secure	lib/Cake/View/Helper/FormHelper.php	/^		$secure = $options['secure'];$/;"
 secure	lib/Cake/View/Helper/FormHelper.php	/^		$secure = $this->_extractOption('secure', $attributes);$/;"	v
 secure	lib/Cake/View/Helper/FormHelper.php	/^	public function secure($fields = array(), $secureAttributes = array()) {$/;"	f
 secureAttributes	lib/Cake/Test/Case/View/Helper/FormHelperTest.php	/^		$secureAttributes = array('form' => 'MyTestForm');$/;"	v
+secureId	app/Controller/ProjectsController.php	/^		$secureId = $this->ProjectAcl->secureProjectId;$/;"	v
+secureProjectId	app/Controller/Component/ProjectAclComponent.php	/^		$this->secureProjectId = Security::hash($this->projectId, null, true);$/;"	v
+secureProjectId	app/Controller/Component/ProjectAclComponent.php	/^	public $secureProjectId;$/;"	v
 secureRequest	lib/Cake/Test/Case/Network/CakeResponseTest.php	/^		$secureRequest = $this->getMock('CakeRequest', array('is'));$/;"	v
 securityCipherSeed	lib/Cake/Console/Command/Task/ProjectTask.php	/^	public function securityCipherSeed($path) {$/;"	f
 securitySalt	lib/Cake/Console/Command/Task/ProjectTask.php	/^	public function securitySalt($path) {$/;"	f
@@ -20951,6 +21133,7 @@ sendfile	lib/Cake/Test/Case/Routing/DispatcherTest.php	/^	public function sendfi
 sent	lib/Cake/Controller/Component/EmailComponent.php	/^		$sent = $lib->send($content);$/;"	v
 sentDate	lib/Cake/Test/Case/Controller/Component/EmailComponentTest.php	/^	public static $sentDate = null;$/;"	v
 sentence	lib/Cake/Console/Command/Task/ExtractTask.php	/^						$sentence = "msgid \\"{$msgid}\\"\\n";$/;"	v
+separator	app/Controller/Component/ProjectAclComponent.php	/^		$separator = $file ? DS : '\/';$/;"	v
 separator	lib/Cake/Console/Command/Task/TemplateTask.php	/^		$separator = DS === '\/' ? '\/' : '\\\\\\\\';$/;"	v
 separator	lib/Cake/Routing/Route/CakeRoute.php	/^		$separator = $namedConfig['separator'];$/;"	v
 separator	lib/Cake/Utility/Validation.php	/^		$separator = '([- \/.])';$/;"	v
@@ -21206,6 +21389,7 @@ setValidationDomain	lib/Cake/Model/Validator/CakeValidationSet.php	/^	public fun
 setVar	lib/Cake/View/Helper/JsHelper.php	/^			$setVar = (strpos($this->setVariable, '.')) ? $this->setVariable : 'window.' . $this->setVariable;$/;"	v
 setVariable	lib/Cake/View/Helper/JsHelper.php	/^	public $setVariable = 'app';$/;"	v
 set_action	lib/Cake/Test/test_app/Controller/TestsAppsController.php	/^	public function set_action() {$/;"	f
+set_type	app/webroot/js/jstree.js	/^		this.set_type = function (obj, type) {$/;"	f
 settings	lib/Cake/Cache/Cache.php	/^					$settings = array($settings => $value);$/;"	v
 settings	lib/Cake/Cache/Cache.php	/^				$settings = self::$_config[$config];$/;"	v
 settings	lib/Cake/Cache/Cache.php	/^			$settings = $name;$/;"	v
@@ -22315,6 +22499,7 @@ tags	lib/Cake/View/Helper.php	/^	public $tags = array();$/;"	v
 tagsTrimmed	lib/Cake/TestSuite/CakeTestCase.php	/^				$tagsTrimmed = preg_replace('\/\\s+\/m', '', $tags);$/;"	v
 tail	lib/Cake/Utility/String.php	/^	public static function tail($text, $length = 100, $options = array()) {$/;"	f
 tail	lib/Cake/View/Helper/TextHelper.php	/^	public function tail($text, $length = 100, $options = array()) {$/;"	f
+target	app/webroot/js/jstree.js	/^			element	: false,$/;"	p
 target	lib/Cake/Console/Command/AclShell.php	/^		$target = $this->parseIdentifier($this->args[1]);$/;"	v
 task	lib/Cake/Console/Command/BakeShell.php	/^		$task = Inflector::classify($this->command);$/;"	v
 task	lib/Cake/Console/TaskCollection.php	/^			$task = $settings['className'];$/;"	v
@@ -26032,6 +26217,8 @@ testnormalizeObjectArray	lib/Cake/Test/Case/Utility/ObjectCollectionTest.php	/^	
 tests	lib/Cake/Console/Command/UpgradeShell.php	/^	public function tests() {$/;"	f
 tests	lib/Cake/Test/Case/Network/Http/HttpResponseTest.php	/^		$tests = array($/;"	v
 tests	lib/Cake/Test/Case/Network/Http/HttpSocketTest.php	/^		$tests = array($/;"	v
+text	app/Controller/Component/ProjectAclComponent.php	/^			$text = $node[0]['Aco']['alias'];$/;"	v
+text	app/Controller/Component/ProjectAclComponent.php	/^			$text = $this->project['Project']['name'];$/;"	v
 text	lib/Cake/Console/ConsoleOptionParser.php	/^				$text = implode("\\n", $text);$/;"	v
 text	lib/Cake/Console/HelpFormatter.php	/^	public function text($width = 72) {$/;"	f
 text	lib/Cake/Test/Case/Console/ShellTest.php	/^		$text = 'This is the song that never ends. This is the song that never ends. This is the song that never ends.';$/;"	v
@@ -26154,6 +26341,62 @@ themes	lib/Cake/Console/Command/Task/TemplateTask.php	/^		$themes = array();$/;"
 thing	lib/Cake/Test/Case/Controller/Component/AclComponentTest.php	/^		$thing = new StdClass();$/;"	v
 third	lib/Cake/Test/Case/Utility/HashTest.php	/^		$third = array($/;"	v
 thirdListenerFunction	lib/Cake/Test/Case/Event/CakeEventManagerTest.php	/^	public function thirdListenerFunction() {$/;"	f
+this._data._data._data.data	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_01', 'reason' : 'Moving parent inside child', 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.data	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_05', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.data	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_06', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^								this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_03', 'reason' : 'max_depth prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_01', 'reason' : 'max_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_02', 'reason' : 'valid_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_01', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_02', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_03', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_04', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_01', 'reason' : 'Moving parent inside child', 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_02', 'reason' : 'Node data prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_05', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_06', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_03', 'reason' : 'User config for core.check_callback prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.error	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_07', 'reason' : 'Could not edit node because of check_callback' };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^								this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_03', 'reason' : 'max_depth prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_01', 'reason' : 'max_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_02', 'reason' : 'valid_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_01', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_02', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_03', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_04', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_01', 'reason' : 'Moving parent inside child', 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_02', 'reason' : 'Node data prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_05', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_06', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_03', 'reason' : 'User config for core.check_callback prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.id	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_07', 'reason' : 'Could not edit node because of check_callback' };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^								this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_03', 'reason' : 'max_depth prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_01', 'reason' : 'max_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_02', 'reason' : 'valid_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_01', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_02', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_03', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_04', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_01', 'reason' : 'Moving parent inside child', 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_02', 'reason' : 'Node data prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_05', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_06', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_03', 'reason' : 'User config for core.check_callback prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.plugin	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_07', 'reason' : 'Could not edit node because of check_callback' };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^								this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_03', 'reason' : 'max_depth prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_01', 'reason' : 'max_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^							this._data.core.last_error = { 'error' : 'check', 'plugin' : 'types', 'id' : 'types_02', 'reason' : 'valid_children prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_01', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_02', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_03', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^						this._data.core.last_error = { 'error' : 'check', 'plugin' : 'unique', 'id' : 'unique_04', 'reason' : 'Child with name ' + n + ' already exists. Preventing: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_01', 'reason' : 'Moving parent inside child', 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_02', 'reason' : 'Node data prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_05', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^					this._data.core.last_error = { 'error' : 'nodata', 'plugin' : 'core', 'id' : 'core_06', 'reason' : 'Could not load node', 'data' : JSON.stringify({ 'id' : obj.id }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_03', 'reason' : 'User config for core.check_callback prevents function: ' + chk, 'data' : JSON.stringify({ 'chk' : chk, 'pos' : pos, 'obj' : obj && obj.id ? obj.id : false, 'par' : par && par.id ? par.id : false }) };$/;"	p
+this._data._data._data.reason	app/webroot/js/jstree.js	/^				this._data.core.last_error = { 'error' : 'check', 'plugin' : 'core', 'id' : 'core_07', 'reason' : 'Could not edit node because of check_callback' };$/;"	p
+this._data.core	app/webroot/js/jstree.js	/^		this._data = {$/;"	p
 thisHour	lib/Cake/Test/Case/View/Helper/FormHelperTest.php	/^		$thisHour = date('H');$/;"	v
 thisMethods	lib/Cake/Console/Command/Task/TestTask.php	/^		$thisMethods = array_diff($classMethods, $parentMethods);$/;"	v
 thousands	lib/Cake/Utility/CakeNumber.php	/^			$thousands = $options;$/;"	v
@@ -26163,6 +26406,7 @@ threeParamMethod	lib/Cake/Test/Case/Core/ObjectTest.php	/^	public function three
 threshold	lib/Cake/Cache/Engine/FileEngine.php	/^			$threshold = $now - $this->settings['duration'];$/;"	v
 threshold	lib/Cake/Cache/Engine/FileEngine.php	/^		$threshold = $now = false;$/;"	v
 throwErrors	lib/Cake/Model/Behavior/ContainableBehavior.php	/^			$throwErrors = (empty($this->settings[$Model->alias]) ? true : $this->settings[$Model->alias]['notices']);$/;"	v
+tid	app/webroot/js/jstree.js	/^			var tid = false, i, j, c, e, m = this._model.data, df = this._model.default_state, tmp;$/;"	v
 time	lib/Cake/Cache/Engine/ApcEngine.php	/^		$time = time();$/;"	v
 time	lib/Cake/Cache/Engine/FileEngine.php	/^		$time = time();$/;"	v
 time	lib/Cake/Cache/Engine/WincacheEngine.php	/^		$time = time();$/;"	v
@@ -26276,10 +26520,17 @@ titleValidator	lib/Cake/Test/Case/Model/ModelValidationTest.php	/^		$titleValida
 titleValidator	lib/Cake/Test/Case/Model/ModelValidationTest.php	/^		$titleValidator = $Validator['user_id'];$/;"	v
 title_for_layout	app/Controller/PagesController.php	/^			$title_for_layout = Inflector::humanize($path[$count - 1]);$/;"	v
 title_for_layout	lib/Cake/Console/Templates/skel/Controller/PagesController.php	/^			$title_for_layout = Inflector::humanize($path[$count - 1]);$/;"	v
+tmp	app/webroot/js/jstree.js	/^			var tmp = chk.match(\/^move_node|copy_node|create_node$\/i) ? par : obj,$/;"	v
+tmp	app/webroot/js/jstree.js	/^			var tmp, dpc, i, j;$/;"	v
 tmp	lib/Cake/Utility/CakeTime.php	/^		$tmp = str_replace(' ', '', $timeInterval);$/;"	v
 tmp	lib/Cake/Utility/Set.php	/^			$tmp = $data;$/;"	v
 tmp	lib/Cake/Utility/Set.php	/^		$tmp = array();$/;"	v
 tmp	lib/Cake/View/Helper/FormHelper.php	/^			$tmp = array();$/;"	v
+tmp.id	app/webroot/js/jstree.js	/^							tmp = {$/;"	p
+tmp.id	app/webroot/js/jstree.js	/^			tmp = {$/;"	p
+tmp.id	app/webroot/js/jstree.js	/^			var tmp = {$/;"	p
+tmp.text	app/webroot/js/jstree.js	/^								id			: false,$/;"	p
+tmp.text	app/webroot/js/jstree.js	/^				id			: false,$/;"	p
 tmpFile	lib/Cake/Test/Case/Utility/FileTest.php	/^		$tmpFile = TMP . 'tests' . DS . 'cakephp.file.test.tmp';$/;"	v
 tmpFile	lib/Cake/Test/Case/View/Helper/RssHelperTest.php	/^		$tmpFile = WWW_ROOT . 'tests' . DS . 'cakephp.file.test.tmp';$/;"	v
 tmpLength	lib/Cake/Model/Datasource/DboSource.php	/^				$tmpLength = strlen($enumValue);$/;"	v
@@ -26305,6 +26556,7 @@ tmpStack	lib/Cake/Model/Datasource/DboSource.php	/^						$tmpStack = $stack;$/;"
 tmpValue	lib/Cake/Utility/String.php	/^			$tmpValue = (is_array($tmpValue)) ? '' : $tmpValue;$/;"	v
 tmpVars	lib/Cake/View/Helper/SessionHelper.php	/^				$tmpVars = $flash['params'];$/;"	v
 tmpipaddr	lib/Cake/Network/CakeRequest.php	/^			$tmpipaddr = env('HTTP_CLIENTADDRESS');$/;"	v
+to	app/webroot/js/jstree.js	/^	var to = false;$/;"	v
 to	lib/Cake/Controller/Component/EmailComponent.php	/^		$this->to = array();$/;"	v
 to	lib/Cake/Controller/Component/EmailComponent.php	/^	public $to = null;$/;"	v
 to	lib/Cake/Network/Email/CakeEmail.php	/^	public function to($email = null, $name = null) {$/;"	f
@@ -26468,8 +26720,9 @@ txt	lib/Cake/Test/Case/Utility/SecurityTest.php	/^		$txt = 'The quick brown fox 
 txt	lib/Cake/Test/Case/Utility/SecurityTest.php	/^		$txt = 'The quick brown fox';$/;"	v
 txt	lib/Cake/Test/Case/Utility/SecurityTest.php	/^		$txt = 'some_text';$/;"	v
 txt	lib/Cake/Test/Case/Utility/SecurityTest.php	/^		$txt = 123456;$/;"	v
-type	app/Controller/Component/FileComponent.php	/^			$type = $type ? 'file' : 'folder';$/;"	v
 type	app/Controller/Component/ProjectAclComponent.php	/^			$type = $type ? 'file' : 'folder';$/;"	v
+type	app/Controller/Component/ProjectAclComponent.php	/^		$type = $data['type'];$/;"	v
+type	app/Controller/Component/ProjectAclComponent.php	/^		$type = ucwords($type);$/;"	v
 type	app/Plugin/AclExtras/Lib/AclExtras.php	/^		$type = Inflector::camelize($this->args[0]);$/;"	v
 type	lib/Cake/Console/Command/AclShell.php	/^			$type = $this->args[0];$/;"	v
 type	lib/Cake/Console/Command/AclShell.php	/^		$type = array($/;"	v
@@ -26976,7 +27229,7 @@ useTable	lib/Cake/Test/test_app/Plugin/TestPlugin/Model/TestPluginAuthors.php	/^
 useTable	lib/Cake/Test/test_app/Plugin/TestPlugin/Model/TestPluginComment.php	/^	public $useTable = 'test_plugin_comments';$/;"	v
 useTable	lib/Cake/Test/test_app/Plugin/TestPlugin/Model/TestPluginPost.php	/^	public $useTable = 'posts';$/;"	v
 useTag	lib/Cake/View/Helper/HtmlHelper.php	/^	public function useTag($tag) {$/;"	f
-user	app/Controller/Component/ProjectAclComponent.php	/^		$user = $this->Auth->user();$/;"	v
+user	app/Controller/Component/ProjectAclComponent.php	/^			$user = $this->Auth->user();$/;"	v
 user	app/Controller/UsersController.php	/^		$user = $this->verify('User', $user_id);$/;"	v
 user	lib/Cake/Controller/Component/Auth/ActionsAuthorize.php	/^		$user = array($this->settings['userModel'] => $user);$/;"	v
 user	lib/Cake/Controller/Component/Auth/BaseAuthenticate.php	/^		$user = $result[$model];$/;"	v
@@ -27078,6 +27331,24 @@ uuid	lib/Cake/Utility/Validation.php	/^	public static function uuid($check) {$/;
 uuid	lib/Cake/View/View.php	/^	public function uuid($object, $url) {$/;"	f
 uuids	lib/Cake/View/View.php	/^	public $uuids = array();$/;"	v
 v	lib/Cake/Model/Model.php	/^					$v = $v[$n];$/;"	v
+vakata.search	app/webroot/js/jstree.js	/^	};$/;"	f
+vakata.storage.del	app/webroot/js/jstree.js	/^			get : function (key) { return window.localStorage.getItem(key); },$/;"	m
+vakata.storage.get	app/webroot/js/jstree.js	/^			set : function (key, val) { return window.localStorage.setItem(key, val); },$/;"	m
+vakata.storage.set	app/webroot/js/jstree.js	/^		$.vakata.storage = {$/;"	m
+vakata_dnd.data	app/webroot/js/jstree.js	/^					helper_w: 0,$/;"	p
+vakata_dnd.element	app/webroot/js/jstree.js	/^				vakata_dnd = {$/;"	p
+vakata_dnd.helper	app/webroot/js/jstree.js	/^					is_drag	: false,$/;"	p
+vakata_dnd.helper_w	app/webroot/js/jstree.js	/^					helper	: false,$/;"	p
+vakata_dnd.init_x	app/webroot/js/jstree.js	/^					data	: false,$/;"	p
+vakata_dnd.init_y	app/webroot/js/jstree.js	/^					init_x	: 0,$/;"	p
+vakata_dnd.is_down	app/webroot/js/jstree.js	/^					target	: false,$/;"	p
+vakata_dnd.is_drag	app/webroot/js/jstree.js	/^					is_down	: false,$/;"	p
+vakata_dnd.is_touch	app/webroot/js/jstree.js	/^					scroll_i: false,$/;"	p
+vakata_dnd.scroll_e	app/webroot/js/jstree.js	/^					scroll_t: 0,$/;"	p
+vakata_dnd.scroll_i	app/webroot/js/jstree.js	/^					scroll_e: false,$/;"	p
+vakata_dnd.scroll_l	app/webroot/js/jstree.js	/^					init_y	: 0,$/;"	p
+vakata_dnd.scroll_t	app/webroot/js/jstree.js	/^					scroll_l: 0,$/;"	p
+vakata_dnd.target	app/webroot/js/jstree.js	/^					element	: false,$/;"	p
 val	lib/Cake/Console/Command/Task/FixtureTask.php	/^					$val = 'null';$/;"	v
 val	lib/Cake/Console/Command/Task/FixtureTask.php	/^				$val = var_export($value, true);$/;"	v
 val	lib/Cake/I18n/I18n.php	/^				$val = preg_replace_callback('\/(?:<)?(.[^>]*)(?:>)?\/', array(&$_this, '_parseLiteralValue'), $val);$/;"	v
@@ -27412,7 +27683,7 @@ vars	lib/Cake/View/HelperCollection.php	/^		$vars = array('request', 'theme', 'p
 vary	lib/Cake/Network/CakeResponse.php	/^	public function vary($cacheVariances = null) {$/;"	f
 vendor	lib/Cake/TestSuite/CakeTestSuiteDispatcher.php	/^			$vendor = rtrim($vendor, DS);$/;"	v
 vendors	lib/Cake/TestSuite/CakeTestSuiteDispatcher.php	/^		$vendors = array_merge(App::path('vendors'), $composerGlobalDir);$/;"	v
-verify	app/Controller/AppController.php	/^	public function verify($model, $id) {$/;"	f
+verify	app/Controller/AppController.php	/^	public function verify($model, $id, $hashed = false) {$/;"	f
 verify	app/Plugin/AclExtras/Console/Command/AclExtrasShell.php	/^	public function verify() {$/;"	f
 verify	app/Plugin/AclExtras/Lib/AclExtras.php	/^	public function verify() {$/;"	f
 verify	lib/Cake/Model/Behavior/TreeBehavior.php	/^		$verify = false;$/;"	v

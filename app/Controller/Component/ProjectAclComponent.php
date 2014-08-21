@@ -12,6 +12,9 @@ class ProjectAclComponent extends Component {
 		'Auth',
 	);
 
+	public $highlightRole = null;
+	public $highlightType = null;
+
 	public $permissionDefaults = array(
 		'project_manager' => '*',
 		'consultant' => 'read',
@@ -64,13 +67,13 @@ class ProjectAclComponent extends Component {
 			case 'contextmenu':
 				$id = $data['node_id'];
 				$path = WWW_ROOT . $this->preparePath($this->pathFromId($id));
+
 				$actions = array(
 					'ccp' => 'update', 
 					'create' => 'create',
 					'remove' => 'delete',
 					'rename' => 'update'
 				);
-
 
 				foreach ($actions as $menuitem => $action) {
 					$return[$menuitem] = $this->userAccess($path, $action);
@@ -123,6 +126,11 @@ class ProjectAclComponent extends Component {
 
 	public function generateProjectRoleAlias($project_id, $role_id) {
 		return $project_id . ':' . $role_id;
+	}
+
+	public function highlightRole($role, $type) {
+		$this->highlightRole = $role;
+		$this->highlightType = $type;
 	}
 
 	public function initialize(Controller $controller) {
@@ -179,14 +187,17 @@ class ProjectAclComponent extends Component {
 		$items = array();
 		switch ($action) {
 			case 'create':
-				$parents = explode('/', $this->pathFromId($data['parent'], 'aco'));
+				if (!$this->userAccess($data['parent'], 'create')) {
+					return;
+				}
+				$parents = explode('/', $data['parent']);
 				unset($parents[0]);
 				unset($parents[1]);
 				$this->dirCreate($data['path'], $parents);
 				break;
 
 			case 'rename':
-				$parents = explode('/', $this->pathFromId($data['parent'], 'aco'));
+				$parents = explode('/', $data['parent']);
 				unset($parents[0]);
 				unset($parents[1]);
 				$old_path = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);
@@ -201,6 +212,10 @@ class ProjectAclComponent extends Component {
 				$old_path .= DS . $data['old_name'];
 				$old_aco_path .= '/' . $data['old_name'];
 
+				if (!$this->userAccess($$old_aco_path, 'update') || !$this->userAccess($data['parent'], 'create')) {
+					return;
+				}
+
 				if (file_exists($new_path)) {
 					$items['error'] = 'Cannot rename, file with the same name already exists.';
 				} else {
@@ -213,32 +228,41 @@ class ProjectAclComponent extends Component {
 				break;
 
 			case 'move':
-				$aco = $this->Acl->Aco->findByid($data['id']);
-				$old_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['id'], 'aco', true));
-				$new_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['new_parent'], 'aco', true)) . DS . $aco['Aco']['alias'];
+				$aco = $this->Acl->Aco->node($data['id']);
+				$old_path = WWW_ROOT . $this->preparePath($data['id']);
+				$new_path = WWW_ROOT . $this->preparePath($data['new_parent']) . DS . $aco[0]['Aco']['alias'];
+
+				if (!$this->userAccess($data['id'], 'update') || $this->userAccess($data['new_parent'], 'create')) {
+					return;
+				}
 
 				if (file_exists($new_path)) {
 					$items['error'] = 'Cannot rename, file with the same name already exists.';
 				} else if(!rename($old_path, $new_path)) {
 					$items['error'] = 'File cannot be moved.';
-				} else {
-					$aco['Aco']['parent_id'] = $data['new_parent'];
-					$this->Acl->Aco->save($aco);
+				} else {				
+					$parent = $this->Acl->Aco->node($data['new_parent']);
+					$aco[0]['Aco']['parent_id'] = $parent[0]['Aco']['id'];
+					$this->Acl->Aco->save($aco[0]);
 				}
 				
 				break;
 
 			case 'copy':
-				$aco = $this->Acl->Aco->findByid($data['id']);
-				$old_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['id'], 'aco', true));
-				$new_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['new_parent'], 'aco', true));
+				$aco = $this->Acl->Aco->node($data['id']);
+				$old_path = WWW_ROOT . $this->preparePath($data['id']);
+				$new_path = WWW_ROOT . $this->preparePath($data['new_parent']);
 
-				if (file_exists($new_path . DS . $aco['Aco']['alias'])) {
+				if (!$this->userAccess($data['id'], 'read') || $this->userAccess($data['new_parent'], 'create')) {
+					return;
+				}
+
+				if (file_exists($new_path . DS . $aco[0]['Aco']['alias'])) {
 					$items['error'] = 'Cannot copy file, file with the same name already exists.';
 				} else if (!copy($old_path, $new_path)) {
 					$items['error'] = 'Cannot copy file.';
 				} else {
-					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($new_path, true, true)) . $aco['Aco']['alias'];
+					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($new_path, true, true)) . $aco[0]['Aco']['alias'];
 					$aco_path = str_replace(DS, '/' . $aco_path);
 					$this->acoCreate($aco_path);
 				}
@@ -246,14 +270,18 @@ class ProjectAclComponent extends Component {
 				break;
 
 			case 'delete':
-				$aco = $this->Acl->Aco->findByid($data['id']);
-				$delete_path = WWW_ROOT . $this->preparePath($this->pathFromId($data['id'], 'aco', true));
+				$aco = $this->Acl->Aco->node($data['id']);
+				$delete_path = WWW_ROOT . $this->preparePath($data['id']);
+
+				if (!$this->userAccess($data['id'], 'delete')) {
+					return;
+				}
 
 				if (is_file($delete_path) && !unlink($delete_path)) {
 					$items['error'] = 'There was an error deleting the file.';
 				} else if (is_dir($delete_path)) {
 					$this->rrmdir($delete_path);
-					$this->Acl->Aco->delete($data['id']);
+					$this->Acl->Aco->delete($aco[0]['id']);
 				}
 
 				break;
@@ -280,36 +308,29 @@ class ProjectAclComponent extends Component {
 	public function projectFiles($node_id = NULL) {
 		$base = $this->projectDir();
 		$parent = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);
-		
-		if ($node_id) {
-			$path = $this->pathFromId($node_id);
+	
+		if ($node_id && $node_id != "#") {
+			$path = $node_id;//$this->pathFromId($node_id);
 			$node = $this->Acl->Aco->node($path);
 			$parent = WWW_ROOT . $this->preparePath($path);
 			$folder = new Folder($parent);
 
-			$id = $node[0]['Aco']['id'];
-			$text = $node[0]['Aco']['alias'];
-			$children = $this->readRecursive($folder, $parent, NULL, false);
+			$contents = $this->readRecursive($folder, $parent, NULL, false);
 		} else {
 			$folder = new Folder($parent);
 
 			// Getting aco data
 			$node = $this->Acl->Aco->node($this->acoAlias . DS . $this->projectDir());
-			$id = $node[0]['Aco']['id'];
-			$text = $this->project['Project']['name'];
-			$children = $this->readRecursive($folder, $parent, NULL, false);
-		}
 
-		$contents = array(
-			array(
-				'text' => $text,
-				'children' => true,
-				'children' => $children,
-				'id' => $id,
-				'type' => 'folder',
-				'icon' => 'jstree-folder',
-			)
-		);
+			$contents = array(
+				array(
+					'text' => $this->project['Project']['name'],
+					'children' => $this->readRecursive($folder, $parent, NULL, false),
+					'id' => $this->acoAlias . DS . $this->projectDir(),
+					'type' => 'folder',
+				)
+			);
+		}
 
 		return $contents;
 	}
@@ -358,6 +379,7 @@ class ProjectAclComponent extends Component {
 		foreach ($folder->read() as $type => $content) {
 			$type = $type ? 'file' : 'folder';
 			foreach ($content as $path) {
+
 				// Normalize path
 				$aco_path = str_replace(WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true), '', $new_parent . DS . $path);
 				$aco_path = $this->acoAlias . '/' . $this->projectDir() . $aco_path;
@@ -366,6 +388,7 @@ class ProjectAclComponent extends Component {
 				if (!$node) {
 					if ($this->acoCreate($aco_path)) {
 						$node = $this->Acl->Aco->node($aco_path);
+						$this->defaultPermissions($aco_path);
 					}
 				}
 
@@ -376,15 +399,18 @@ class ProjectAclComponent extends Component {
 				$item = array(
 					'children' => false,
 					'text' => $path,
-					'id' => $node[0]['Aco']['id'],
-					'icon' => 'jstree-' . $type,
+					'id' => $aco_path,
 					'type' => $type,
 				);
+
+				if ($this->highlightRole) {
+					$item['disabled'] = !$this->userAccess($new_parent . DS . $path, 'read', $this->highlightRole);
+				}
 
 				if (file_exists($new_parent . DS . $path)) {
 					if ($type == 'folder') {
 						$item['children'] = true;
-						if ($recurse && $children = $this->readRecursive($folder, $new_parent, $path)) {
+						if ($recurse && $children = $this->readRecursive($folder, $new_parent, $path, $recurse)) {
 							$item['children'] = $children;
 						}
 					} else {
@@ -434,7 +460,7 @@ class ProjectAclComponent extends Component {
 		$this->secureProjectId = Security::hash($this->projectId, null, true);
 	}
 
-	public function userAccess($path, $action = 'read') {
+	public function userAccess($path, $action = 'read', $role = null) {
 		static $permissions = array();
 
 		if (!isset($permissions[$path]) || !isset($permissions[$path][$action])) {
@@ -445,7 +471,7 @@ class ProjectAclComponent extends Component {
 			$user = $this->Auth->user();
 			$permissions[$path] = false;
 
-			if ($user['admin']) {
+			if ($user['admin'] && !$role) {
 				$permissions[$path] = true;
 			} else {
 
@@ -454,20 +480,32 @@ class ProjectAclComponent extends Component {
 				$aco_path = $this->acoAlias . '/' . $this->projectDir() . $aco_path;
 				
 				$aro_checks = array();
-				$UserProjectRole = ClassRegistry::init('UserProjectRole');
 
-				$options = array(
-					'conditions' => array(
-						'user_id' => $user['id'],
-						'project_id' => $this->projectId,
-					)
-				);
+				if ($role) {
+					$Role = ClassRegistry::init('Role');
+					$role = $Role->findByname($role);
+					$aro_checks[] = $this->generateProjectRoleAlias($this->projectId, $role['Role']['id']);
+				} else {
+					$UserProjectRole = ClassRegistry::init('UserProjectRole');
 
-				foreach ($UserProjectRole->find('all', $options) as $role) {
-					$aro_checks[] = $this->generateProjectRoleAlias($this->projectId, $role['UserProjectRole']['role_id']);
+					$options = array(
+						'conditions' => array(
+							'user_id' => $user['id'],
+							'project_id' => $this->projectId,
+						)
+					);
+
+					foreach ($UserProjectRole->find('all', $options) as $role) {
+						$aro_checks[] = $this->generateProjectRoleAlias($this->projectId, $role['UserProjectRole']['role_id']);
+					}
 				}
 
 				foreach ($aro_checks as $aro) {
+					if ($role) {
+						error_log($aro);
+						error_log($aco_path);
+						error_log(print_r($this->Acl->check((string)$aro, $aco_path, $action), 1));
+					}
 					if ($this->Acl->check((string)$aro, $aco_path, $action)) {
 						$permissions[$path] = true;
 						break;

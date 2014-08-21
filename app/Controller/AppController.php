@@ -70,6 +70,7 @@ class AppController extends Controller {
 			$this->layout = null;
 			$this->autoRender = false;
 		}
+		$this->set(array('user' => $this->Auth->user()));
 	}
 
 	public function verify($model, $id, $hashed = false) {
@@ -92,7 +93,7 @@ class AppController extends Controller {
 			}
 		}
 
-		if ($item) {
+		if (!empty($item)) {
 			$notFound = false;
 		}
 

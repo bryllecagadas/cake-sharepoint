@@ -65,7 +65,12 @@ class ProjectsController extends AppController {
 		$this->ProjectAcl->setProject($project);
 
 		if (!isset($action)) {
-			$node_id = isset($data['node_id']) && $data['node_id'] != "#" ? $data['node_id'] : null;
+			$node_id = $data['node_id'];
+
+			if (isset($data['role'])) {
+				$this->ProjectAcl->highlightRole($data['role'], 'disable');
+			}
+			
 			$items = $this->ProjectAcl->projectFiles($node_id);
 		} else {
 			$items = $this->ProjectAcl->processAction($action, $data);
@@ -101,8 +106,8 @@ class ProjectsController extends AppController {
 		$project = $this->verify('Project', $project_id);
 		$this->ProjectAcl->setProject($project);
 		$secureId = $this->ProjectAcl->secureProjectId;
-		$files = json_encode($this->ProjectAcl->projectFiles());
-		$this->set(compact('project', 'secureId', 'files'));
+		$roles = $this->ProjectAcl->roles();
+		$this->set(compact('project', 'secureId', 'files', 'roles'));
 	}
 
 	public function files_test($project_id = 0) {
