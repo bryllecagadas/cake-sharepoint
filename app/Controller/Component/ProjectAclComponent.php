@@ -2,6 +2,7 @@
 
 App::uses('File', 'Utility');
 App::uses('Folder', 'Utility');
+App::uses('Hash', 'Utility');
 App::uses('Security', 'Utility');
 
 class ProjectAclComponent extends Component {
@@ -184,7 +185,7 @@ class ProjectAclComponent extends Component {
 	}
 
 	public function processAction($action, $data) {
-		$items = array();
+		$response = array();
 		switch ($action) {
 			case 'create':
 				if (!$this->userAccess($data['parent'], 'create')) {
@@ -212,12 +213,12 @@ class ProjectAclComponent extends Component {
 				$old_path .= DS . $data['old_name'];
 				$old_aco_path .= '/' . $data['old_name'];
 
-				if (!$this->userAccess($$old_aco_path, 'update') || !$this->userAccess($data['parent'], 'create')) {
+				if (!$this->userAccess($old_aco_path, 'update') || !$this->userAccess($data['parent'], 'create')) {
 					return;
 				}
 
 				if (file_exists($new_path)) {
-					$items['error'] = 'Cannot rename, file with the same name already exists.';
+					$response['error'] = 'Cannot rename, file with the same name already exists.';
 				} else {
 					rename($old_path, $new_path);
 					$node = $this->Acl->Aco->node($old_aco_path);
@@ -237,9 +238,9 @@ class ProjectAclComponent extends Component {
 				}
 
 				if (file_exists($new_path)) {
-					$items['error'] = 'Cannot rename, file with the same name already exists.';
+					$response['error'] = 'Cannot rename, file with the same name already exists.';
 				} else if(!rename($old_path, $new_path)) {
-					$items['error'] = 'File cannot be moved.';
+					$response['error'] = 'File cannot be moved.';
 				} else {				
 					$parent = $this->Acl->Aco->node($data['new_parent']);
 					$aco[0]['Aco']['parent_id'] = $parent[0]['Aco']['id'];
@@ -258,9 +259,9 @@ class ProjectAclComponent extends Component {
 				}
 
 				if (file_exists($new_path . DS . $aco[0]['Aco']['alias'])) {
-					$items['error'] = 'Cannot copy file, file with the same name already exists.';
+					$response['error'] = 'Cannot copy file, file with the same name already exists.';
 				} else if (!copy($old_path, $new_path)) {
-					$items['error'] = 'Cannot copy file.';
+					$response['error'] = 'Cannot copy file.';
 				} else {
 					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($new_path, true, true)) . $aco[0]['Aco']['alias'];
 					$aco_path = str_replace(DS, '/' . $aco_path);
@@ -278,16 +279,28 @@ class ProjectAclComponent extends Component {
 				}
 
 				if (is_file($delete_path) && !unlink($delete_path)) {
-					$items['error'] = 'There was an error deleting the file.';
+					$response['error'] = 'There was an error deleting the file.';
 				} else if (is_dir($delete_path)) {
 					$this->rrmdir($delete_path);
 					$this->Acl->Aco->delete($aco[0]['id']);
 				}
 
 				break;
+
+			case 'save_role_setting':
+				$items = $data['items'];
+				$role = $data['role'];
+				
+				$user = $this->Auth->user();
+				$user_project_roles = $this->userProjectRoles();
+
+				if ($user['admin'] || in_array('project_manager', $user_project_roles)) {
+					$this->saveRolePermissions($items, $role);
+				}
+				break;
 		}
 
-		return $items;
+		return $response;
 	}
 
 	public function projectDir($path = false) {
@@ -426,8 +439,8 @@ class ProjectAclComponent extends Component {
 		return $contents;
 	}
 
-	public function roles() {
-		static $roles;
+	public function roles($as_id = false) {
+		static $roles, $roles_ids;
 
 		if (!isset($roles)) {
 			$Role = ClassRegistry::init('Role');
@@ -435,10 +448,11 @@ class ProjectAclComponent extends Component {
 			foreach ($Role->find('all') as $role) {
 				$name = $role['Role']['name'];
 				$roles[$name] = $role;
+				$roles_ids[$role['Role']['id']] = $role;
 			}
 		}
 
-		return $roles;
+		return $as_id ? $roles_ids : $roles;
 	}
 
 	public function rrmdir($dir) {
@@ -452,6 +466,21 @@ class ProjectAclComponent extends Component {
      reset($objects); 
      rmdir($dir); 
    }
+	}
+
+	public function saveRolePermissions($items, $role) {
+		$Role = ClassRegistry::init('Role');
+		$permission = $this->permissionDefaults[$role];
+		$role = $Role->findByname($role);
+		$aro_alias = $this->generateProjectRoleAlias($this->projectId, $role['Role']['id']);
+
+		foreach ($items as $aco_path => $item) {
+			if (intval($item['disabled'])) {
+				$this->Acl->deny($aro_alias, $aco_path, $permission);
+			} else {
+				$this->Acl->allow($aro_alias, $aco_path, $permission);
+			}
+		}
 	}
 
 	public function setProject($project) {
@@ -501,11 +530,6 @@ class ProjectAclComponent extends Component {
 				}
 
 				foreach ($aro_checks as $aro) {
-					if ($role) {
-						error_log($aro);
-						error_log($aco_path);
-						error_log(print_r($this->Acl->check((string)$aro, $aco_path, $action), 1));
-					}
 					if ($this->Acl->check((string)$aro, $aco_path, $action)) {
 						$permissions[$path] = true;
 						break;
@@ -515,5 +539,41 @@ class ProjectAclComponent extends Component {
 		}
 
 		return $permissions[$path];
+	}
+
+	public function userProjectRoles($user_id = null) {
+		if (!$this->project) {
+			return;
+		}
+
+		$User = ClassRegistry::init('User');
+		$UserProjectRole = ClassRegistry::init('UserProjectRole');
+		$user_roles = array();
+
+		if ($user_id && ($user = $User->findByid($user_id))) {
+			$user = $user['User'];
+		} else {
+			$user = $this->Auth->user();
+		}
+
+		if (!$user) {
+			return;
+		}
+		
+		$options = array(
+			'conditions' => array(
+				'user_id' => $user['id'],
+				'project_id' => $this->projectId,
+			)
+		);
+
+		$roles = $this->roles(TRUE);
+
+		foreach ($UserProjectRole->find('all', $options) as $role) {
+			$role_id = $role['UserProjectRole']['role_id'];
+			$user_roles[] = $roles[$role_id]['Role']['name'];
+		}
+
+		return $user_roles;
 	}
 }

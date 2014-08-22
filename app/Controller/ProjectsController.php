@@ -107,7 +107,12 @@ class ProjectsController extends AppController {
 		$this->ProjectAcl->setProject($project);
 		$secureId = $this->ProjectAcl->secureProjectId;
 		$roles = $this->ProjectAcl->roles();
-		$this->set(compact('project', 'secureId', 'files', 'roles'));
+
+		$user = $this->Auth->user();
+		$user_project_roles = $this->ProjectAcl->userProjectRoles();
+		$has_options = $user['admin'] || in_array('project_manager', $user_project_roles);
+
+		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_options'));
 	}
 
 	public function files_test($project_id = 0) {

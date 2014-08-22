@@ -26,7 +26,7 @@
 	$this->Html->script('files', array('inline' => false));
 ?>
 <div id='tree'></div>
-<?php if($user['admin']) : ?>
+<?php if($has_options) : ?>
 	<div class='tree-options'>
 		<div class='role-switcher'>
 			<h3>Filter files for:</h3>
@@ -34,5 +34,6 @@
 				<?php echo $this->Html->link(Inflector::humanize($name), $this->here, array('data-role' => $name, 'class' => 'role')); ?>
 			<?php endforeach; ?>
 		</div>
+		<?php echo $this->Html->link('Save', $this->here, array('class' => 'save-tree-options')); ?>
 	</div>
 <?php endif; ?>

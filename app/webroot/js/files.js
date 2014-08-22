@@ -15,11 +15,10 @@
 	};
 
 	Files.enable = function() {
-		// if (typeof Files.jstree != 'undefined') {
-		// 	var jstree = Files.jstree.data('jstree');
-		// 	jstree.select_all();
-		// 	jstree.disable_node(jstree.get_selected());
-		// }
+		if (typeof Files.jstree != 'undefined') {
+			var jstree = Files.jstree.data('jstree');
+			jstree.enable_node(jstree.get_node('#').children_d);
+		}
 	};
 
 	Files.init = function() {
@@ -27,6 +26,29 @@
 			return false;
 		}
 
+		Files.init_jstree();
+		$('.save-tree-options').click(function() {
+			if (typeof Files.jstree != 'undefined') {
+				var jstree = Files.jstree.data('jstree');
+				var items = jstree.get_node('#').children_d.slice();
+				var item_values = {};
+
+				for (var i in items) {
+					item_values[items[i]] = {
+						disabled: jstree.is_checked(items[i]) ? 0 : 1
+					};
+				}
+
+				Files.request('save_role_setting', {
+					items: item_values,
+					role: Files.role
+				});
+			}
+			return false;
+		});
+	}
+
+	Files.init_jstree = function() {
 		Files.jstree = $('#tree').on('ready.jstree', function (e, data) {
 			var jstree = Files.jstree.data('jstree');
 			var items = jstree.get_node('#').children_d;
@@ -48,13 +70,13 @@
 				}
 
 				if (uncheck) {
-					console.log('uncheck: ' + items[i]);
 					jstree.uncheck_node(items[i]);
 				} else {
-					console.log('check: ' + items[i]);
 					jstree.check_node(items[i]);
 				}
 			}
+
+			jstree.open_all();
 		})
 		.jstree({
 			core: {
@@ -85,7 +107,6 @@
 			},
 			contextmenu : {
 				items : function(node) {
-					console.log(node);
 					var tmp = $.jstree.defaults.contextmenu.items();
 					if (typeof Files.permissions[node.id] == 'undefined') {
 						$.ajax({
@@ -158,19 +179,19 @@
 		.on('changed.jstree', function (e, data) {
 		})
 		.on('delete_node.jstree', function (e, data) {
-			Files.request(data.instance, 'delete', {
+			Files.request('delete', {
 				id: data.node.id
 			});
 		})
 		.on('create_node.jstree', function (e, data) {
-			Files.request(data.instance, 'create', {
+			Files.request('create', {
 				path: data.node.text,
 				parent: data.node.parent,
 				node: data.node
 			});
 		})
 		.on('rename_node.jstree', function (e, data) {
-			Files.request(data.instance, 'rename', {
+			Files.request('rename', {
 				id: data.node.id,
 				new_name: data.text,
 				old_name: data.old,
@@ -178,7 +199,7 @@
 			});
 		})
 		.on('move_node.jstree', function (e, data) {
-			Files.request(data.instance, 'move', {
+			Files.request('move', {
 				id: data.node.id,
 				new_parent: data.parent,
 				old_parent: data.old_parent,
@@ -186,14 +207,14 @@
 			});
 		})
 		.on('copy_node.jstree', function (e, data) {
-			Files.request(data.instance, 'copy', {
+			Files.request('copy', {
 				id: data.original.id,
 				new_parent: data.parent
 			});
 		});
-	}
+	};
 
-	Files.request = function(instance, action, data, callback) {
+	Files.request = function(action, data, callback) {
 		data.project_id = Files.secureId;
 		data.action = action;
 
@@ -231,7 +252,7 @@
 
 					Files.disable();
 					jstree.destroy(true);
-					Files.init();
+					Files.init_jstree();
 				}
 				return false;
 			});
