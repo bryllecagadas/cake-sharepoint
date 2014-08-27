@@ -68,7 +68,7 @@ class ProjectAclComponent extends Component {
 		switch ($type) {
 			case 'contextmenu':
 				$id = $data['node_id'];
-				$path = WWW_ROOT . $this->preparePath($this->pathFromId($id));
+				$path = WWW_ROOT . $this->preparePath($id);
 
 				$actions = array(
 					'ccp' => 'update', 

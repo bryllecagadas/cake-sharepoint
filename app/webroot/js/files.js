@@ -52,7 +52,7 @@
 							disabled: jstree.is_checked(items[i]) ? 0 : 1
 						};
 					}
-
+console.log(item_values);
 					Files.request('save_role_setting', {
 						items: item_values,
 						role: Files.role
@@ -274,6 +274,7 @@
 				}
 			},
 			checkbox : {
+				three_state : false,
 				keep_selected_style : false
 			},
 			plugins : Files.plugins
@@ -308,7 +309,7 @@
 		.on('deselect_node.jstree', function (e, data) {
 			// var inst = data.instance;
 			// var dom = inst.get_node(data.node, true);
-			// dom
+			// dom2
 			// 	.children('.jstree-anchor')
 			// 	.children('.jstree-checkbox')
 			// 	.removeClass('glyphicon-check')
