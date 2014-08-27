@@ -323,6 +323,7 @@ class ProjectAclComponent extends Component {
 			case 'save_role_setting':
 				$items = $data['items'];
 				$role = $data['role'];
+				$user = $this->Auth->user();
 				
 				if ($user['admin'] || in_array('project_manager', $user_project_roles)) {
 					$this->saveRolePermissions($items, $role);
