@@ -573,7 +573,7 @@ class ProjectAclComponent extends Component {
 	public function userProjectPermission($user = null) {
 		static $users = array();
 
-		if (!$user_id) {
+		if (!$user) {
 			$user = $this->Auth->user();
 		}
 		
