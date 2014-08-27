@@ -1,0 +1,48 @@
+body {
+	color: #333;
+}
+
+h1 .label, h2 .label, h3 .label {
+	font-size: 60%;
+	vertical-align: middle;
+}
+
+.navbar.navbar-default {
+	background-color: #EE7814;
+	color: #fff;
+}
+
+.navbar a, 
+.navbar a.navbar-brand,
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar a.navbar-brand {
+	font-weight: bold;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: #fff;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-brand:hover, 
+.navbar-default .navbar-brand:focus {
+	color: #fff;
+	background-color: #333;
+}
+
+.jstree-default .jstree-checkbox {
+	/*background: none;*/
+}
+
+.jstree-default-large .jstree-icon {
+	font-size: 20px;
+}

@@ -24,3 +24,7 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Project Specific ignores #
+############################
+/app/webroot/files/

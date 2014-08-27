@@ -47,6 +47,24 @@ class ProjectsController extends AppController {
 		$this->set(compact('users', 'project', 'roles'));
 	}
 
+	public function ajax_file_upload($project_id = 0) {
+		$project_id = null;
+		$this->layout = null;
+		$this->autoRender = false;
+
+		if ($this->request->is('post')) {
+			$project_id = $this->request->data['project_id'];
+		}
+	
+		$project = $this->verify('Project', $project_id, true);		
+		$this->ProjectAcl->setProject($project);
+		$secureId = $this->ProjectAcl->secureProjectId;
+
+		$response = $this->ProjectAcl->uploadFiles($this->request, $this->response);
+
+		echo json_encode($response);
+	}
+
 	public function ajax_files() {
 		$project_id = null;
 		$action = null;
@@ -106,20 +124,19 @@ class ProjectsController extends AppController {
 		$project = $this->verify('Project', $project_id);
 		$this->ProjectAcl->setProject($project);
 		$secureId = $this->ProjectAcl->secureProjectId;
+
 		$roles = $this->ProjectAcl->roles();
+		$has_permission = $this->ProjectAcl->userProjectPermission();
+		$aco_alias = $this->ProjectAcl->acoAlias;
 
-		$user = $this->Auth->user();
-		$user_project_roles = $this->ProjectAcl->userProjectRoles();
-		$has_options = $user['admin'] || in_array('project_manager', $user_project_roles);
-
-		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_options'));
+		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias'));
 	}
 
-	public function files_test($project_id = 0) {
-		$project = $this->verify('Project', $project_id);
-		$this->ProjectAcl->setProject($project);
-		$this->ProjectAcl->dirCreate('test');
-	}
+	// public function files_test($project_id = 0) {
+	// 	$project = $this->verify('Project', $project_id);
+	// 	$this->ProjectAcl->setProject($project);
+	// 	$this->ProjectAcl->dirCreate('test');
+	// }
 
 	public function index() {
 		$projects = $this->Project->find('all');

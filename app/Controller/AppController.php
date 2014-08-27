@@ -34,21 +34,30 @@ class AppController extends Controller {
 	public $components = array(
 		'Acl',
 		'Auth' => array(
-			'loginRedirect' => array(
-				'controller' => 'projects',
-				'action' => 'index',
-			),
+			'authError' => 'You must log-in to continue',
 			'authorize' => array(
 				'Custom' => array(
 					'adminOnly' => array()
 				),
 			),
-			'authError' => 'You must log-in to continue',
+			'loginRedirect' => array(
+				'controller' => 'projects',
+				'action' => 'index',
+			),
 		),
 		'ProjectAcl',
 		'RequestHandler',
 		'Session',
 	);
+
+	public $helpers = array(
+		'Session',
+		'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
+		'Form' => array('className' => 'BoostCake.BoostCakeForm'),
+		'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
+	);
+
+	public $layout = 'BoostCake.bootstrap3';
 
 	protected function authAdminOnly() {
 		$args = func_get_args();
@@ -70,7 +79,7 @@ class AppController extends Controller {
 			$this->layout = null;
 			$this->autoRender = false;
 		}
-		$this->set(array('user' => $this->Auth->user()));
+		$this->set(array('auth_user' => $this->Auth->user()));
 	}
 
 	public function verify($model, $id, $hashed = false) {

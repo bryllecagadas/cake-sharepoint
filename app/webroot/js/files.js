@@ -1,10 +1,19 @@
 (function($) {
 
-	var Files = window.Files || {};
+	var defaults = {
+		acoAlias: 'files',
+		secureId: null,
+		selected: null,
+		sessionId: null,
+		uploadUrl: null,
+		url: null
+	};
+
+	var Files = window.Files || defaults;
 	
 	Files.permissions = {};
 
-	Files.plugins = ['types', 'contextmenu'];
+	Files.plugins = ['types', 'contextmenu', 'wholerow'];
 	Files.defaultPlugins = Files.plugins.slice(0);
 
 	Files.disable = function() {
@@ -22,61 +31,118 @@
 	};
 
 	Files.init = function() {
-		if (typeof Files.url === 'undefined' || typeof Files.secureId === 'undefined') {
+		if (!Files.url  || !Files.secureId) {
 			return false;
 		}
 
 		Files.init_jstree();
+		
 		$('.save-tree-options').click(function() {
 			if (typeof Files.jstree != 'undefined') {
 				var jstree = Files.jstree.data('jstree');
-				var items = jstree.get_node('#').children_d.slice();
-				var item_values = {};
 
-				for (var i in items) {
-					item_values[items[i]] = {
-						disabled: jstree.is_checked(items[i]) ? 0 : 1
-					};
+				if ($.inArray('checkbox', jstree.settings.plugins) !== -1) { 
+					var items = jstree.get_node('#').children_d.slice();
+					var item_values = {};
+
+					for (var i in items) {
+						item_values[items[i]] = {
+							disabled: jstree.is_checked(items[i]) ? 0 : 1
+						};
+					}
+
+					Files.request('save_role_setting', {
+						items: item_values,
+						role: Files.role
+					});
 				}
-
-				Files.request('save_role_setting', {
-					items: item_values,
-					role: Files.role
-				});
 			}
 			return false;
 		});
+
+		if (Files.sessionId && Files.uploadUrl) {
+			Files.file_upload_init();
+		}
 	}
+
+	Files.file_upload_init = function() {
+		$('#fileupload').fileupload({
+			url: Files.uploadUrl,
+			dataType: 'json',
+			formData: function (form) {
+				return [
+					{
+						name: 'session',
+						value: Files.sessionId
+					},
+					{
+						name: 'project_id',
+						value: Files.secureId
+					},
+					{
+						name: 'destination',
+						value: Files.selected ? Files.selected : ''
+					}
+				];
+			}
+		}).bind('fileuploaddone', function(e, data) {
+			var jstree = Files.jstree.data('jstree');
+			var node;
+			if (Files.selected && (node = jstree.get_node(Files.selected))) {
+				jstree.refresh_node(node);
+			}
+		});
+	};
+
+	Files.set_destination = function(node) {
+		var destination = node.id;
+
+		if (node.type != 'folder') {
+			destination = node.parent;
+		}
+
+		Files.selected = destination;
+		var filter = function(destination) {
+			return destination.substr(Files.acoAlias.length + 1);
+		};
+		$('.destination').html(filter(destination));
+	};
 
 	Files.init_jstree = function() {
 		Files.jstree = $('#tree').on('ready.jstree', function (e, data) {
 			var jstree = Files.jstree.data('jstree');
 			var items = jstree.get_node('#').children_d;
+			var dom;
 
-			if ($.inArray('checkbox', jstree.settings.plugins) === -1) {
-				return;
-			}
+			if ($.inArray('checkbox', jstree.settings.plugins) !== -1) {
+				jstree.check_node('#');
 
-			jstree.check_node('#');
+				for (var i in items) {
+					var node = jstree.get_node(items[i]);
+					var uncheck = false;
+					if (typeof node.original != 'undefined') {
+						var original = node.original;
+						if (typeof original.disabled != 'undefined' && original.disabled) {
+							uncheck = true;
+						}
+					}
 
-			for (var i in items) {
-				var node = jstree.get_node(items[i]);
-				var uncheck = false;
-				if (typeof node.original != 'undefined') {
-					var original = node.original;
-					if (typeof original.disabled != 'undefined' && original.disabled) {
-						uncheck = true;
+					dom = jstree.get_node(items[i], true)
+						.children('.jstree-anchor')
+						.children('.jstree-checkbox')
+						.addClass('glyphicon glyphicon-unchecked');
+
+					if (uncheck) {
+						jstree.uncheck_node(items[i]);
+					} else {
+						jstree.check_node(items[i]);
 					}
 				}
 
-				if (uncheck) {
-					jstree.uncheck_node(items[i]);
-				} else {
-					jstree.check_node(items[i]);
-				}
+				jstree.open_all();
 			}
 
-			jstree.open_all();
+			Files.set_destination(jstree.get_node(jstree.get_node('#').children[0]));
 		})
 		.jstree({
 			core: {
@@ -98,8 +164,8 @@
 				check_callback : true,
 				themes : {
 					responsive : false,
-					variant : 'small',
-					stripes : true
+					variant : 'large',
+					stripes : false
 				}
 			},
 			sort : function(a, b) {
@@ -141,21 +207,36 @@
 								action : function (data) {
 									var inst = $.jstree.reference(data.reference),
 										obj = inst.get_node(data.reference);
-									inst.create_node(obj, { type : "folder", text : "New folder" }, "last", function (new_node) {
+									var name = "New folder";
+									inst.create_node(obj, { id : obj.id + '/' + name, type : "folder", text : name }, "last", function (new_node) {
 										setTimeout(function () { inst.edit(new_node); },0);
 									});
 								}
-							},
-							create_file : {
-								label	: "File",
-								action : function (data) {
-								}
+							}
+						};
+
+						tmp.refresh = {
+							label: 'Refresh',
+							action: function(data) {
+								var inst = $.jstree.reference(data.reference);
+								var obj = inst.get_node(data.reference);
+								inst.refresh_node(data.reference);
 							}
 						};
 
 						for (var i in tmp) {
 							if (!Files.permissions[node.id][i]) {
 								delete tmp[i];
+							}
+						}
+
+						if(this.get_type(node) === "file") {
+							if (typeof tmp.create != 'undefined') {
+								delete tmp.create;
+							}
+
+							if (typeof tmp.refresh != 'undefined') {
+								delete tmp.refresh;
 							}
 						}
 					}
@@ -165,30 +246,70 @@
 			},
 			types : {
 				default : { 
-					icon : 'jstree-file' 
+					icon : 'glyphicon glyphicon-file' 
 				},
 				file : { 
-					valid_children : [], icon : 'jstree-file' 
+					valid_children : [], icon : 'glyphicon glyphicon-file'
 				},
 				folder : { 
-					icon : 'jstree-folder' 
+					icon : 'glyphicon glyphicon-folder-close' 
 				}
+			},
+			checkbox : {
+				keep_selected_style : false
 			},
 			plugins : Files.plugins
 		})
+		.on('before_open.jstree', function (e, data) {
+			var inst = data.instance;
+			var dom = inst.get_node(data.node, true);
+			dom
+				.children('.jstree-anchor')
+				.children('.glyphicon-folder-close')
+				.removeClass('glyphicon-folder-close')
+				.addClass('glyphicon-folder-open');
+		})
+		.on('after_close.jstree', function (e, data) {
+			var inst = data.instance;
+			var dom = inst.get_node(data.node, true);
+			dom
+				.children('.jstree-anchor')
+				.children('.glyphicon-folder-open')
+				.removeClass('glyphicon-folder-open')
+				.addClass('glyphicon-folder-close');
+		})
+		.on('select_node.jstree', function (e, data) {
+			// var inst = data.instance;
+			// var dom = inst.get_node(data.node, true);
+			// dom
+			// 	.children('.jstree-anchor')
+			// 	.children('.jstree-checkbox')
+			// 	.removeClass('glyphicon-unchecked')
+			// 	.addClass('glyphicon glyphicon-check');
+		})
+		.on('deselect_node.jstree', function (e, data) {
+			// var inst = data.instance;
+			// var dom = inst.get_node(data.node, true);
+			// dom
+			// 	.children('.jstree-anchor')
+			// 	.children('.jstree-checkbox')
+			// 	.removeClass('glyphicon-check')
+			// 	.addClass('glyphicon glyphicon-unchecked');
+		})
 		.on('changed.jstree', function (e, data) {
+			Files.set_destination(data.node);
 		})
 		.on('delete_node.jstree', function (e, data) {
 			Files.request('delete', {
 				id: data.node.id
-			});
+			}, data);
 		})
 		.on('create_node.jstree', function (e, data) {
 			Files.request('create', {
 				path: data.node.text,
 				parent: data.node.parent,
 				node: data.node
-			});
+			}, data);
 		})
 		.on('rename_node.jstree', function (e, data) {
 			Files.request('rename', {
@@ -196,6 +317,9 @@
 				new_name: data.text,
 				old_name: data.old,
 				parent: data.node.parent
+			}, data, function(data) {
+				var inst = data.instance;
+				inst.refresh_node(data.node.parent);
 			});
 		})
 		.on('move_node.jstree', function (e, data) {
@@ -204,17 +328,17 @@
 				new_parent: data.parent,
 				old_parent: data.old_parent,
 				parents: data.node.parents
-			});
+			}, data);
 		})
 		.on('copy_node.jstree', function (e, data) {
 			Files.request('copy', {
 				id: data.original.id,
 				new_parent: data.parent
-			});
+			}, data);
 		});
 	};
 
-	Files.request = function(action, data, callback) {
+	Files.request = function(action, data, original_data, callback) {
 		data.project_id = Files.secureId;
 		data.action = action;
 
@@ -227,6 +351,9 @@
 			data: data,
 			success: function(response) {
 				Files.enable();
+				if (typeof callback === 'function') {
+					callback(original_data, data);
+				}
 			}
 		})
 	};

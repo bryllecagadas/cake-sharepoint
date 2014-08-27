@@ -11,6 +11,7 @@ class ProjectAclComponent extends Component {
 	public $components = array(
 		'Acl',
 		'Auth',
+		'ProjectUpload',
 	);
 
 	public $highlightRole = null;
@@ -73,7 +74,8 @@ class ProjectAclComponent extends Component {
 					'ccp' => 'update', 
 					'create' => 'create',
 					'remove' => 'delete',
-					'rename' => 'update'
+					'rename' => 'update',
+					'refresh' => 'read',
 				);
 
 				foreach ($actions as $menuitem => $action) {
@@ -291,9 +293,6 @@ class ProjectAclComponent extends Component {
 				$items = $data['items'];
 				$role = $data['role'];
 				
-				$user = $this->Auth->user();
-				$user_project_roles = $this->userProjectRoles();
-
 				if ($user['admin'] || in_array('project_manager', $user_project_roles)) {
 					$this->saveRolePermissions($items, $role);
 				}
@@ -489,6 +488,36 @@ class ProjectAclComponent extends Component {
 		$this->secureProjectId = Security::hash($this->projectId, null, true);
 	}
 
+	public function uploadFiles($request, &$response) {
+
+		$has_permission = $this->userProjectPermission();
+
+		$response = null;
+
+		if ($has_permission) {
+
+			$script_url = Router::url(array(
+				'controller' => 'projects',
+				'action' => 'file_upload',
+				'ajax' => TRUE,
+			));
+
+			if ($upload_dir = $request->data('destination')) {
+				$upload_dir = WWW_ROOT . $this->preparePath($upload_dir) . DS;
+			} else {
+				$upload_dir = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true) . DS;
+			}
+
+			$options = array(
+	      'upload_dir' => $upload_dir,
+			);
+
+			$response = $this->ProjectUpload->process($request, $response, $options);
+		}
+
+		return $response;
+	}
+
 	public function userAccess($path, $action = 'read', $role = null) {
 		static $permissions = array();
 
@@ -539,6 +568,21 @@ class ProjectAclComponent extends Component {
 		}
 
 		return $permissions[$path];
+	}
+
+	public function userProjectPermission($user = null) {
+		static $users = array();
+
+		if (!$user_id) {
+			$user = $this->Auth->user();
+		}
+		
+		if (!isset($users[$user['id']])) {
+			$user_project_roles = $this->userProjectRoles();
+			$users[$user['id']] = $user['admin'] || in_array('project_manager', $user_project_roles);	
+		}
+
+		return $users[$user['id']];
 	}
 
 	public function userProjectRoles($user_id = null) {

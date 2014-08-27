@@ -1,4 +1,4 @@
-<h2>Edit User <em><?php echo $user['User']['username']; ?></em></h2>
+<h2><?php echo $user['User']['username']; ?> <span class='label label-default'>Edit</span></h2>
 <?php echo $this->Form->create(null, array('type' => 'POST')); ?>
 <?php echo $this->Form->input('username'); ?>
 <?php echo $this->Form->input('email'); ?>
