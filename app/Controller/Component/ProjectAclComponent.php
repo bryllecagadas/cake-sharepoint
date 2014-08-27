@@ -128,7 +128,7 @@ class ProjectAclComponent extends Component {
 		$file_path = $this->preparePath($path);
 		$full_path = WWW_ROOT . $file_path;
 
-		if ($this->userAccess($path, 'read') && is_file($full_path)) {
+		if ($this->userAccess($full_path, 'read') && is_file($full_path)) {
 	    return $response->file($full_path, array('download' => true, 'name' => basename($full_path)));
 		}
 
@@ -331,7 +331,8 @@ class ProjectAclComponent extends Component {
 				break;
 
 			case 'download_token':
-				if ($this->userAccess($data['id'], 'read')) {
+				$path = WWW_ROOT . $this->preparePath($data['id']);
+				if ($this->userAccess($path, 'read')) {
 					$response['token'] = $this->downloadToken($data['id']);
 				}
 				break;
