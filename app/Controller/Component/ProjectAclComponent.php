@@ -76,6 +76,7 @@ class ProjectAclComponent extends Component {
 					'remove' => 'delete',
 					'rename' => 'update',
 					'refresh' => 'read',
+					'download' => 'read',
 				);
 
 				foreach ($actions as $menuitem => $action) {
@@ -121,6 +122,36 @@ class ProjectAclComponent extends Component {
 		}
 
 		return $result;
+	}
+
+	public function download(&$response, $path) {
+		$file_path = $this->preparePath($path);
+		$full_path = WWW_ROOT . $file_path;
+
+		if ($this->userAccess($path, 'read') && is_file($full_path)) {
+	    return $response->file($full_path, array('download' => true, 'name' => basename($full_path)));
+		}
+
+		return false;
+	}
+
+	public function downloadToken($aco_id) {
+		$path = $this->preparePath($aco_id);
+
+		if (is_file(WWW_ROOT . $path)) {
+			$user = $this->Auth->user();
+			$token = Security::hash($aco_id . (int) TIME_START);
+			$Token = ClassRegistry::init('Token');
+			$Token->save(array(
+				'token' => $token,
+				'user_id' => $user['id'],
+				'project_id' => $this->projectId,
+				'path' => $aco_id,
+			));
+			return $token;
+		}
+
+		return false;
 	}
 
 	public function generateParentPath($parents, $file = false) {
@@ -295,6 +326,12 @@ class ProjectAclComponent extends Component {
 				
 				if ($user['admin'] || in_array('project_manager', $user_project_roles)) {
 					$this->saveRolePermissions($items, $role);
+				}
+				break;
+
+			case 'download_token':
+				if ($this->userAccess($data['id'], 'read')) {
+					$response['token'] = $this->downloadToken($data['id']);
 				}
 				break;
 		}

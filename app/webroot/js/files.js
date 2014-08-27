@@ -2,6 +2,8 @@
 
 	var defaults = {
 		acoAlias: 'files',
+		permissionsUrl: null,
+		downloadUrl: null,
 		secureId: null,
 		selected: null,
 		sessionId: null,
@@ -238,6 +240,22 @@
 							if (typeof tmp.refresh != 'undefined') {
 								delete tmp.refresh;
 							}
+
+							tmp.download = {
+								label: 'Download',
+								action: function(data) {
+									var inst = $.jstree.reference(data.reference);
+									var obj = inst.get_node(data.reference);
+									Files.request('download_token', {
+										id: obj.id
+									}, data, function(response, data) {
+										if (typeof response.token != 'undefined') {
+											var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
+											window.location.href = url;
+										}
+									});
+								}
+							};
 						}
 					}
 
@@ -317,7 +335,7 @@
 				new_name: data.text,
 				old_name: data.old,
 				parent: data.node.parent
-			}, data, function(data) {
+			}, data, function(response, data) {
 				var inst = data.instance;
 				inst.refresh_node(data.node.parent);
 			});
@@ -352,7 +370,7 @@
 			success: function(response) {
 				Files.enable();
 				if (typeof callback === 'function') {
-					callback(original_data, data);
+					callback(response, original_data, data);
 				}
 			}
 		})

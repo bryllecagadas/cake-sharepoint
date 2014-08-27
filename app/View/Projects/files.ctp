@@ -40,10 +40,16 @@
 		));
 	}
 
+	$download_url = Router::url(array(
+		'controller' => 'projects',
+		'action' => 'download',
+	), TRUE);
+
 	$this->Html->scriptBlock(
 		"
 			var Files = {
 				acoAlias: '$aco_alias',
+				downloadUrl: '$download_url',
 				url: '$url',
 				permissionsUrl: '$permUrl',
 				secureId: '$secureId',

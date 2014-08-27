@@ -114,6 +114,43 @@ class ProjectsController extends AppController {
 		echo json_encode($response);
 	}
 
+	public function download($secure_id = '', $token = '') {
+		$project = $this->verify('Project', $secure_id, true);
+		$user = $this->Auth->user();
+		$this->ProjectAcl->setProject($project);
+		$file = null;
+
+		$message = 'Token has expired.';
+
+		if ($project && $token) {
+			$this->loadModel('Token');
+			$file = $this->Token->find('first', array(
+				'conditions' => array(
+					'token' => $token,
+					'user_id' => $user['id'],
+					'project_id' => $project['Project']['id'],
+				)
+			));
+
+			if ($file) {
+				$success = $this->ProjectAcl->download($this->response, $file['Token']['path']);
+				$this->Token->delete($file['Token']['id']);
+				
+				if ($success) {
+					$this->autoRender = false;
+					$this->layout = null;
+					return $this->response;
+				} else {
+					$message = 'File does not exist.';
+				}
+			}
+				
+		}
+
+		$this->set(compact('message'));
+
+	}
+
 	public function edit($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
 		$this->layout = null;
