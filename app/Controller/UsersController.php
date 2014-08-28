@@ -3,7 +3,7 @@
 class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->authAdminOnly('add', 'edit');
+		$this->authAdminOnly('add', 'index');
 		$this->Auth->allow('login', 'logout');
 	}
 
@@ -43,7 +43,10 @@ class UsersController extends AppController {
 			$this->request->data = $user;
 		}
 
-		$this->set(compact('user'));
+		$auth_user = $this->Auth->user();
+		$current_user = $user['User']['id'] == $auth_user['id'];
+
+		$this->set(compact('user', 'current_user'));
 	}
 
 	public function index() {
@@ -52,6 +55,11 @@ class UsersController extends AppController {
 	}
 
 	public function login() {
+
+		if ($this->Auth->loggedIn()) {
+			$this->redirect($this->Auth->redirect());
+		}
+
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
 				$this->redirect($this->Auth->redirect());

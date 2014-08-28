@@ -29,6 +29,10 @@ class ProjectAclComponent extends Component {
 
 	private $project;
 
+	private $project_dirs = array();
+
+	private $project_paths = array();
+
 	private $projectId;
 
 	public function acoCreate($path) {
@@ -181,6 +185,23 @@ class ProjectAclComponent extends Component {
 		if (!$this->Acl->Aro->find('first', array('conditions' => array('alias' => '0')))) {
 			$this->Acl->Aro->create(array('parent_id' => null, 'alias' => '0'));
 			$this->Acl->Aro->save();
+		}
+	}
+
+	public function modifyName($old_project, $new_project) {
+		$this->setProject($old_project);
+		$old_aco = $this->acoAlias . '/' . $this->projectDir();
+		$old_dir = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);
+		$this->setProject($new_project, true);
+		$new_aco = $this->acoAlias . '/' . $this->projectDir();
+		$new_dir = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);
+
+		if (rename($old_dir, $new_dir)) {
+			$node = $this->Acl->Aco->node($old_aco);
+			if ($node) {
+				$node[0]['alias'] = $this->projectDir();
+				$this->Acl->Aco->save($node[0]);
+			}
 		}
 	}
 
@@ -342,18 +363,16 @@ class ProjectAclComponent extends Component {
 	}
 
 	public function projectDir($path = false) {
-		static $projects, $paths;
-
 		$project = $this->project;
 		$dir = false;
 
-		if (!isset($projects[$this->projectId])) {
-			$projects[$this->projectId] = Inflector::slug(strtolower($project[$this->projectModel]['name'])) . 
+		if (!isset($this->project_dirs[$this->projectId])) {
+			$this->project_dirs[$this->projectId] = Inflector::slug(strtolower($project[$this->projectModel]['name'])) . 
 					'_' . $project[$this->projectModel]['id'];
-			$paths[$this->projectId] = Security::hash($projects[$this->projectId]);
+			$this->project_paths[$this->projectId] = Security::hash($this->project_dirs[$this->projectId]);
 		}
 
-		return $path ? $paths[$this->projectId] : $projects[$this->projectId];
+		return $path ? $this->project_paths[$this->projectId] : $this->project_dirs[$this->projectId];
 	}
 
 	public function projectFiles($node_id = NULL) {
@@ -522,10 +541,15 @@ class ProjectAclComponent extends Component {
 		}
 	}
 
-	public function setProject($project) {
+	public function setProject($project, $reset = false) {
 		$this->project = $project;
 		$this->projectId = $this->project[$this->projectModel]['id'];
 		$this->secureProjectId = Security::hash($this->projectId, null, true);
+
+		if ($reset) {
+			$this->project_dirs = array();
+			$this->project_paths = array();
+		}
 	}
 
 	public function uploadFiles($request, &$response) {

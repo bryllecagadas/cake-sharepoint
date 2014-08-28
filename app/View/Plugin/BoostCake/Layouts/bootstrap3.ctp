@@ -52,20 +52,25 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<?php if($auth_user) : ?>
 					<ul class="nav navbar-nav">
-						<li><?php echo $this->Html->link('Users', array(
-							'controller' => 'users',
-							'action' => 'index'
-						)); ?></li>
-						<li><?php echo $this->Html->link('Projects', array(
-							'controller' => 'projects',
-							'action' => 'index'
-						)); ?></li>
+						<li class='<?php echo $this->params['controller'] == 'projects' ? 'active' : ''; ?>'>
+							<?php echo $this->Html->link('Projects', array(
+								'controller' => 'projects',
+								'action' => 'index'
+							)); ?>
+						</li>
+						<li class='<?php echo $this->params['controller'] == 'users' && empty($current_user) ? 'active' : ''; ?>'>
+							<?php echo $this->Html->link('Users', array(
+								'controller' => 'users',
+								'action' => 'index'
+							)); ?>
+						</li>
 					</ul>
 				<?php endif; ?>
 				
 				<ul class="nav navbar-nav navbar-right">
 					<?php if($auth_user) : ?>
-	        	<li><?php echo $this->Html->link($auth_user['username'] . ' | Logout', "/users/logout"); ?></li>
+						<li class='<?php echo !empty($current_user) ? 'active' : ''; ?> '><?php echo $this->Html->link($auth_user['username'], "/users/edit/" . $auth_user['id']); ?></li>
+	        	<li><?php echo $this->Html->link('Logout', "/users/logout"); ?></li>
 	        <?php else : ?>
 	        	<li><?php echo $this->Html->link('Login', "/users/login"); ?></li>
 	       	<?php endif; ?>

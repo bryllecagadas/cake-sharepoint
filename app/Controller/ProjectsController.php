@@ -49,8 +49,6 @@ class ProjectsController extends AppController {
 
 	public function ajax_file_upload($project_id = 0) {
 		$project_id = null;
-		$this->layout = null;
-		$this->autoRender = false;
 
 		if ($this->request->is('post')) {
 			$project_id = $this->request->data['project_id'];
@@ -68,8 +66,6 @@ class ProjectsController extends AppController {
 	public function ajax_files() {
 		$project_id = null;
 		$action = null;
-		$this->layout = null;
-		$this->autoRender = false;
 
 		if ($this->request->is('post')) {
 			$project_id = $this->request->data['project_id'];
@@ -98,8 +94,6 @@ class ProjectsController extends AppController {
 	}
 
 	public function ajax_node_permissions() {
-		$this->layout = null;
-		$this->autoRender = false;
 		$project_id = null;
 
 		if ($this->request->is('post')) {
@@ -153,8 +147,24 @@ class ProjectsController extends AppController {
 
 	public function edit($project_id = 0) {
 		$project = $this->verify('Project', $project_id);
-		$this->layout = null;
-		$this->autoRender = false;
+
+		if ($this->request->is('post')) {
+			$this->Project->id = $project_id;
+			if ($this->Project->save($this->request->data)) {
+				$new_name = $this->request->data['Project']['name'];
+				if ($new_name != $project['Project']['name']) {
+					$this->request->data['Project']['id'] = $project_id;
+					$this->ProjectAcl->modifyName($project, $this->request->data);
+				}
+
+				$this->Session->setFlash('Successfully modified project.');
+				$this->redirect(array('action' => 'index'));
+			}
+		} else {
+			$this->request->data = $project;
+		}
+
+		$this->set(compact('project'));
 	}
 
 	public function files($project_id = 0) {
@@ -169,15 +179,46 @@ class ProjectsController extends AppController {
 		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias'));
 	}
 
-	// public function files_test($project_id = 0) {
-	// 	$project = $this->verify('Project', $project_id);
-	// 	$this->ProjectAcl->setProject($project);
-	// 	$this->ProjectAcl->dirCreate('test');
-	// }
-
 	public function index() {
-		$projects = $this->Project->find('all');
+		$options = array();
+		$user = $this->Auth->user();
+
+		if (!$user['admin']) {
+			$this->loadModel('UserProjectRole');
+			$options = array(
+				'conditions' => array(
+					'id' => array()
+				)
+			);
+
+			foreach ($this->UserProjectRole->roles($user['id']) as $user_project_role) {
+				$options['conditions']['id'][] = $user_project_role['UserProjectRole']['project_id'];
+			}
+		}
+
+		$projects = $this->Project->find('all', $options);
 		$this->set(compact('projects'));		
+	}
+
+	public function remove_user($project_id, $user_id) {
+		$project = $this->verify('Project', $project_id);
+
+		$this->loadModel('UserProjectRole');
+		$user_project_role = $this->UserProjectRole->find('first', array(
+			'conditions' => array(
+				'project_id' => $project_id,
+				'user_id' => $user_id,
+			)
+		));
+
+		if ($user_project_role && $this->UserProjectRole->delete($user_project_role['UserProjectRole']['id'])) {
+			$this->Session->setFlash('Successfully removed the user.');
+		}
+
+		$this->redirect(array(
+			'action' => 'users',
+			$project_id,
+		));
 	}
 
  	public function users($project_id = 0) {
@@ -194,9 +235,5 @@ class ProjectsController extends AppController {
 		));
 
  		$this->set(compact('users', 'project'));
-	}
-
-	public function view() {
-		
 	}
 }

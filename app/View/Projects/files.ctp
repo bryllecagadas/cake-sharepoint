@@ -63,17 +63,21 @@
 	$this->Html->script('files', array('inline' => false));
 ?>
 <h2><?php echo $project['Project']['name']; ?> Project <span class='label label-default'>Files</span></h2>
+<?php if ($has_permission) : ?>
+	<ul class="nav nav-tabs role-switcher" role="tablist">
+	  <li class="active"><a href="#" class='role' data-role='admin'>Admin</a></li>
+	  <?php foreach ($roles as $name => $role) : ?>
+			<li>
+				<?php echo $this->Html->link(Inflector::humanize($name), $this->here, array('data-role' => $name, 'class' => 'role')); ?>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+	<div class='save-tree-options-wrapper'>
+		<?php echo $this->Html->link('Save', $this->here, array('class' => 'save-tree-options btn btn-primary')); ?>
+	</div>
+<?php endif; ?>
 <div id='tree'></div>
 <?php if ($has_permission) : ?>
-	<div class='tree-options'>
-		<div class='role-switcher'>
-			<h3>Filter files for:</h3>
-			<?php foreach ($roles as $name => $role) : ?>
-				<?php echo $this->Html->link(Inflector::humanize($name), $this->here, array('data-role' => $name, 'class' => 'role')); ?>
-			<?php endforeach; ?>
-		</div>
-		<?php echo $this->Html->link('Save', $this->here, array('class' => 'save-tree-options')); ?>
-	</div>
 	<div class='file-upload-wrapper'>
 		<h3>
 			Upload files

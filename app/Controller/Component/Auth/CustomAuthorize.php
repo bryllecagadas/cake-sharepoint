@@ -10,17 +10,18 @@ class CustomAuthorize extends BaseAuthorize {
 		}
 
 		$context = $this->getContext($user, $request);
+	
 		if (isset($context['user'])) {
 			return $context['user']['User']['id'] == $user['id'];
 		} else if (isset($context['project'])) {
-			if ($context['action'] == 'edit') {
+			if ($context['action'] == 'edit' || $context['action'] == 'add_user') {
 				return in_array('project_manager', $context['roles']);
 			} else {
 				return (bool) $context['roles'];
 			}
 		}
 
-		return !in_array($context['action'], $this->settings['adminOnly']);
+		return !(in_array($context['action'], $this->settings['adminOnly']) && !$user['admin']);
 	}
 
 	private function getContext($user, $request) {
@@ -34,7 +35,7 @@ class CustomAuthorize extends BaseAuthorize {
 			return $context;
 		}
 
-		if ($context['controller'] == 'projects' && in_array($context['action'], array('edit', 'view', 'users'))) {
+		if ($context['controller'] == 'projects' && in_array($context['action'], array('edit', 'view', 'users', 'add_user'))) {
 			$Project = ClassRegistry::init('Project');
 			$UserProjectRole = ClassRegistry::init('UserProjectRole');
 			$context['project'] = $Project->findByid($context['args'][0]);
@@ -55,4 +56,5 @@ class CustomAuthorize extends BaseAuthorize {
 
 		return $context;
 	}
+
 }

@@ -318,6 +318,24 @@
 		})
 		.on('changed.jstree', function (e, data) {
 			Files.set_destination(data.node);
+			var inst = data.instance;
+
+			if (data.node.type == 'folder') {
+				if (inst.is_open(data.node)) {
+					inst.close_node(data.node);
+				} else {
+					inst.open_node(data.node);
+				}
+			} else {
+				Files.request('download_token', {
+					id: data.node.id
+				}, data, function(response, data) {
+					if (typeof response.token != 'undefined') {
+						var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
+						window.location.href = url;
+					}
+				});
+			}
 		})
 		.on('delete_node.jstree', function (e, data) {
 			Files.request('delete', {
@@ -386,20 +404,31 @@
 				if (typeof Files.jstree != 'undefined') {
 					var jstree = Files.jstree.data('jstree');
 					var role = $(this).data('role');
+					var refresh = false;
+					var loading = jstree.is_loading('#');
 
-					if (typeof Files.role != 'undefined' && Files.role == role) {
+					if (!loading && role == 'admin' && typeof Files.role != 'undefined') {
 						Files.plugins = Files.defaultPlugins.slice(0);
 						delete Files.role;
-					} else {
+						refresh = true;
+						$(this).closest('.nav-tabs').next().hide();
+					} else if (!loading && role != 'admin' && Files.role != role) {
 						Files.role = $(this).data('role');
 						if ($.inArray('checkbox', Files.plugins) == -1) {
 							Files.plugins.push('checkbox');
 						}
+						refresh = true;
+						$(this).closest('.nav-tabs').next().show();
 					}
 
-					Files.disable();
-					jstree.destroy(true);
-					Files.init_jstree();
+					if (refresh) {
+						Files.disable();
+						jstree.destroy(true);
+						Files.init_jstree();
+
+						$(this).closest('.nav-tabs').children('.active').removeClass('active');
+						$(this).parent().addClass('active');
+					}
 				}
 				return false;
 			});

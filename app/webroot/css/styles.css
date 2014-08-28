@@ -8,7 +8,7 @@ h1 .label, h2 .label, h3 .label {
 }
 
 .navbar.navbar-default {
-	background-color: #EE7814;
+	background-color: #E27814;
 	color: #fff;
 }
 
@@ -16,6 +16,16 @@ h1 .label, h2 .label, h3 .label {
 .navbar a.navbar-brand,
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
+}
+
+a {
+	color: #E27814;
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: #000;
 }
 
 .navbar a.navbar-brand {
@@ -45,4 +55,28 @@ h1 .label, h2 .label, h3 .label {
 
 .jstree-default-large .jstree-icon {
 	font-size: 20px;
+}
+
+.save-tree-options-wrapper {
+	display: none;
+	margin: 10px 0;
+}
+
+.btn-primary {
+	background-color: #E27814;
+	border-color: #333;
+}
+
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active {
+	background-color: #333;
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	color: #fff;
+	background-color: #333;
 }
