@@ -52,7 +52,7 @@
 							disabled: jstree.is_checked(items[i]) ? 0 : 1
 						};
 					}
-console.log(item_values);
+
 					Files.request('save_role_setting', {
 						items: item_values,
 						role: Files.role
@@ -274,7 +274,6 @@ console.log(item_values);
 				}
 			},
 			checkbox : {
-				three_state : false,
 				keep_selected_style : false
 			},
 			plugins : Files.plugins
