@@ -513,7 +513,8 @@ class ProjectAclComponent extends Component {
 		$aro_alias = $this->generateProjectRoleAlias($this->projectId, $role['Role']['id']);
 
 		foreach ($items as $aco_path => $item) {
-			if (intval($item['disabled'])) {
+			$deny = intval($item['disabled']);
+			if ($deny) {
 				$this->Acl->deny($aro_alias, $aco_path, $permission);
 			} else {
 				$this->Acl->allow($aro_alias, $aco_path, $permission);

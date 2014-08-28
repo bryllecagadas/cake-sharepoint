@@ -274,7 +274,9 @@
 				}
 			},
 			checkbox : {
-				keep_selected_style : false
+				keep_selected_style : false,
+				three_state: false,
+				cascade: 'down'
 			},
 			plugins : Files.plugins
 		})
