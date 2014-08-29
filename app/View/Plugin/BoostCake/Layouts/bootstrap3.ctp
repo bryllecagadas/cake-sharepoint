@@ -52,18 +52,22 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<?php if($auth_user) : ?>
 					<ul class="nav navbar-nav">
-						<li class='<?php echo $this->params['controller'] == 'projects' ? 'active' : ''; ?>'>
-							<?php echo $this->Html->link('Projects', array(
-								'controller' => 'projects',
-								'action' => 'index'
-							)); ?>
-						</li>
-						<li class='<?php echo $this->params['controller'] == 'users' && empty($current_user) ? 'active' : ''; ?>'>
-							<?php echo $this->Html->link('Users', array(
-								'controller' => 'users',
-								'action' => 'index'
-							)); ?>
-						</li>
+						<?php if ($menu['projects']) : ?>
+							<li class='<?php echo $this->params['controller'] == 'projects' ? 'active' : ''; ?>'>
+								<?php echo $this->Html->link('Projects', array(
+									'controller' => 'projects',
+									'action' => 'index'
+								)); ?>
+							</li>
+						<?php endif; ?>
+						<?php if ($menu['users']) : ?>
+							<li class='<?php echo $this->params['controller'] == 'users' && empty($current_user) ? 'active' : ''; ?>'>
+								<?php echo $this->Html->link('Users', array(
+									'controller' => 'users',
+									'action' => 'index'
+								)); ?>
+							</li>
+						<?php endif; ?>
 					</ul>
 				<?php endif; ?>
 				
@@ -72,7 +76,9 @@
 						<li class='<?php echo !empty($current_user) ? 'active' : ''; ?> '><?php echo $this->Html->link($auth_user['username'], "/users/edit/" . $auth_user['id']); ?></li>
 	        	<li><?php echo $this->Html->link('Logout', "/users/logout"); ?></li>
 	        <?php else : ?>
-	        	<li><?php echo $this->Html->link('Login', "/users/login"); ?></li>
+	        	<li class='<?php echo $this->params['controller'] == 'users' && $this->params['action'] == 'login' ? 'active' : ''; ?>'>
+	        		<?php echo $this->Html->link('Login', "/users/login"); ?>
+	        	</li>
 	       	<?php endif; ?>
 	      </ul>
 			</div>

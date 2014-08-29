@@ -40,11 +40,20 @@ class AppController extends Controller {
 					'adminOnly' => array()
 				),
 			),
+			'flash' => array(
+				'element' => 'alert',
+				'key' => 'auth',
+				'params' => array(
+					'plugin' => 'BoostCake',
+					'class' => 'alert-danger'
+				)
+			),
 			'loginRedirect' => array(
 				'controller' => 'projects',
 				'action' => 'index',
 			),
 		),
+		'CommonAuth',
 		'ProjectAcl',
 		'RequestHandler',
 		'Session',
@@ -80,6 +89,20 @@ class AppController extends Controller {
 			$this->autoRender = false;
 		}
 		$this->set(array('auth_user' => $this->Auth->user()));
+	}
+
+	public function beforeRender() {
+		parent::beforeRender();
+
+		foreach (array('projects', 'users') as $controller) {
+			$args = array(
+				'controller' => $controller,
+				'action' => 'index',
+			);
+			$menu[$controller] = $this->CommonAuth->isAuthorized(null, $args);
+		}
+
+		$this->set(compact('menu'));
 	}
 
 	public function verify($model, $id, $hashed = false) {

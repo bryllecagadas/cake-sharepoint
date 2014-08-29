@@ -2,20 +2,22 @@
 	<?php echo $project['Project']['name']; ?> Project 
 	<span class='label label-default'>Users</span>
 </h2>
-<div class='action-buttons'>
-	<?php 
-		echo $this->Html->link(
-			'<span class="glyphicon glyphicon-plus"></span> Add User', 
-			array(
-				'controller' => 'projects',
-				'action' => 'add_user',
-				$project['Project']['id']
-			), 
-			array('class' => 'btn btn-primary', 'escapeTitle' => false)
-		); 
-	?>
-	<span class="badge pull-right"><?php echo count($users); ?></span>
-</div>
+<?php if ($add_user) : ?>
+	<div class='action-buttons'>
+		<?php 
+			echo $this->Html->link(
+				'<span class="glyphicon glyphicon-plus"></span> Add User', 
+				array(
+					'controller' => 'projects',
+					'action' => 'add_user',
+					$project['Project']['id']
+				), 
+				array('class' => 'btn btn-primary', 'escapeTitle' => false)
+			); 
+		?>
+		<span class="badge pull-right"><?php echo count($users); ?></span>
+	</div>
+<?php endif; ?>
 <div class="table-responsive">
 	<table class='table table-hover'>
 		<thead>
@@ -25,6 +27,7 @@
 				<th>Email</th>
 				<th>Role</th>
 				<th>Added</th>
+				<th>Modified</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -37,12 +40,25 @@
 					<td><?php echo $user['User']['email']; ?></td>
 					<td><?php echo Inflector::humanize($user['Role']['name']); ?></td>
 					<td><?php echo $user['UserProjectRole']['created']; ?></td>
+					<td><?php echo $user['UserProjectRole']['updated']; ?></td>
 					<td>
-						<?php echo $this->Html->link('Remove', array(
-							'action' => 'remove_user',
-							$user['UserProjectRole']['project_id'],
-							$user['UserProjectRole']['user_id']
-						)); ?>
+						<?php if ($user['edit_user']) : ?>
+							<?php echo $this->Html->link('Edit', array(
+								'action' => 'edit_user',
+								$user['UserProjectRole']['project_id'],
+								$user['UserProjectRole']['user_id']
+							)); ?>
+						<?php endif; ?>
+						<?php if ($user['remove_user']) : ?>
+							<?php if($user['edit_user']) : ?>
+							 | 
+							<?php endif; ?>
+							<?php echo $this->Html->link('Remove', array(
+								'action' => 'remove_user',
+								$user['UserProjectRole']['project_id'],
+								$user['UserProjectRole']['user_id']
+							)); ?>
+						<?php endif; ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>

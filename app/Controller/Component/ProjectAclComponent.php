@@ -199,7 +199,7 @@ class ProjectAclComponent extends Component {
 		if (rename($old_dir, $new_dir)) {
 			$node = $this->Acl->Aco->node($old_aco);
 			if ($node) {
-				$node[0]['alias'] = $this->projectDir();
+				$node[0]['Aco']['alias'] = $this->projectDir();
 				$this->Acl->Aco->save($node[0]);
 			}
 		}
@@ -453,6 +453,7 @@ class ProjectAclComponent extends Component {
 				// Normalize path
 				$aco_path = str_replace(WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true), '', $new_parent . DS . $path);
 				$aco_path = $this->acoAlias . '/' . $this->projectDir() . $aco_path;
+				error_log($aco_path);
 				$node = $this->Acl->Aco->node($aco_path);
 
 				if (!$node) {

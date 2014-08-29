@@ -4,7 +4,6 @@ class ProjectsController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->authAdminOnly('add');
 	}
 
 	public function add() {
@@ -15,7 +14,7 @@ class ProjectsController extends AppController {
 					$project = $this->Project->findByid($this->Project->id);
 
 					if (!$this->ProjectAcl->projectInit($project)) {
-						$this->Session->setFlash('Cannot initialize project.');
+						$this->Session->setFlash('Cannot initialize project.', 'default', array('class' => 'alert alert-danger'));
 					}
 
 					$this->redirect(array('action' => 'index'));
@@ -32,17 +31,41 @@ class ProjectsController extends AppController {
  		$this->loadModel('UserProjectRole');
 	
  		if ($this->request->is('post')) {
+ 			$user = $this->User->findByid($this->request->data['UserProjectRole']['user_id']);
  			$this->request->data['UserProjectRole']['project_id'] = $project_id;
  			$this->UserProjectRole->set($this->request->data);
-			if ($this->UserProjectRole->validates()) {
+ 			
+			if ($user && $this->UserProjectRole->validates()) {
 				$this->UserProjectRole->save($this->request->data);
 	
-				$this->Session->setFlash('User was added to the group');
+				$this->Session->setFlash('User was added to the group', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'users', $project_id));
 			}
  		}
  		
- 		$users = $this->User->find('list', array('fields' => 'username'));
+ 		$options = array(
+ 			'fields' => array(
+ 				'user_id',
+			),
+ 			'conditions' => array(
+ 				'project_id' => $project_id
+ 			), 
+ 			'order' => array(
+ 				'role_id' => 'ASC'
+			)
+		);
+
+		$users = array_values($this->UserProjectRole->find('list', $options));
+
+ 		$users = $this->User->find('list', array(
+ 			'fields' => 'username',
+ 			'conditions' => array(
+ 				'NOT' => array(
+ 					'id' => $users,
+				)
+			)
+		));
+
  		$roles = $this->Role->find('list', array('fields' => 'name'));
 		$this->set(compact('users', 'project', 'roles'));
 	}
@@ -157,7 +180,7 @@ class ProjectsController extends AppController {
 					$this->ProjectAcl->modifyName($project, $this->request->data);
 				}
 
-				$this->Session->setFlash('Successfully modified project.');
+				$this->Session->setFlash('Successfully modified project.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			}
 		} else {
@@ -165,6 +188,40 @@ class ProjectsController extends AppController {
 		}
 
 		$this->set(compact('project'));
+	}
+
+	public function edit_user($project_id = 0, $user_id = 0) {
+		$project = $this->verify('Project', $project_id);
+
+		$this->loadModel('User');
+ 		$this->loadModel('Role');
+ 		$this->loadModel('UserProjectRole');
+
+ 		$user_project_role = $this->UserProjectRole->find('first', array(
+ 			'conditions' => array(
+ 				'project_id' => $project_id,
+ 				'user_id' => $user_id,
+			)
+		));
+
+ 		if ($this->request->is('post')) {
+ 			$this->request->data['UserProjectRole']['project_id'] = $project_id;
+ 			$this->UserProjectRole->id = $user_project_role['UserProjectRole']['id'];
+ 			$this->UserProjectRole->set($this->request->data);
+			if ($this->UserProjectRole->validates()) {
+				$this->UserProjectRole->save($this->request->data);
+	
+				$this->Session->setFlash('User role was modified.', 'default', array('class' => 'alert alert-success'));
+				$this->redirect(array('action' => 'users', $project_id));
+			}
+ 		} else {
+ 			$this->request->data = $user_project_role;
+ 		}
+ 		
+ 		$users = $this->User->find('list', array('fields' => 'username'));
+ 		$roles = $this->Role->find('list', array('fields' => 'name'));
+
+		$this->set(compact('users', 'project', 'roles', 'user_project_role'));
 	}
 
 	public function files($project_id = 0) {
@@ -182,6 +239,7 @@ class ProjectsController extends AppController {
 	public function index() {
 		$options = array();
 		$user = $this->Auth->user();
+		$add_project = true;
 
 		if (!$user['admin']) {
 			$this->loadModel('UserProjectRole');
@@ -194,10 +252,27 @@ class ProjectsController extends AppController {
 			foreach ($this->UserProjectRole->roles($user['id']) as $user_project_role) {
 				$options['conditions']['id'][] = $user_project_role['UserProjectRole']['project_id'];
 			}
+
+			$add_project = false;
 		}
 
-		$projects = $this->Project->find('all', $options);
-		$this->set(compact('projects'));		
+		$projects = array();
+
+		foreach ($this->Project->find('all', $options) as $project) {
+			$links = array();
+			$this->ProjectAcl->setProject($project);
+			foreach (array('edit', 'users') as $action) {
+				$args = array(
+					'controller' => 'projects',
+					'action' => $action,
+					'pass' => array($project['Project']['id'])
+				);
+				$links[$action . '_action'] = $this->CommonAuth->isAuthorized(null, $args);
+			}
+			$projects[] = $project + $links;
+		}
+
+		$this->set(compact('projects', 'add_project'));		
 	}
 
 	public function remove_user($project_id, $user_id) {
@@ -212,7 +287,7 @@ class ProjectsController extends AppController {
 		));
 
 		if ($user_project_role && $this->UserProjectRole->delete($user_project_role['UserProjectRole']['id'])) {
-			$this->Session->setFlash('Successfully removed the user.');
+			$this->Session->setFlash('Successfully removed the user.', 'default', array('class' => 'alert alert-success'));
 		}
 
 		$this->redirect(array(
@@ -225,15 +300,42 @@ class ProjectsController extends AppController {
  		$project = $this->verify('Project', $project_id);
  		$this->loadModel('UserProjectRole');
 
- 		$users = $this->UserProjectRole->find('all', array(
+ 		$users = array();
+ 		$options = array(
  			'conditions' => array(
  				'project_id' => $project_id
  			), 
  			'order' => array(
  				'role_id' => 'ASC'
 			)
-		));
+		);
 
- 		$this->set(compact('users', 'project'));
+ 		foreach ($this->UserProjectRole->find('all', $options) as $user_project_role) {
+ 			$actions = array();
+ 			foreach (array('remove_user', 'edit_user') as $action) {
+	 			$args = array(
+					'controller' => 'projects',
+					'action' => $action,
+					'pass' => array(
+						$user_project_role['UserProjectRole']['project_id'],
+						$user_project_role['UserProjectRole']['user_id']
+					)
+				);
+
+	 			$actions[$action] = $this->CommonAuth->isAuthorized(null, $args);
+			}
+
+			$users[] = $user_project_role + $actions;
+ 		}
+
+		$args = array(
+			'controller' => 'projects',
+			'action' => 'add_user',
+			'pass' => array($project['Project']['id'])
+		);
+
+		$add_user = $this->CommonAuth->isAuthorized(null, $args);
+
+ 		$this->set(compact('users', 'project', 'add_user'));
 	}
 }

@@ -3,7 +3,6 @@
 class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->authAdminOnly('add', 'index');
 		$this->Auth->allow('login', 'logout');
 	}
 
@@ -14,10 +13,10 @@ class UsersController extends AppController {
 				$this->User->create();
 				unset($this->request->data['User']['password2']);
 				if ($this->User->save($this->request->data)) {
-					$this->Session->setFlash('User has been saved');
+					$this->Session->setFlash('User has been saved', 'default', array('class' => 'alert alert-success'));
 					$this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash('There was an issue saving the user.');
+					$this->Session->setFlash('There was an issue saving the user.', 'default', array('class' => 'alert alert-danger'));
 				}
 			}
 		}
@@ -32,10 +31,10 @@ class UsersController extends AppController {
 			if ($this->User->validates()) {
 				unset($this->request->data['User']['password2']);
 				if ($this->User->save($this->request->data)) {
-					$this->Session->setFlash('User has been saved');
+					$this->Session->setFlash('User has been saved', 'default', array('class' => 'alert alert-success'));
 					$this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash('There was an issue saving the user.');
+					$this->Session->setFlash('There was an issue saving the user.', 'default', array('class' => 'alert alert-danger'));
 				}
 			}
 		} else {

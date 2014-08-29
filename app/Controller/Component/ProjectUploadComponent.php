@@ -4,10 +4,8 @@ App::uses('File', 'Utility');
 App::uses('Folder', 'Utility');
 
 class ProjectUploadComponent extends Component {
-	// CakeRequest
 	public $request;
 
-	// CakeResponse
 	public $response;
 
 	public function delete() {

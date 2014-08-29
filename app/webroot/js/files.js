@@ -129,10 +129,10 @@
 						}
 					}
 
-					dom = jstree.get_node(items[i], true)
-						.children('.jstree-anchor')
-						.children('.jstree-checkbox')
-						.addClass('glyphicon glyphicon-unchecked');
+					// dom = jstree.get_node(items[i], true)
+					// 	.children('.jstree-anchor')
+					// 	.children('.jstree-checkbox')
+					// 	.addClass('glyphicon glyphicon-unchecked');
 
 					if (uncheck) {
 						jstree.uncheck_node(items[i]);
@@ -327,14 +327,16 @@
 					inst.open_node(data.node);
 				}
 			} else {
-				Files.request('download_token', {
-					id: data.node.id
-				}, data, function(response, data) {
-					if (typeof response.token != 'undefined') {
-						var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
-						window.location.href = url;
-					}
-				});
+				if ($.inArray('checkbox', Files.plugins) == -1) {
+					Files.request('download_token', {
+						id: data.node.id
+					}, data, function(response, data) {
+						if (typeof response.token != 'undefined') {
+							var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
+							window.location.href = url;
+						}
+					});
+				}
 			}
 		})
 		.on('delete_node.jstree', function (e, data) {
