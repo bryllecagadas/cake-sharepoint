@@ -535,9 +535,13 @@ class ProjectAclComponent extends Component {
 		foreach ($items as $aco_path => $item) {
 			$deny = intval($item['disabled']);
 			if ($deny) {
-				$this->Acl->deny($aro_alias, $aco_path, $permission);
+				if ($this->Acl->check($aro_alias, $aco_path, $permission)) {
+					$this->Acl->deny($aro_alias, $aco_path, $permission);
+				}
 			} else {
-				$this->Acl->allow($aro_alias, $aco_path, $permission);
+				if (!$this->Acl->check($aro_alias, $aco_path, $permission)) {
+					$this->Acl->allow($aro_alias, $aco_path, $permission);
+				}
 			}
 		}
 	}

@@ -320,14 +320,14 @@
 			Files.set_destination(data.node);
 			var inst = data.instance;
 
-			if (data.node.type == 'folder') {
-				if (inst.is_open(data.node)) {
-					inst.close_node(data.node);
+			if ($.inArray('checkbox', Files.plugins) == -1) {
+				if (data.node.type == 'folder') {
+					if (inst.is_open(data.node)) {
+						inst.close_node(data.node);
+					} else {
+						inst.open_node(data.node);
+					}
 				} else {
-					inst.open_node(data.node);
-				}
-			} else {
-				if ($.inArray('checkbox', Files.plugins) == -1) {
 					Files.request('download_token', {
 						id: data.node.id
 					}, data, function(response, data) {
