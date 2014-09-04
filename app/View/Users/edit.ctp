@@ -13,7 +13,9 @@
 		<?php echo $this->Form->input('email'); ?>
 		<?php echo $this->Form->input('password', array('type' => 'password')); ?>
 		<?php echo $this->Form->input('password2', array('type' => 'password')); ?>
-		<?php echo $this->Form->input('admin', array('type' => 'checkbox', 'label' => 'Administrator', 'class' => false)); ?>
+		<?php if ($auth_user['admin']) : ?>
+			<?php echo $this->Form->input('admin', array('type' => 'checkbox', 'label' => 'Administrator', 'class' => false)); ?>
+		<?php endif; ?>
 		<?php echo $this->Form->submit('Save', array(
 			'div' => 'form-group',
 			'class' => 'btn btn-default'

@@ -26,12 +26,18 @@ class UsersController extends AppController {
 
 	public function edit($user_id = 0) {
 		$user = $this->verify('User', $user_id);
+		$auth_user = $this->Auth->user();
 
 		if ($this->request->is('post')) {
 			$this->User->set($this->request->data);
 			$this->User->id = $user_id;
 			if ($this->User->validates()) {
 				unset($this->request->data['User']['password2']);
+				
+				if (!$auth_user['admin']) {
+					unset($this->request->data['User']['admin']);
+				}
+
 				if ($this->User->save($this->request->data)) {
 					$this->LogHandler->log('User', 'User has been modified.', array('user_id' => $this->User->id));
 					$this->Session->setFlash('User has been saved', 'default', array('class' => 'alert alert-success'));
@@ -45,9 +51,7 @@ class UsersController extends AppController {
 			$this->request->data = $user;
 		}
 
-		$auth_user = $this->Auth->user();
 		$current_user = $user['User']['id'] == $auth_user['id'];
-
 		$this->set(compact('user', 'current_user'));
 	}
 
