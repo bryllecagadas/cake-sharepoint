@@ -15,7 +15,7 @@
 	
 	Files.permissions = {};
 
-	Files.plugins = ['types', 'contextmenu', 'wholerow'];
+	Files.plugins = ['types', 'contextmenu', 'wholerow', 'grid'];
 	Files.defaultPlugins = Files.plugins.slice(0);
 
 	Files.disable = function() {
@@ -46,9 +46,11 @@
 				if ($.inArray('checkbox', jstree.settings.plugins) !== -1) { 
 					var items = jstree.get_node('#').children_d.slice();
 					var item_values = {};
+					var node;
 
 					for (var i in items) {
-						item_values[items[i]] = {
+						node = jstree.get_node(items[i]);
+						item_values[Files.get_path(node)] = {
 							disabled: jstree.is_checked(items[i]) ? 0 : 1
 						};
 					}
@@ -56,6 +58,8 @@
 					Files.request('save_role_setting', {
 						items: item_values,
 						role: Files.role
+					}, {}, function() {
+						Files.jstree.data('jstree').refresh();
 					});
 				}
 			}
@@ -97,7 +101,7 @@
 	};
 
 	Files.set_destination = function(node) {
-		var destination = node.id;
+		var destination = node.data.path;
 
 		if (node.type != 'folder') {
 			destination = node.parent;
@@ -110,6 +114,43 @@
 		$('.destination').html(filter(destination));
 	};
 
+	Files.get_path = function(node) {
+		if (typeof node.data === 'undefined') {
+			return node.id;
+		}
+		return node.data.path;
+	};
+
+	Files.refresh_parent = function(node) {
+		var instance = Files.jstree.data('jstree');
+		if (node.parent == '#') {
+			instance.refresh();
+		} else {
+			instance.refresh_node(node.parent);
+		}
+		instance.redraw_node(node);
+	};
+
+	Files.set_check_status = function(items) {
+		var jstree = Files.jstree.data('jstree');
+		for (var i in items) {
+			var node = jstree.get_node(items[i]);
+			var uncheck = false;
+			if (typeof node.original != 'undefined') {
+				var original = node.original;
+				if (typeof original.disabled != 'undefined' && original.disabled) {
+					uncheck = true;
+				}
+			}
+
+			if (uncheck) {
+				jstree.uncheck_node(items[i]);
+			} else {
+				jstree.check_node(items[i]);
+			}
+		}
+	};
+
 	Files.init_jstree = function() {
 		Files.jstree = $('#tree').on('ready.jstree', function (e, data) {
 			var jstree = Files.jstree.data('jstree');
@@ -118,29 +159,7 @@
 
 			if ($.inArray('checkbox', jstree.settings.plugins) !== -1) {
 				jstree.check_node('#');
-
-				for (var i in items) {
-					var node = jstree.get_node(items[i]);
-					var uncheck = false;
-					if (typeof node.original != 'undefined') {
-						var original = node.original;
-						if (typeof original.disabled != 'undefined' && original.disabled) {
-							uncheck = true;
-						}
-					}
-
-					// dom = jstree.get_node(items[i], true)
-					// 	.children('.jstree-anchor')
-					// 	.children('.jstree-checkbox')
-					// 	.addClass('glyphicon glyphicon-unchecked');
-
-					if (uncheck) {
-						jstree.uncheck_node(items[i]);
-					} else {
-						jstree.check_node(items[i]);
-					}
-				}
-
+				Files.set_check_status(items);
 				jstree.open_all();
 			}
 
@@ -151,9 +170,10 @@
 				data : {
 					url: Files.url,
 					method: 'POST',
+					dataType: 'json',
 					data: function(node) { 
 						var data = {
-							node_id: node.id,
+							node_id: Files.get_path(node),
 							project_id: Files.secureId
 						};
 
@@ -176,18 +196,18 @@
 			contextmenu : {
 				items : function(node) {
 					var tmp = $.jstree.defaults.contextmenu.items();
-					if (typeof Files.permissions[node.id] == 'undefined') {
+					if (typeof Files.permissions[node.data.path] == 'undefined') {
 						$.ajax({
 							url: Files.permissionsUrl,
 							type: 'POST',
 							data: {
 								project_id: Files.secureId,
-								node_id: node.id,
+								node_id: node.data.path,
 								type: 'contextmenu'
 							},
 							dataType: 'JSON',
 							success: function(response) {
-								Files.permissions[node.id] = response;
+								Files.permissions[node.data.path] = response;
 								Files.jstree.data('jstree').show_contextmenu(node);
 							}
 						});
@@ -210,7 +230,7 @@
 									var inst = $.jstree.reference(data.reference),
 										obj = inst.get_node(data.reference);
 									var name = "New folder";
-									inst.create_node(obj, { id : obj.id + '/' + name, type : "folder", text : name }, "last", function (new_node) {
+									inst.create_node(obj, { data: { path : obj.data.path + '/' + name }, type : "folder", text : name }, "last", function (new_node) {
 										setTimeout(function () { inst.edit(new_node); },0);
 									});
 								}
@@ -227,7 +247,7 @@
 						};
 
 						for (var i in tmp) {
-							if (!Files.permissions[node.id][i]) {
+							if (!Files.permissions[node.data.path][i]) {
 								delete tmp[i];
 							}
 						}
@@ -247,7 +267,7 @@
 									var inst = $.jstree.reference(data.reference);
 									var obj = inst.get_node(data.reference);
 									Files.request('download_token', {
-										id: obj.id
+										id: obj.data.path
 									}, data, function(response, data) {
 										if (typeof response.token != 'undefined') {
 											var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
@@ -256,6 +276,10 @@
 									});
 								}
 							};
+						}
+
+						if ($.isEmptyObject(tmp)) {
+							$.vakata.context.hide();
 						}
 					}
 
@@ -276,7 +300,31 @@
 			checkbox : {
 				keep_selected_style : false,
 				three_state: false,
-				cascade: 'down'
+				cascade: 'down',
+				whole_node: false,
+				tie_selection: false
+			},
+			grid: {
+				columns: [
+					{
+						width: 50,
+						header: 'File'
+					},
+					{
+						width: 20,
+						header: 'Modified',
+						value: function (node) {
+							return node.created;
+						}
+					},
+					{
+						width: 20,
+						header: 'Modified by',
+						value: function (node) {
+							return node.modified;
+						}
+					}
+				]
 			},
 			plugins : Files.plugins
 		})
@@ -299,81 +347,79 @@
 				.addClass('glyphicon-folder-close');
 		})
 		.on('select_node.jstree', function (e, data) {
-			// var inst = data.instance;
-			// var dom = inst.get_node(data.node, true);
-			// dom
-			// 	.children('.jstree-anchor')
-			// 	.children('.jstree-checkbox')
-			// 	.removeClass('glyphicon-unchecked')
-			// 	.addClass('glyphicon glyphicon-check');
-		})
-		.on('deselect_node.jstree', function (e, data) {
-			// var inst = data.instance;
-			// var dom = inst.get_node(data.node, true);
-			// dom2
-			// 	.children('.jstree-anchor')
-			// 	.children('.jstree-checkbox')
-			// 	.removeClass('glyphicon-check')
-			// 	.addClass('glyphicon glyphicon-unchecked');
-		})
-		.on('changed.jstree', function (e, data) {
 			Files.set_destination(data.node);
 			var inst = data.instance;
-
-			if ($.inArray('checkbox', Files.plugins) == -1) {
-				if (data.node.type == 'folder') {
-					if (inst.is_open(data.node)) {
-						inst.close_node(data.node);
-					} else {
-						inst.open_node(data.node);
-					}
+			if (data.node.type == 'folder') {
+				if (inst.is_open(data.node)) {
+					inst.close_node(data.node);
 				} else {
-					Files.request('download_token', {
-						id: data.node.id
-					}, data, function(response, data) {
-						if (typeof response.token != 'undefined') {
-							var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
-							window.location.href = url;
-						}
-					});
+					inst.open_node(data.node);
 				}
+			} else {
+				Files.request('download_token', {
+					id: data.node.data.path
+				}, data, function(response, data) {
+					if (typeof response.token != 'undefined') {
+						var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
+						window.location.href = url;
+					}
+				});
 			}
+		})
+		.on('deselect_node.jstree', function (e, data) {
+		})
+		.on('changed.jstree', function (e, data) {
 		})
 		.on('delete_node.jstree', function (e, data) {
 			Files.request('delete', {
-				id: data.node.id
-			}, data);
+				id: data.node.data.path
+			}, data, function(response, data) {
+				data.instance.refresh_node(data.instance.get_node(data.node.parent));
+				Files.refresh_parent(data.node);
+			});
 		})
 		.on('create_node.jstree', function (e, data) {
+			var inst = data.instance;
 			Files.request('create', {
 				path: data.node.text,
-				parent: data.node.parent,
+				parent: Files.get_path(inst.get_node(data.node.parent)),
 				node: data.node
 			}, data);
 		})
 		.on('rename_node.jstree', function (e, data) {
+			var inst = data.instance;
 			Files.request('rename', {
-				id: data.node.id,
+				id: data.node.data.path,
 				new_name: data.text,
 				old_name: data.old,
-				parent: data.node.parent
+				parent: Files.get_path(inst.get_node(data.node.parent))
 			}, data, function(response, data) {
 				var inst = data.instance;
 				inst.refresh_node(data.node.parent);
 			});
 		})
 		.on('move_node.jstree', function (e, data) {
+			var inst = data.instance;
+			var parents = [];
+			var node;
+
+			for (var i in data.node.parents) {
+				node = inst.get_node(data.node.parents[i]);
+				parents.push(Files.get_path(node));
+			}
+
 			Files.request('move', {
-				id: data.node.id,
-				new_parent: data.parent,
-				old_parent: data.old_parent,
-				parents: data.node.parents
+				id: data.node.data.path,
+				new_parent: inst.get_node(data.parent).data.path,
+				old_parent: inst.get_node(data.old_parent).data.path,
+				parents: parents
 			}, data);
 		})
 		.on('copy_node.jstree', function (e, data) {
+			var inst = data.instance;
 			Files.request('copy', {
-				id: data.original.id,
-				new_parent: data.parent
+				id: data.original.data.path,
+				new_parent: inst.get_node(data.parent).data.path
 			}, data);
 		});
 	};
@@ -409,7 +455,7 @@
 					var refresh = false;
 					var loading = jstree.is_loading('#');
 
-					if (!loading && role == 'admin' && typeof Files.role != 'undefined') {
+					if (!loading && (role == 'admin' || !role) && typeof Files.role != 'undefined') {
 						Files.plugins = Files.defaultPlugins.slice(0);
 						delete Files.role;
 						refresh = true;

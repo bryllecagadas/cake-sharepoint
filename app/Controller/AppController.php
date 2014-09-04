@@ -54,6 +54,7 @@ class AppController extends Controller {
 			),
 		),
 		'CommonAuth',
+		'LogHandler',
 		'ProjectAcl',
 		'RequestHandler',
 		'Session',
@@ -87,6 +88,7 @@ class AppController extends Controller {
 			$this->RequestHandler->ext = 'json';
 			$this->layout = null;
 			$this->autoRender = false;
+			$this->response->type('application/json');
 		}
 		$this->set(array('auth_user' => $this->Auth->user()));
 	}
@@ -94,7 +96,7 @@ class AppController extends Controller {
 	public function beforeRender() {
 		parent::beforeRender();
 
-		foreach (array('projects', 'users') as $controller) {
+		foreach (array('projects', 'users', 'logs') as $controller) {
 			$args = array(
 				'controller' => $controller,
 				'action' => 'index',

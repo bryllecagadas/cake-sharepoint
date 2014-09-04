@@ -1,6 +1,7 @@
 <?php
 
 class UsersController extends AppController {
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('login', 'logout');
@@ -13,6 +14,7 @@ class UsersController extends AppController {
 				$this->User->create();
 				unset($this->request->data['User']['password2']);
 				if ($this->User->save($this->request->data)) {
+					$this->LogHandler->log('User', 'User has been added.', array('user_id' => $this->User->id));
 					$this->Session->setFlash('User has been saved', 'default', array('class' => 'alert alert-success'));
 					$this->redirect(array('action' => 'index'));
 				} else {
@@ -31,6 +33,7 @@ class UsersController extends AppController {
 			if ($this->User->validates()) {
 				unset($this->request->data['User']['password2']);
 				if ($this->User->save($this->request->data)) {
+					$this->LogHandler->log('User', 'User has been modified.', array('user_id' => $this->User->id));
 					$this->Session->setFlash('User has been saved', 'default', array('class' => 'alert alert-success'));
 					$this->redirect(array('action' => 'index'));
 				} else {
@@ -70,9 +73,5 @@ class UsersController extends AppController {
 
 	public function logout() {
 		$this->redirect($this->Auth->logout());
-	}
-
-	public function view() {
-
 	}
 }

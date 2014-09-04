@@ -80,3 +80,11 @@ a:focus {
 	color: #fff;
 	background-color: #333;
 }
+
+.hover-item {
+	display: none;
+}
+
+.filetree-container .jstree-grid-cell {
+	padding-left: 0;
+}

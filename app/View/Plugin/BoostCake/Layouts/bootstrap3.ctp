@@ -68,6 +68,14 @@
 								)); ?>
 							</li>
 						<?php endif; ?>
+						<?php if ($menu['logs']) : ?>
+							<li class='<?php echo $this->params['controller'] == 'logs' ? 'active' : ''; ?>'>
+								<?php echo $this->Html->link('Logs', array(
+									'controller' => 'logs',
+									'action' => 'index'
+								)); ?>
+							</li>
+						<?php endif; ?>
 					</ul>
 				<?php endif; ?>
 				

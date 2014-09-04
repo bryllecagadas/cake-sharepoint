@@ -1,5 +1,6 @@
 <?php
 	$this->Html->script('jstree', array('inline' => false));
+	$this->Html->script('jstreegrid', array('inline' => false));
 	$this->Html->css('/jstree-themes/default/style.min', array('inline' => false));
 	$url = Router::url(array(
 		'controller' => 'projects',
@@ -65,8 +66,13 @@
 <h2><?php echo $project['Project']['name']; ?> Project <span class='label label-default'>Files</span></h2>
 <?php if ($has_permission) : ?>
 	<ul class="nav nav-tabs role-switcher" role="tablist">
-	  <li class="active"><a href="#" class='role' data-role='admin'>Admin</a></li>
+		<?php if ($auth_user['admin']) : ?>
+	  	<li class="active"><a href="#" class='role' data-role='admin'>Admin</a></li>
+	  <?php endif; ?>
 	  <?php foreach ($roles as $name => $role) : ?>
+	  	<?php if ($name == 'project_manager' && in_array($name, $user_roles)) : ?>
+	  		<?php continue; ?>
+	  	<?php endif; ?>
 			<li>
 				<?php echo $this->Html->link(Inflector::humanize($name), $this->here, array('data-role' => $name, 'class' => 'role')); ?>
 			</li>
@@ -76,7 +82,9 @@
 		<?php echo $this->Html->link('Save', $this->here, array('class' => 'save-tree-options btn btn-primary')); ?>
 	</div>
 <?php endif; ?>
-<div id='tree'></div>
+<div class='filetree-container'>
+	<div id='tree'></div>
+</div>
 <?php if ($has_permission) : ?>
 	<div class='file-upload-wrapper'>
 		<h3>

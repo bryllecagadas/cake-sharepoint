@@ -11,6 +11,7 @@ class ProjectsController extends AppController {
 			$this->Project->set($this->request->data);
 			if ($this->Project->validates()) {
 				if ($this->Project->save($this->request->data)) {
+					$this->LogHandler->log('Project', 'Project has been modified.', array('project_id' => $this->Project->id));
 					$project = $this->Project->findByid($this->Project->id);
 
 					if (!$this->ProjectAcl->projectInit($project)) {
@@ -37,7 +38,12 @@ class ProjectsController extends AppController {
  			
 			if ($user && $this->UserProjectRole->validates()) {
 				$this->UserProjectRole->save($this->request->data);
-	
+
+				$this->LogHandler->log('Project', 'User was added to the project.', array(
+					'project_id' => $this->request->data['UserProjectRole']['project_id'], 
+					'user_id' => $this->request->data['UserProjectRole']['user_id'],
+					'role_id' => $this->request->data['UserProjectRole']['role_id'],
+				));
 				$this->Session->setFlash('User was added to the group', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'users', $project_id));
 			}
@@ -67,6 +73,11 @@ class ProjectsController extends AppController {
 		));
 
  		$roles = $this->Role->find('list', array('fields' => 'name'));
+
+ 		foreach($roles as &$role) {
+ 			$role = Inflector::humanize($role);
+ 		}
+ 		
 		$this->set(compact('users', 'project', 'roles'));
 	}
 
@@ -180,6 +191,7 @@ class ProjectsController extends AppController {
 					$this->ProjectAcl->modifyName($project, $this->request->data);
 				}
 
+				$this->LogHandler->log('Project', 'Project was modified.', array('project_id' => $project_id));
 				$this->Session->setFlash('Successfully modified project.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			}
@@ -211,6 +223,12 @@ class ProjectsController extends AppController {
 			if ($this->UserProjectRole->validates()) {
 				$this->UserProjectRole->save($this->request->data);
 	
+				$this->LogHandler->log('Project', 'User role was modified.', array(
+					'project_id' => $project_id,
+					'user_id' => $user_id,
+					'old_role' => $user_project_role['UserProjectRole']['project_id'],
+					'new_role' => $this->request->data['UserProjectRole']['project_id'],
+				));
 				$this->Session->setFlash('User role was modified.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'users', $project_id));
 			}
@@ -220,6 +238,10 @@ class ProjectsController extends AppController {
  		
  		$users = $this->User->find('list', array('fields' => 'username'));
  		$roles = $this->Role->find('list', array('fields' => 'name'));
+
+ 		foreach($roles as &$role) {
+ 			$role = Inflector::humanize($role);
+ 		}
 
 		$this->set(compact('users', 'project', 'roles', 'user_project_role'));
 	}
@@ -231,9 +253,10 @@ class ProjectsController extends AppController {
 
 		$roles = $this->ProjectAcl->roles();
 		$has_permission = $this->ProjectAcl->userProjectPermission();
+		$user_roles = array_keys($this->ProjectAcl->userProjectRoles());
 		$aco_alias = $this->ProjectAcl->acoAlias;
 
-		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias'));
+		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias', 'user_roles'));
 	}
 
 	public function index() {
@@ -287,6 +310,10 @@ class ProjectsController extends AppController {
 		));
 
 		if ($user_project_role && $this->UserProjectRole->delete($user_project_role['UserProjectRole']['id'])) {
+			$this->LogHandler->log('Project', 'User was removed.', array(
+				'project_id' => $project_id,
+				'user_id' => $user_id,
+			));
 			$this->Session->setFlash('Successfully removed the user.', 'default', array('class' => 'alert alert-success'));
 		}
 

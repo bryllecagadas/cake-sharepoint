@@ -23,7 +23,7 @@ class CustomAuthorize extends BaseAuthorize {
 				return 
 					in_array('project_manager', $context['roles']) || 
 					(isset($context['project_user']) && $context['project_user']['User']['id'] == $user['id']);
-			} else if ($context['action'] == 'edit_user') {
+			} else if (in_array($context['action'], array('edit_user', 'users'))) {
 				return in_array('project_manager', $context['roles']);
 			} else {
 				return (bool) $context['roles'];
