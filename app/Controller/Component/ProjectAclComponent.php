@@ -20,8 +20,8 @@ class ProjectAclComponent extends Component {
 
 	public $permissionDefaults = array(
 		'project_manager' => '*',
-		'consultant' => '',
-		'client' => '',
+		'consultant' => 'read',
+		'client' => 'read',
 	);
 
 	public $projectModel = 'Project';
@@ -85,7 +85,7 @@ class ProjectAclComponent extends Component {
 				);
 
 				foreach ($actions as $menuitem => $action) {
-					$return[$menuitem] = $this->isRootPath($data['node_id']) ? false : $this->userAccess($path, $action);
+					$return[$menuitem] = $this->userAccess($path, $action);
 				}
 
 				break;
@@ -102,9 +102,10 @@ class ProjectAclComponent extends Component {
 			$aro_alias = $this->generateProjectRoleAlias($this->projectId, $role['Role']['id']);
 			$this->aroCreate($aro_alias);
 			$permission = isset($this->permissionDefaults[$name]) ? $this->permissionDefaults[$name] : '';
-
-			if ($permission) {
+			if ($permission && $this->isRootPath($aco_path)) {
 				$this->Acl->allow($aro_alias, $aco_path, $permission);
+			} else {
+				$this->Acl->deny($aro_alias, $aco_path, $permission);
 			}
 		}
 	}
@@ -528,6 +529,8 @@ class ProjectAclComponent extends Component {
 				}
 
 				$stat = stat($new_parent . DS . $path);
+				$FileInfo = ClassRegistry::init('FileInfo');
+				$file_info = $FileInfo->findByaco_id($node[0]['Aco']['id']);
 
 				$item = array(
 					'children' => false,
@@ -536,6 +539,8 @@ class ProjectAclComponent extends Component {
 						'path' => $aco_path,
 						'created' => date('d/m/Y h:i A', $stat['ctime']),
 						'modified' => date('d/m/Y h:i A', $stat['mtime']),
+						'db_created' => $file_info ? date('d/m/Y h:i A', strtotime($file_info['FileInfo']['created'])) : '',
+						'db_user' => $file_info && isset($file_info['User']) ? $file_info['User']['username'] : ''
 					),
 					'type' => $type,
 				);
@@ -622,7 +627,7 @@ class ProjectAclComponent extends Component {
 				continue;
 			}
 			
-			if ($deny) {
+			if ($deny && !$this->isRootPath($aco_path)) {
 				if ($this->Acl->check($aro_alias, $aco_path, $permission)) {
 					$this->Acl->deny($aro_alias, $aco_path, $permission);
 				}
@@ -646,18 +651,11 @@ class ProjectAclComponent extends Component {
 	}
 
 	public function uploadFiles($request, &$response) {
-
 		$has_permission = $this->userProjectPermission();
-
 		$response = null;
+		$user = $this->Auth->user();
 
 		if ($has_permission) {
-
-			$script_url = Router::url(array(
-				'controller' => 'projects',
-				'action' => 'file_upload',
-				'ajax' => TRUE,
-			));
 
 			if ($upload_dir = $request->data('destination')) {
 				$upload_dir = WWW_ROOT . $this->preparePath($upload_dir) . DS;
@@ -676,6 +674,44 @@ class ProjectAclComponent extends Component {
 					'project_id' => $this->projectId,
 					'files' => $response['files']
 				));
+
+				foreach ($response['files'] as $file) {
+					if (!empty($file->error)) {
+						continue;
+					}
+
+					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($upload_dir, true, true)) . $file->name;
+					$node = $this->Acl->Aco->node($aco_path);
+
+					if (!$node) {
+						if ($this->acoCreate($aco_path)) {
+							$node = $this->Acl->Aco->node($aco_path);
+							$this->defaultPermissions($aco_path);
+							$FileInfo = ClassRegistry::init('FileInfo');
+							$FileInfo->save(array(
+								'user_id' => $user['id'],
+								'aco_id' => $node[0]['Aco']['id']
+							));
+						}
+					}
+
+					$file->url = $aco_path;
+
+					$file->deleteUrl = Router::url(array(
+						'controller' => 'projects',
+						'action' => 'files',
+						'ajax' => true,
+					));
+
+					$file->data = http_build_query(array(
+						'project_id' => $this->secureProjectId,
+						'id' => $aco_path,
+						'action' => 'delete',
+						'source' => 'fileupload',
+					));
+
+					$file->deleteType = 'POST';
+				}
 			}
 		}
 
@@ -779,7 +815,7 @@ class ProjectAclComponent extends Component {
 
 		foreach ($UserProjectRole->find('all', $options) as $role) {
 			$role_id = $role['UserProjectRole']['role_id'];
-			$user_roles[] = $roles[$role_id]['Role']['name'];
+			$user_roles[] = $roles[$role_id]['Role']['title'];
 		}
 
 		return $user_roles;

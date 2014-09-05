@@ -59,7 +59,9 @@
 						items: item_values,
 						role: Files.role
 					}, {}, function() {
-						Files.jstree.data('jstree').refresh();
+						Files.disable();
+						jstree.destroy(true);
+						Files.init_jstree();
 					});
 				}
 			}
@@ -91,23 +93,31 @@
 					}
 				];
 			}
-		}).bind('fileuploaddone', function(e, data) {
+		})
+		.on('fileuploaddone', function(e, data) {
 			var jstree = Files.jstree.data('jstree');
 			var node;
-			if (Files.selected && (node = jstree.get_node(Files.selected))) {
+			
+			if (Files.selectedId && (node = jstree.get_node(Files.selectedId))) {
 				jstree.refresh_node(node);
 			}
+		})
+		.on('fileuploaddestroy', function(e, data) {
+			console.log(data);
 		});
 	};
 
 	Files.set_destination = function(node) {
 		var destination = node.data.path;
-
+		Files.selectedId = node.id;
 		if (node.type != 'folder') {
-			destination = node.parent;
+			var parent = Files.jstree.data('jstree').get_node(node.parent);
+			destination = Files.get_path(parent);
+			Files.selectedId = parent.id;
 		}
 
 		Files.selected = destination;
+		
 		var filter = function(destination) {
 			return destination.substr(Files.acoAlias.length + 1);
 		};
@@ -127,6 +137,8 @@
 			instance.refresh();
 		} else {
 			instance.refresh_node(node.parent);
+			var target = instance.get_node(node || "#", true);
+			instance._prepare_grid(target);
 		}
 		instance.redraw_node(node);
 	};
@@ -150,6 +162,17 @@
 			}
 		}
 	};
+
+	Files.download = function(node) {
+		Files.request('download_token', {
+			id: node.data.path
+		}, {}, function(response) {
+			if (typeof response.token != 'undefined') {
+				var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
+				window.location.href = url;
+			}
+		});
+	}
 
 	Files.init_jstree = function() {
 		Files.jstree = $('#tree').on('ready.jstree', function (e, data) {
@@ -194,6 +217,7 @@
 				return this.get_type(a) === this.get_type(b) ? (this.get_text(a) > this.get_text(b) ? 1 : -1) : (this.get_type(a) >= this.get_type(b) ? 1 : -1);
 			},
 			contextmenu : {
+				select_node: false,
 				items : function(node) {
 					var tmp = $.jstree.defaults.contextmenu.items();
 					if (typeof Files.permissions[node.data.path] == 'undefined') {
@@ -266,14 +290,7 @@
 								action: function(data) {
 									var inst = $.jstree.reference(data.reference);
 									var obj = inst.get_node(data.reference);
-									Files.request('download_token', {
-										id: obj.data.path
-									}, data, function(response, data) {
-										if (typeof response.token != 'undefined') {
-											var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
-											window.location.href = url;
-										}
-									});
+									Files.download(obj);
 								}
 							};
 						}
@@ -287,7 +304,7 @@
 				}
 			},
 			types : {
-				default : { 
+				'default' : { 
 					icon : 'glyphicon glyphicon-file' 
 				},
 				file : { 
@@ -314,14 +331,14 @@
 						width: 20,
 						header: 'Modified',
 						value: function (node) {
-							return node.created;
+							return node.db_created ? node.db_created : (node.created ? node.created : '');
 						}
 					},
 					{
 						width: 20,
 						header: 'Modified by',
 						value: function (node) {
-							return node.modified;
+							return node.db_user ? node.db_user : '';
 						}
 					}
 				]
@@ -356,14 +373,7 @@
 					inst.open_node(data.node);
 				}
 			} else {
-				Files.request('download_token', {
-					id: data.node.data.path
-				}, data, function(response, data) {
-					if (typeof response.token != 'undefined') {
-						var url = Files.downloadUrl + '/' + Files.secureId + '/' + response.token
-						window.location.href = url;
-					}
-				});
+				Files.download(data.node);
 			}
 		})
 		.on('deselect_node.jstree', function (e, data) {
@@ -373,10 +383,8 @@
 		.on('delete_node.jstree', function (e, data) {
 			Files.request('delete', {
 				id: data.node.data.path
-			}, data, function(response, data) {
-				data.instance.refresh_node(data.instance.get_node(data.node.parent));
-				Files.refresh_parent(data.node);
-			});
+			}, data);
+			Files.refresh_parent(data.node);
 		})
 		.on('create_node.jstree', function (e, data) {
 			var inst = data.instance;

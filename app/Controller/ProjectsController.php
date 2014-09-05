@@ -72,12 +72,8 @@ class ProjectsController extends AppController {
 			)
 		));
 
- 		$roles = $this->Role->find('list', array('fields' => 'name'));
-
- 		foreach($roles as &$role) {
- 			$role = Inflector::humanize($role);
- 		}
- 		
+ 		$roles = $this->Role->find('list', array('fields' => 'title'));
+		
 		$this->set(compact('users', 'project', 'roles'));
 	}
 

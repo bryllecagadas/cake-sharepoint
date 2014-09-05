@@ -38,7 +38,7 @@
 					<td><?php echo $user['UserProjectRole']['id']; ?></td>
 					<td><?php echo $user['User']['username']; ?></td>
 					<td><?php echo $user['User']['email']; ?></td>
-					<td><?php echo Inflector::humanize($user['Role']['name']); ?></td>
+					<td><?php echo $user['Role']['title']; ?></td>
 					<td><?php echo $user['UserProjectRole']['created']; ?></td>
 					<td><?php echo $user['UserProjectRole']['updated']; ?></td>
 					<td>

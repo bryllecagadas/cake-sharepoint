@@ -190,6 +190,7 @@
 				this._prepare_grid(target);
 			}, this))
 			.on("delete_node.jstree",$.proxy(function (e,data) {
+				this._hide_element_grid(data.node);
 			}, this))
 			.on("close_node.jstree",$.proxy(function (e,data) {
 				this._hide_grid(data.node);
@@ -248,6 +249,10 @@
 				for (i=0;i<ids.length;i++) {
 					this.dataRow.find("."+GRIDCELLID_PREFIX+ids[i]+GRIDCELLID_POSTFIX).removeClass("jstree-clicked");
 				}
+			},this))
+			.on("refresh_node.jstree",$.proxy(function (e,data) {
+				this.refresh();
+				this.redraw_node();
 			},this));
 			if (this._gridSettings.isThemeroller) {
 				this.element
@@ -418,6 +423,11 @@
 			for (i=0;i<children.length;i++) {
 				dataRow.find("td div."+GRIDCELLID_PREFIX+children[i]+GRIDCELLID_POSTFIX).remove();
 			}
+		};
+		this._hide_element_grid = function (node) {
+			var dataRow = this.dataRow;
+			dataRow.find("td div."+GRIDCELLID_PREFIX+node.id+GRIDCELLID_POSTFIX).remove();
+			this._hide_grid(node);
 		};
 		this.holdingCells = {};
 		this.getHoldingCells = function (obj,col,hc) {

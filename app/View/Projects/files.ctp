@@ -74,7 +74,7 @@
 	  		<?php continue; ?>
 	  	<?php endif; ?>
 			<li>
-				<?php echo $this->Html->link(Inflector::humanize($name), $this->here, array('data-role' => $name, 'class' => 'role')); ?>
+				<?php echo $this->Html->link($role['Role']['title'], $this->here, array('data-role' => $name, 'class' => 'role')); ?>
 			</li>
 		<?php endforeach; ?>
 	</ul>
@@ -184,7 +184,7 @@
         </td>
         <td>
             {% if (file.deleteUrl) { %}
-                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                <button class="btn btn-danger delete" data-data="{%=file.data%}" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
                     <i class="glyphicon glyphicon-trash"></i>
                     <span>Delete</span>
                 </button>
