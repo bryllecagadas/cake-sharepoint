@@ -249,7 +249,7 @@ class ProjectsController extends AppController {
 
 		$roles = $this->ProjectAcl->roles();
 		$has_permission = $this->ProjectAcl->userProjectPermission();
-		$user_roles = array_keys($this->ProjectAcl->userProjectRoles());
+		$user_roles = $this->ProjectAcl->userProjectRoles();
 		$aco_alias = $this->ProjectAcl->acoAlias;
 
 		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias', 'user_roles'));

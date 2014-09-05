@@ -102,7 +102,7 @@ class ProjectAclComponent extends Component {
 			$aro_alias = $this->generateProjectRoleAlias($this->projectId, $role['Role']['id']);
 			$this->aroCreate($aro_alias);
 			$permission = isset($this->permissionDefaults[$name]) ? $this->permissionDefaults[$name] : '';
-			if ($permission && $this->isRootPath($aco_path)) {
+			if ($permission && ($name == 'project_manager' || $this->isRootPath($aco_path))) {
 				$this->Acl->allow($aro_alias, $aco_path, $permission);
 			} else {
 				$this->Acl->deny($aro_alias, $aco_path, $permission);
@@ -815,7 +815,7 @@ class ProjectAclComponent extends Component {
 
 		foreach ($UserProjectRole->find('all', $options) as $role) {
 			$role_id = $role['UserProjectRole']['role_id'];
-			$user_roles[] = $roles[$role_id]['Role']['title'];
+			$user_roles[] = $roles[$role_id]['Role']['name'];
 		}
 
 		return $user_roles;
