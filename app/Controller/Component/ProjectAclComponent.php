@@ -400,7 +400,7 @@ class ProjectAclComponent extends Component {
 				$role = $data['role'];
 				$user = $this->Auth->user();
 
-				if ($user['admin'] || in_array('project_manager', $this->userProjectRoles())) {
+				if ($user['admin'] || (in_array('project_manager', $this->userProjectRoles()) && $role != 'project_manager')) {
 					$this->saveRolePermissions($items, $role);
 
 					$this->LogHandler->log('Project', 'Role view settings were modified..', array(
@@ -528,19 +528,20 @@ class ProjectAclComponent extends Component {
 					continue;
 				}
 
-				$stat = stat($new_parent . DS . $path);
 				$FileInfo = ClassRegistry::init('FileInfo');
 				$file_info = $FileInfo->findByaco_id($node[0]['Aco']['id']);
+
+				if (!$file_info) {
+					$stat = stat($new_parent . DS . $path);
+				}
 
 				$item = array(
 					'children' => false,
 					'text' => $path,
 					'data' => array(
 						'path' => $aco_path,
-						'created' => date('d/m/Y h:i A', $stat['ctime']),
-						'modified' => date('d/m/Y h:i A', $stat['mtime']),
-						'db_created' => $file_info ? date('d/m/Y h:i A', strtotime($file_info['FileInfo']['created'])) : '',
-						'db_user' => $file_info && isset($file_info['User']) ? $file_info['User']['username'] : ''
+						'created' => date('d/m/Y h:i A', $file_info ?  strtotime($file_info['FileInfo']['created']) : $stat['ctime']),
+						'user' => $file_info && isset($file_info['User']) ? $file_info['User']['username'] : ''
 					),
 					'type' => $type,
 				);

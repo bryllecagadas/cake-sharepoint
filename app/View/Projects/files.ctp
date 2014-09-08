@@ -70,11 +70,18 @@
 	  	<li class="active"><a href="#" class='role' data-role='admin'>Admin</a></li>
 	  <?php endif; ?>
 	  <?php foreach ($roles as $name => $role) : ?>
-	  	<?php if ($name == 'project_manager' && in_array($name, $user_roles)) : ?>
-	  		<?php continue; ?>
-	  	<?php endif; ?>
-			<li>
-				<?php echo $this->Html->link($role['Role']['title'], $this->here, array('data-role' => $name, 'class' => 'role')); ?>
+			<li class="<?php echo !$auth_user['admin'] && $name == 'project_manager' ? 'active' : ''; ?>">
+				<?php 
+					echo $this->Html->link(
+						$role['Role']['title'], 
+						$this->here, 
+						array(
+							'data-role' => $name, 
+							'class' => 'role', 
+							'data-checkbox' => ($name == 'project_manager' && in_array($name, $user_roles) ? '0' : '1')
+						)
+					); 
+				?>
 			</li>
 		<?php endforeach; ?>
 	</ul>

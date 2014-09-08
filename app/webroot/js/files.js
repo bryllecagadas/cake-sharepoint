@@ -101,9 +101,6 @@
 			if (Files.selectedId && (node = jstree.get_node(Files.selectedId))) {
 				jstree.refresh_node(node);
 			}
-		})
-		.on('fileuploaddestroy', function(e, data) {
-			console.log(data);
 		});
 	};
 
@@ -331,14 +328,14 @@
 						width: 20,
 						header: 'Modified',
 						value: function (node) {
-							return node.db_created ? node.db_created : (node.created ? node.created : '');
+							return node.created;
 						}
 					},
 					{
 						width: 20,
 						header: 'Modified by',
 						value: function (node) {
-							return node.db_user ? node.db_user : '';
+							return node.user;
 						}
 					}
 				]
@@ -463,7 +460,13 @@
 					var refresh = false;
 					var loading = jstree.is_loading('#');
 
-					if (!loading && (role == 'admin' || !role) && typeof Files.role != 'undefined') {
+
+					if (parseInt($(this).data('checkbox')) == 0) {
+						Files.plugins = Files.defaultPlugins.slice(0);
+						delete Files.role;
+						refresh = true;
+						$(this).closest('.nav-tabs').next().hide();
+					} else if (!loading && role == 'admin' && typeof Files.role != 'undefined') {
 						Files.plugins = Files.defaultPlugins.slice(0);
 						delete Files.role;
 						refresh = true;
@@ -477,7 +480,7 @@
 						$(this).closest('.nav-tabs').next().show();
 					}
 
-					if (refresh) {
+					if (refresh) {console.log(Files.plugins);
 						Files.disable();
 						jstree.destroy(true);
 						Files.init_jstree();

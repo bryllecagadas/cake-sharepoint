@@ -252,7 +252,14 @@ class ProjectsController extends AppController {
 		$user_roles = $this->ProjectAcl->userProjectRoles();
 		$aco_alias = $this->ProjectAcl->acoAlias;
 
-		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias', 'user_roles'));
+		$args = array(
+			'controller' => 'projects',
+			'action' => 'users',
+			'pass' => array($project['Project']['id'])
+		);
+		$users = $this->CommonAuth->isAuthorized(null, $args);
+
+		$this->set(compact('project', 'secureId', 'files', 'roles', 'has_permission', 'aco_alias', 'user_roles', 'users'));
 	}
 
 	public function index() {
