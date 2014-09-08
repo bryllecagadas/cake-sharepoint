@@ -251,8 +251,14 @@
 				}
 			},this))
 			.on("refresh_node.jstree",$.proxy(function (e,data) {
-				this.refresh();
-				this.redraw_node();
+				var inst = data.instance;
+				var children = inst.get_node('#').children_d.slice();
+				var dataRow = this.dataRow;
+				var str = '';
+				for (var i in children) {
+					str += ':not(.' + GRIDCELLID_PREFIX+children[i]+GRIDCELLID_POSTFIX + ')';
+				}
+				dataRow.find("div.jstree-grid-cell"+str).remove();
 			},this));
 			if (this._gridSettings.isThemeroller) {
 				this.element

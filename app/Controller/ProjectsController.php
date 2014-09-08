@@ -144,7 +144,7 @@ class ProjectsController extends AppController {
 		$this->ProjectAcl->setProject($project);
 		$file = null;
 
-		$message = 'Token has expired.';
+		$message = 'File not found.';
 
 		if ($project && $token) {
 			$this->loadModel('Token');
@@ -164,8 +164,6 @@ class ProjectsController extends AppController {
 					$this->autoRender = false;
 					$this->layout = null;
 					return $this->response;
-				} else {
-					$message = 'File does not exist.';
 				}
 			}
 				
