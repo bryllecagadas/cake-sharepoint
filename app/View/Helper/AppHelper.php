@@ -30,4 +30,21 @@ App::uses('Helper', 'View');
  * @package       app.View.Helper
  */
 class AppHelper extends Helper {
+	/**
+	 * Adds the modified time of the file as an extension to determine force
+	 * a cache reload to clients.
+	 * @see  Helper::assetUrl()
+	 */
+	public function assetUrl($path, $options = array()) {
+		$add_query = $path == 'favicon.ico'  || (isset($options['ext']) && ($options['ext'] == '.css' || $options['ext'] == '.js'));
+		$url = parent::assetUrl($path, $options);
+		if ($add_query) {
+			$full_path = realpath("." . $url);
+			$separator = strpos($url, "?") !== FALSE ? "&" : "?";
+			if ($fmtime = filemtime($full_path)) {
+				$url .= $separator . md5($fmtime);
+			}
+		}
+		return $url;
+	}
 }
