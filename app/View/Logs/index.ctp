@@ -1,5 +1,25 @@
 <h2>Activity Logs</h2>
 <span class='small'>Click Variables and Location to view the full value</span>
+<div class="row">
+	<?php 
+		echo $this->Form->create(false, array(
+			'url' => array('action' => 'process'),
+			'class' => array('form-inline'),
+			'inputDefaults' => array(
+				'div' => 'form-group',
+				'wrapInput' => false,
+				'class' => 'form-control'
+			),
+		)); 
+	?>
+	<div class='col-xs-5 col-md-offset-7'>
+		<span class='pull-right'>
+			<?php echo $this->Form->input('process', array('options' => $options, 'type' => 'select', 'label' => false)); ?>
+			<?php echo $this->Form->submit('Proceed', array('div' => 'form-group', 'class' => 'btn btn-primary')); ?>
+		</span>
+	</div>
+	<?php echo $this->Form->end(); ?>
+</div>
 <div class="table-responsive">
 	<table class='table table-hover'>
 		<thead>
