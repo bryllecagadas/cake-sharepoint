@@ -34,7 +34,7 @@
 				<td><?php echo $user['User']['admin'] ? $this->Html->tag('span', null, array('class' => 'glyphicon glyphicon-ok')) : ''; ?></td>
 				<td><?php echo $user['User']['created']; ?></td>
 				<td><?php echo $user['User']['updated']; ?></td>
-				<td><?php echo $this->Html->link('Edit', array('action' => 'edit', $user['User']['id'])); ?></td>
+				<td><?php echo $this->Html->link('', array('action' => 'edit', $user['User']['id']), array('class' => 'glyphicon glyphicon-pencil action', 'title' => 'Edit')); ?></td>
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
