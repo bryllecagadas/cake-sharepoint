@@ -8,8 +8,28 @@ class ProjectUploadComponent extends Component {
 
 	public $response;
 
+	public $passPhrase;
+
 	public function delete() {
 
+	}
+
+	public function encode($file_path) {
+		$temp_path = tempnam(dirname($file_path), 'TMP');
+		$temp = fopen($temp_path, 'w');
+
+		$resource = fopen($file_path, 'r');
+		$cipher = Configure::read('OpenSSL.cipher');
+		$iv = Configure::read('OpenSSL.iv');
+
+		if ($iv && $cipher) {
+			while(($data = fgets($resource))) {
+				fputs($temp, openssl_encrypt($data, $cipher, $this->passPhrase, 0, $iv) . PHP_EOL);
+			}
+			fclose($temp);
+			fclose($resource);
+			rename($temp_path, $file_path);
+		}
 	}
 
 	public function get() {
@@ -101,6 +121,10 @@ class ProjectUploadComponent extends Component {
 		if (!$error && $file->name) {
 			$file_path = $this->options['upload_dir'] . $file->name;
 			move_uploaded_file($tmp_name, $file_path);
+			
+			if ($this->passPhrase) {
+				$this->encode($file_path);
+			}
 		} else {
 			$file->error = $error;
 		}

@@ -83,6 +83,8 @@ class AppController extends Controller {
 	}
 
 	public function beforeFilter() {
+		Configure::load('openssl');
+
 		parent::beforeFilter();
 		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == 'ajax') {
 			$this->RequestHandler->ext = 'json';

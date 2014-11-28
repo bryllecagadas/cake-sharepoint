@@ -135,11 +135,62 @@ class ProjectAclComponent extends Component {
 		$full_path = WWW_ROOT . $file_path;
 
 		if ($this->userAccess($full_path, 'read') && is_file($full_path)) {
-			$this->LogHandler->log('Project', 'A file was downloaded.', array(
-				'project_id' => $this->projectId,
-				'file' => basename($full_path),
-			));
-	    return $response->file($full_path, array('download' => true, 'name' => basename($full_path)));
+
+			$decrypt_success = false;
+
+			if (($passphrase = $this->getPassPhraseFromPath($path))) {
+				return $this->download_decrypted($response, $full_path, $passphrase);
+			}
+
+			if (!$decrypt_success) {
+				$this->LogHandler->log('Project', 'A file was downloaded.', array(
+					'project_id' => $this->projectId,
+					'file' => basename($full_path),
+				));
+		    return $response->file($full_path, array('download' => true, 'name' => basename($full_path)));
+			}
+		}
+
+		return false;
+	}
+
+	public function download_decrypted($response, $full_path, $passphrase) {
+		$file = new File($full_path);
+		$filesize = filesize($full_path);
+
+		$resource = fopen($full_path, 'r');
+		$cipher = Configure::read('OpenSSL.cipher');
+		$iv = Configure::read('OpenSSL.iv');
+
+		if ($resource && $iv && $cipher) {
+
+			$extension = strtolower($file->ext());
+			$response->type($extension);
+
+			$agent = env('HTTP_USER_AGENT');
+
+			if (preg_match('%Opera(/| )([0-9].[0-9]{1,2})%', $agent)) {
+				$contentType = 'application/octet-stream';
+			} elseif (preg_match('/MSIE ([0-9].[0-9]{1,2})/', $agent)) {
+				$contentType = 'application/force-download';
+			}
+
+			if (!empty($contentType)) {
+				$response->type($contentType);
+			}
+
+			$response->download(basename($full_path));
+			$response->header('Accept-Ranges', 'bytes');
+			$response->header('Content-Transfer-Encoding', 'binary');
+			$response->header('Content-Length', $filesize);
+
+			$response->send();
+
+			while(($data = fgets($resource))) {
+				echo openssl_decrypt($data, $cipher, $passphrase, 0, $iv);
+			}
+
+			return true;
 		}
 
 		return false;
@@ -168,8 +219,31 @@ class ProjectAclComponent extends Component {
 		return implode($file ? DS : '/', $parents);
 	}
 
+	public function generatePassPhrase() {
+		for ($string = "", $i = 0; 255 > $i; $i++){
+			$j = floor(rand(1, 72));
+			10 >= $j ? $j += 47 : (20 >= $j ? $j += 37: (46 >= $j ? $j += 44: (72 >= $j && ($j += 50))));
+			$string .= chr($j);
+		}
+		return $string;
+	}
+
 	public function generateProjectRoleAlias($project_id, $role_id) {
 		return $project_id . ':' . $role_id;
+	}
+
+	public function getPassPhraseFromPath($path = '') {
+		$passphrase = null;
+
+		if ($path) {
+			if (($node = $this->Acl->Aco->node($path))) {
+				$FileInfo = ClassRegistry::init('FileInfo');
+				if (($file_info = $FileInfo->findByaco_id($node[0]['Aco']['id']))) {
+					$passphrase = $file_info['FileInfo']['passphrase'];
+				}
+			}
+		}
+		return $passphrase;
 	}
 
 	public function highlightRole($role, $type) {
@@ -381,8 +455,17 @@ class ProjectAclComponent extends Component {
 					return;
 				}
 
-				if (is_file($delete_path) && !unlink($delete_path)) {
-					$response['error'] = 'There was an error deleting the file.';
+				if (is_file($delete_path)) {
+					if (!unlink($delete_path)) {
+						$response['error'] = 'There was an error deleting the file.';
+					} else {
+						// Delete associated FileInfo table entry for the file
+						$FileInfo = ClassRegistry::init('FileInfo');
+						$file_info = $FileInfo->findByaco_id($aco[0]['Aco']['id']);
+						$FileInfo->delete($file_info['FileInfo']['id']);
+
+						$this->Acl->Aco->delete($aco[0]['Aco']['id']);
+					}
 				} else if (is_dir($delete_path)) {
 					$this->rrmdir($delete_path);
 					$this->Acl->Aco->delete($aco[0]['Aco']['id']);
@@ -668,6 +751,8 @@ class ProjectAclComponent extends Component {
 	      'upload_dir' => $upload_dir,
 			);
 
+			$passphrase = $this->generatePassPhrase();
+			$this->ProjectUpload->passPhrase = $passphrase;
 			$response = $this->ProjectUpload->process($request, $response, $options);
 
 			if (isset($response['files'])) {
@@ -689,9 +774,11 @@ class ProjectAclComponent extends Component {
 							$node = $this->Acl->Aco->node($aco_path);
 							$this->defaultPermissions($aco_path);
 							$FileInfo = ClassRegistry::init('FileInfo');
+							
 							$FileInfo->save(array(
 								'user_id' => $user['id'],
-								'aco_id' => $node[0]['Aco']['id']
+								'aco_id' => $node[0]['Aco']['id'],
+								'passphrase' => $passphrase,
 							));
 						}
 					}
