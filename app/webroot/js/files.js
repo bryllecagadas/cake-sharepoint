@@ -480,7 +480,7 @@
 						$(this).closest('.nav-tabs').next().show();
 					}
 
-					if (refresh) {console.log(Files.plugins);
+					if (refresh) {
 						Files.disable();
 						jstree.destroy(true);
 						Files.init_jstree();
