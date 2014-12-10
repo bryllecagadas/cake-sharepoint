@@ -73,26 +73,62 @@
 		}
 	}
 
+	Files.overwrite_files = {};
+	Files.modal_on_hide_attached = false;
+
+	Files.is_unique = function(filename) {
+		var jstree = Files.jstree.data('jstree'), files = [];
+
+		for (var i in jstree._model.data) {
+			var node = jstree._model.data[i];
+			if (node.type != 'folder' && node.parent == Files.selectedId) {
+				files.push(node.text);
+			}
+		}
+
+		return !($.inArray(filename, files) > -1);
+	};
+
 	Files.file_upload_init = function() {
 		$('#fileupload').fileupload({
 			url: Files.uploadUrl,
-			dataType: 'json',
-			formData: function (form) {
-				return [
-					{
-						name: 'session',
-						value: Files.sessionId
-					},
-					{
-						name: 'project_id',
-						value: Files.secureId
-					},
-					{
-						name: 'destination',
-						value: Files.selected ? Files.selected : ''
+			dataType: 'json'
+		})
+		.on('fileuploadadd', function (e, data) {
+			var show_dialog = function() {
+				var empty = false;
+				if (!$.isEmptyObject(Files.overwrite_files)) {
+					for (var i in Files.overwrite_files) {
+						var filename = i;
+						if (typeof Files.overwrite_files[i].process == 'undefined') {
+							$('#overwriteModal').data('current-file', filename).modal().find('.modal-body')
+								.html('Overwrite ' + filename + '?');
+							break;
+						}
 					}
-				];
-			}
+				} else {
+					empty = true;
+				}
+
+				if (empty) {
+					Files.modal_on_hide_attached = false;
+					$('#overwriteModal').off('hidden.bs.modal');
+				}
+			};
+
+			$.each(data.files, function (index, file) {
+				var filename = data.files[index].name;
+				if (!Files.is_unique(filename)) {
+					Files.overwrite_files[filename] = {
+						data: data
+					};
+					if (!$('#overwriteModal').data('bs.modal')) {
+						show_dialog();
+						Files.modal_on_hide_attached = true;
+						$('#overwriteModal').on('hidden.bs.modal', show_dialog);
+					}
+				}
+			});
 		})
 		.on('fileuploaddone', function(e, data) {
 			var jstree = Files.jstree.data('jstree');
@@ -101,6 +137,46 @@
 			if (Files.selectedId && (node = jstree.get_node(Files.selectedId))) {
 				jstree.refresh_node(node);
 			}
+		})
+		.on('fileuploadsubmit', function(e, data) {
+			data.formData = [
+				{
+					name: 'session',
+					value: Files.sessionId
+				},
+				{
+					name: 'project_id',
+					value: Files.secureId
+				},
+				{
+					name: 'destination',
+					value: Files.selected ? Files.selected : ''
+				}
+			];
+			$.each(data.files, function (index, file) {
+				var filename = data.files[index].name;
+				for (var i in Files.overwrite_files) {
+					if (filename == i) {
+						data.formData.push({
+							name: 'overwrite_method',
+							value : Files.overwrite_files[i].process
+						});
+						break;
+					}
+				}
+			});
+		});
+
+		$('#overwriteModal .data-new').on('click', function() {
+			var filename = $('#overwriteModal').data('current-file');
+			Files.overwrite_files[filename].process = 'new';
+			$('#overwriteModal').data('bs.modal').hide();
+		});
+
+		$('#overwriteModal .data-overwrite').on('click', function() {
+			var filename = $('#overwriteModal').data('current-file');
+			Files.overwrite_files[filename].process = 'overwrite';
+			$('#overwriteModal').data('bs.modal').hide();
 		});
 	};
 
@@ -211,7 +287,9 @@
 				}
 			},
 			sort : function(a, b) {
-				return this.get_type(a) === this.get_type(b) ? (this.get_text(a) > this.get_text(b) ? 1 : -1) : (this.get_type(a) >= this.get_type(b) ? 1 : -1);
+				return this.get_type(a) === this.get_type(b) ? 
+					(this.get_text(a) > this.get_text(b) ? 1 : -1) : 
+					(this.get_type(a) >= this.get_type(b) ? 1 : -1);
 			},
 			contextmenu : {
 				select_node: false,

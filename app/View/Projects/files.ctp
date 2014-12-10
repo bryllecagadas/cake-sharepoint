@@ -131,6 +131,25 @@
 				</div>
 				<table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
 		<?php echo $this->Form->end(); ?>
+    <div class="modal fade" id="overwriteModal" tabindex="-1" aria-labelledby="overwriteModalTitle" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title" id="overwriteModalTitle">File already exists</h4>
+          </div>
+          <div class="modal-body">
+            This is the body
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default data-new">Save as New</button>
+            <button type="button" class="btn btn-primary data-overwrite">Overwrite</button>
+          </div>
+        </div>
+      </div>
+    </div>
 	</div>
 <?php endif; ?>
 <script id="template-upload" type="text/x-tmpl">

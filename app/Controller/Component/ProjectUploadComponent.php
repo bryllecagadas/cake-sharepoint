@@ -37,9 +37,16 @@ class ProjectUploadComponent extends Component {
 	}
 
 	public function get_file_name($name) {
+		if (
+			isset($this->request->data['overwrite_method']) && 
+			$this->request->data['overwrite_method'] == 'overwrite'
+		) {
+			return $name;
+		}
+		
 		$raw = preg_replace("/\..+$/", "", $name);
 		$ext = str_replace($raw, "", $name);
-		$counter = 0;
+		$counter = 1;
 		while (file_exists($this->options['upload_dir'] . $name)) {
 			$name = $raw . $counter . $ext;
 			$counter++;

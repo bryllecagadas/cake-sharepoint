@@ -27,10 +27,8 @@
 				<th>ID</th>
 				<th>User</th>
 				<th>Message</th>
-				<th>Variables</th>
-				<th>Location</th>
-				<th>Referer</th>
-				<th>Added</th>
+				<th>Details</th>
+				<th>Timestamp</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,9 +37,12 @@
 				<td><?php echo $log['Log']['id']; ?></td>
 				<td><?php echo $log['User']['username']; ?></td>
 				<td><?php echo $log['Log']['message']; ?></td>
-				<td><a class='hover' href='#'>+ Variables</a><br /><pre class='hover-item'><?php echo print_r(unserialize($log['Log']['variables']), 1); ?></pre></td>
-				<td><a class='hover' href='#'>+ Location</a><br /><span class='hover-item'><?php echo $log['Log']['location']; ?></span></td>
-				<td><?php echo $log['Log']['referer']; ?></td>
+				<td>
+                    <a class='hover' href='#'>+ Details</a><br />
+                    <pre class='hover-item'>
+                        <?php echo print_r(unserialize($log['Log']['variables']) + array('location' => $log['Log']['location'], 'referer' => $log['Log']['referer']), 1); ?>
+                    </pre>
+                </td>
 				<td><?php echo $log['Log']['created']; ?></td>
 			</tr>
 		<?php endforeach; ?>

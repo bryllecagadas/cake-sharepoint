@@ -373,7 +373,7 @@ class ProjectAclComponent extends Component {
 						$node[0]['Aco']['alias'] = $data['new_name'];
 						$this->Acl->Aco->save($node[0]);
 
-						$this->LogHandler->log('Project', 'A directory were renamed.', array(
+						$this->LogHandler->log('Project', 'A path was renamed.', array(
 							'project_id' => $this->projectId,
 							'old_path' => $old_aco_path,
 							'new_path' => $new_path
