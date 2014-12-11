@@ -1,6 +1,7 @@
 <?php
 	$this->Html->script('jstree', array('inline' => false));
 	$this->Html->script('jstreegrid', array('inline' => false));
+  $this->Html->script('history', array('inline' => false));
 	$this->Html->css('/jstree-themes/default/style.min', array('inline' => false));
 	$url = Router::url(array(
 		'controller' => 'projects',
@@ -140,13 +141,24 @@
             </button>
             <h4 class="modal-title" id="overwriteModalTitle">File already exists</h4>
           </div>
-          <div class="modal-body">
-            This is the body
-          </div>
+          <div class="modal-body"></div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default data-new">Save as New</button>
             <button type="button" class="btn btn-primary data-overwrite">Overwrite</button>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="overwriteModalTitle" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title" id="historyModalTitle"></h4>
+          </div>
+          <div class="modal-body"></div>
         </div>
       </div>
     </div>

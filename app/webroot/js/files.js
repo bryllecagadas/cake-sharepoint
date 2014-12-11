@@ -12,7 +12,7 @@
 	};
 
 	var Files = window.Files || defaults;
-	
+
 	Files.permissions = {};
 
 	Files.plugins = ['types', 'contextmenu', 'wholerow', 'grid'];
@@ -38,12 +38,12 @@
 		}
 
 		Files.init_jstree();
-		
+
 		$('.save-tree-options').click(function() {
 			if (typeof Files.jstree != 'undefined') {
 				var jstree = Files.jstree.data('jstree');
 
-				if ($.inArray('checkbox', jstree.settings.plugins) !== -1) { 
+				if ($.inArray('checkbox', jstree.settings.plugins) !== -1) {
 					var items = jstree.get_node('#').children_d.slice();
 					var item_values = {};
 					var node;
@@ -133,7 +133,7 @@
 		.on('fileuploaddone', function(e, data) {
 			var jstree = Files.jstree.data('jstree');
 			var node;
-			
+
 			if (Files.selectedId && (node = jstree.get_node(Files.selectedId))) {
 				jstree.refresh_node(node);
 			}
@@ -190,7 +190,7 @@
 		}
 
 		Files.selected = destination;
-		
+
 		var filter = function(destination) {
 			return destination.substr(Files.acoAlias.length + 1);
 		};
@@ -247,19 +247,35 @@
 		});
 	}
 
+	Files.create_history_link = function(node) {
+		if (typeof node.type !== 'undefined' && node.type == 'file') {
+			return $('<a>').
+				attr('href', '#').
+				attr('data-id', node.path).
+				addClass('history-link').
+				html('View');
+		}
+		return '';
+	}
+
 	Files.init_jstree = function() {
 		Files.jstree = $('#tree').on('ready.jstree', function (e, data) {
 			var jstree = Files.jstree.data('jstree');
 			var items = jstree.get_node('#').children_d;
+			var first_child = jstree.get_node('#').children.length ?
+				jstree.get_node('#').children.pop() :
+				jstree.get_node('#').children_d.pop();
 			var dom;
 
 			if ($.inArray('checkbox', jstree.settings.plugins) !== -1) {
 				jstree.check_node('#');
 				Files.set_check_status(items);
 				jstree.open_all();
+			} else {
+				jstree.open_node(first_child);
 			}
 
-			Files.set_destination(jstree.get_node(jstree.get_node('#').children[0]));
+			Files.set_destination(jstree.get_node(first_child));
 		})
 		.jstree({
 			core: {
@@ -267,7 +283,7 @@
 					url: Files.url,
 					method: 'POST',
 					dataType: 'json',
-					data: function(node) { 
+					data: function(node) {
 						var data = {
 							node_id: Files.get_path(node),
 							project_id: Files.secureId
@@ -287,8 +303,8 @@
 				}
 			},
 			sort : function(a, b) {
-				return this.get_type(a) === this.get_type(b) ? 
-					(this.get_text(a) > this.get_text(b) ? 1 : -1) : 
+				return this.get_type(a) === this.get_type(b) ?
+					(this.get_text(a) > this.get_text(b) ? 1 : -1) :
 					(this.get_type(a) >= this.get_type(b) ? 1 : -1);
 			},
 			contextmenu : {
@@ -379,14 +395,14 @@
 				}
 			},
 			types : {
-				'default' : { 
-					icon : 'glyphicon glyphicon-file' 
+				'default' : {
+					icon : 'glyphicon glyphicon-file'
 				},
-				file : { 
+				file : {
 					valid_children : [], icon : 'glyphicon glyphicon-file'
 				},
-				folder : { 
-					icon : 'glyphicon glyphicon-folder-close' 
+				folder : {
+					icon : 'glyphicon glyphicon-folder-close'
 				}
 			},
 			checkbox : {
@@ -414,6 +430,13 @@
 						header: 'Modified by',
 						value: function (node) {
 							return node.user;
+						}
+					},
+					{
+						width: 15,
+						header: 'History',
+						value: function(node) {
+							return Files.create_history_link(node);
 						}
 					}
 				]

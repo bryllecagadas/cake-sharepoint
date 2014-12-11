@@ -76,7 +76,7 @@ class ProjectAclComponent extends Component {
 				$path = WWW_ROOT . $this->preparePath($id);
 
 				$actions = array(
-					'ccp' => 'update', 
+					'ccp' => 'update',
 					'create' => 'create',
 					'remove' => 'delete',
 					'rename' => 'update',
@@ -138,15 +138,16 @@ class ProjectAclComponent extends Component {
 
 			$decrypt_success = false;
 
+			$this->LogHandler->log('File !file was downloaded in project !project by !author.', array(
+				'project_id' => $this->projectId,
+				'file' => basename($full_path),
+			));
+
 			if (($passphrase = $this->getPassPhraseFromPath($path))) {
 				return $this->download_decrypted($response, $full_path, $passphrase);
 			}
 
 			if (!$decrypt_success) {
-				$this->LogHandler->log('Project', 'A file was downloaded.', array(
-					'project_id' => $this->projectId,
-					'file' => basename($full_path),
-				));
 		    return $response->file($full_path, array('download' => true, 'name' => basename($full_path)));
 			}
 		}
@@ -213,6 +214,29 @@ class ProjectAclComponent extends Component {
 		}
 
 		return false;
+	}
+
+	public function fileHistory($request, $response) {
+		$path = $request->data['node_id'];
+		$node = $this->Acl->Aco->node($path);
+		$logs = array();
+
+		if ($node) {
+			$FileHistory = ClassRegistry::init('FileHistory');
+			$logs = $FileHistory->find('all', array(
+				'conditions' => array(
+					'aco_id' => $node[0]['Aco']['id']
+				),
+				'order' => array(
+					'FileHistory.created' => 'ASC'
+				)
+			));
+		}
+
+		return array(
+			'name' => basename($path),
+			'logs' => $logs
+		);
 	}
 
 	public function generateParentPath($parents, $file = false) {
@@ -293,7 +317,7 @@ class ProjectAclComponent extends Component {
 		$parents = array_reverse($parents);
 		unset($parents[0]);
 		unset($parents[1]);
-		return $parents; 
+		return $parents;
 	}
 
 	public function pathFromId($id, $type = 'aco', $file = false) {
@@ -333,10 +357,10 @@ class ProjectAclComponent extends Component {
 				unset($parents[0]);
 				unset($parents[1]);
 				if ($this->dirCreate($data['path'], $parents)) {
-					$this->LogHandler->log('Project', 'A directory was added to the project.', array(
+					$this->LogHandler->log('Directory !directory was added to the project !project by !author.', array(
 						'project_id' => $this->projectId,
 						'parent' => $data['parent'],
-						'path' => $data['path']
+						'directory' => basename($data['path'])
 					));
 				}
 				break;
@@ -352,14 +376,14 @@ class ProjectAclComponent extends Component {
 					$old_path .= DS . $this->generateParentPath($parents, true);
 					$old_aco_path .= '/' . $this->generateParentPath($parents);
 				}
-				
+
 				$new_path = $old_path . DS . $data['new_name'];
 				$old_path .= DS . $data['old_name'];
 				$old_aco_path .= '/' . $data['old_name'];
 
 				if (
-					$this->isRootPath($old_aco_path) || 
-					!$this->userAccess($old_path, 'update') || 
+					$this->isRootPath($old_aco_path) ||
+					!$this->userAccess($old_path, 'update') ||
 					!$this->userAccess(WWW_ROOT . $this->preparePath($data['parent']), 'create')
 				) {
 					return;
@@ -373,14 +397,29 @@ class ProjectAclComponent extends Component {
 						$node[0]['Aco']['alias'] = $data['new_name'];
 						$this->Acl->Aco->save($node[0]);
 
-						$this->LogHandler->log('Project', 'A path was renamed.', array(
+						$is_file = is_file($new_path);
+						$type = $is_file ? 'File' : 'Directory';
+
+						$this->LogHandler->log($type . ' !old_name was renamed to !new_name in project !project by !author.', array(
 							'project_id' => $this->projectId,
 							'old_path' => $old_aco_path,
-							'new_path' => $new_path
+							'new_path' => $new_path,
+							'old_name' => basename($old_aco_path),
+							'new_name' => basename($new_path)
 						));
+
+						if ($is_file) {
+							$FileHistory = ClassRegistry::init('FileHistory');
+							$user = $this->Auth->user();
+							$FileHistory->save_history('rename', $user['id'], $node[0]['Aco']['id'], $data = array(
+								'old_name' => basename($old_path),
+								'new_name' => basename($new_path)
+							));
+						}
+
 					}
 				}
-				
+
 				break;
 
 			case 'move':
@@ -389,8 +428,8 @@ class ProjectAclComponent extends Component {
 				$new_path = WWW_ROOT . $this->preparePath($data['new_parent']) . DS . $aco[0]['Aco']['alias'];
 
 				if (
-					$this->isRootPath($data['id']) || 
-					!$this->userAccess($old_path, 'update') || 
+					$this->isRootPath($data['id']) ||
+					!$this->userAccess($old_path, 'update') ||
 					!$this->userAccess(WWW_ROOT . $this->preparePath($data['new_parent']), 'create')
 				) {
 					return;
@@ -400,18 +439,32 @@ class ProjectAclComponent extends Component {
 					$response['error'] = 'Cannot rename, file with the same name already exists.';
 				} else if(!rename($old_path, $new_path)) {
 					$response['error'] = 'File cannot be moved.';
-				} else {				
+				} else {
 					$parent = $this->Acl->Aco->node($data['new_parent']);
 					$aco[0]['Aco']['parent_id'] = $parent[0]['Aco']['id'];
 					$this->Acl->Aco->save($aco[0]);
 
-					$this->LogHandler->log('Project', 'A directory were moved.', array(
+					$is_file = is_file($new_path);
+					$type = $is_file ? 'File' : 'Directory';
+
+					$this->LogHandler->log($type . ' !file were moved to !parent in project !project by !author.', array(
 						'project_id' => $this->projectId,
 						'old_path' => $data['id'],
-						'destination' => $data['new_parent']
+						'destination' => $data['new_parent'],
+						'file' => basename($data['id']),
+						'parent' => $this->relativePath($data['new_parent'])
 					));
+
+					if ($is_file) {
+						$FileHistory = ClassRegistry::init('FileHistory');
+						$user = $this->Auth->user();
+						$FileHistory->save_history('move', $user['id'], $aco[0]['Aco']['id'], $data = array(
+							'new_parent' => $this->relativePath($data['new_parent']),
+							'old_parent' => preg_replace('/' . basename($data['id']) . '$/', '', $this->relativePath($data['id']))
+						));
+					}
 				}
-				
+
 				break;
 
 			case 'copy':
@@ -420,8 +473,8 @@ class ProjectAclComponent extends Component {
 				$new_path = WWW_ROOT . $this->preparePath($data['new_parent']);
 
 				if (
-					$this->isRootPath($data['id']) || 
-					!$this->userAccess($old_path, 'read') || 
+					$this->isRootPath($data['id']) ||
+					!$this->userAccess($old_path, 'read') ||
 					!$this->userAccess($new_path, 'create')
 				) {
 					return;
@@ -434,15 +487,40 @@ class ProjectAclComponent extends Component {
 				} else if (is_dir($old_path) && !$this->recurseCopyDir($old_path, $new_path . DS . $aco[0]['Aco']['alias'])) {
 					$response['error'] = 'Cannot copy directory.';
 				} else {
-					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($new_path, true, true)) . $aco[0]['Aco']['alias'];
+					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($new_path, true, true)) . '/' . $aco[0]['Aco']['alias'];
 					$aco_path = str_replace(DS, '/', $aco_path);
-					$this->acoCreate($aco_path);
+					$created = $this->acoCreate($aco_path);
 
-					$this->LogHandler->log('Project', 'A directory were copied.', array(
+					$is_file = is_file($new_path . DS . $aco[0]['Aco']['alias']);
+					$type = $is_file ? 'File' : 'Directory';
+
+					$this->LogHandler->log($type . ' !file were copied to !parent in project !project by !author.', array(
 						'project_id' => $this->projectId,
 						'old_path' => $data['id'],
-						'destination' => $data['new_parent']
+						'file' => basename($data['id']),
+						'destination' => $data['new_parent'],
+						'parent' => basename($data['new_parent']),
 					));
+
+					if ($is_file) {
+						$user = $this->Auth->user();
+
+						$FileInfo = ClassRegistry::init('FileInfo');
+
+						$file_info = $FileInfo->findByaco_id($aco[0]['Aco']['id']);
+
+						$FileInfo->create();
+						$FileInfo->save(array(
+							'user_id' => $user['id'],
+							'aco_id' => $created['Aco']['id'],
+							'passphrase' => $file_info ? $file_info['FileInfo']['passphrase'] : '',
+						));
+
+						$FileHistory = ClassRegistry::init('FileHistory');
+						$FileHistory->save_history('copy', $user['id'], $created['Aco']['id'], $data = array(
+							'old_file' => $this->relativePath($data['id']),
+						));
+					}
 				}
 
 				break;
@@ -455,6 +533,7 @@ class ProjectAclComponent extends Component {
 					return;
 				}
 
+				$delete = false;
 				if (is_file($delete_path)) {
 					if (!unlink($delete_path)) {
 						$response['error'] = 'There was an error deleting the file.';
@@ -465,14 +544,20 @@ class ProjectAclComponent extends Component {
 						$FileInfo->delete($file_info['FileInfo']['id']);
 
 						$this->Acl->Aco->delete($aco[0]['Aco']['id']);
+						$delete = true;
 					}
 				} else if (is_dir($delete_path)) {
 					$this->rrmdir($delete_path);
 					$this->Acl->Aco->delete($aco[0]['Aco']['id']);
 
-					$this->LogHandler->log('Project', 'A directory were deleted.', array(
+					$delete = true;
+				}
+
+				if ($delete) {
+					$this->LogHandler->log('!file were deleted in project !project by !author.', array(
 						'project_id' => $this->projectId,
 						'path' => $data['id'],
+						'file' => basename($data['id'])
 					));
 				}
 
@@ -486,7 +571,7 @@ class ProjectAclComponent extends Component {
 				if ($user['admin'] || (in_array('project_manager', $this->userProjectRoles()) && $role != 'project_manager')) {
 					$this->saveRolePermissions($items, $role);
 
-					$this->LogHandler->log('Project', 'Role view settings were modified..', array(
+					$this->LogHandler->log('Role !role view settings were modified for project !project by !author', array(
 						'project_id' => $this->projectId,
 						'role' => $role,
 						'paths' => $items,
@@ -510,7 +595,7 @@ class ProjectAclComponent extends Component {
 		$dir = false;
 
 		if (!isset($this->project_dirs[$this->projectId])) {
-			$this->project_dirs[$this->projectId] = Inflector::slug(strtolower($project[$this->projectModel]['name'])) . 
+			$this->project_dirs[$this->projectId] = Inflector::slug(strtolower($project[$this->projectModel]['name'])) .
 					'_' . $project[$this->projectModel]['id'];
 			$this->project_paths[$this->projectId] = Security::hash($this->project_dirs[$this->projectId]);
 		}
@@ -521,7 +606,7 @@ class ProjectAclComponent extends Component {
 	public function projectFiles($node_id = NULL) {
 		$base = $this->projectDir();
 		$parent = WWW_ROOT . $this->acoAlias . DS . $this->projectDir(true);
-	
+
 		if ($node_id && $node_id != "#") {
 			$path = $node_id;//$this->pathFromId($node_id);
 			$node = $this->Acl->Aco->node($path);
@@ -624,7 +709,8 @@ class ProjectAclComponent extends Component {
 					'data' => array(
 						'path' => $aco_path,
 						'created' => date('d/m/Y h:i A', $file_info ?  strtotime($file_info['FileInfo']['created']) : $stat['ctime']),
-						'user' => $file_info && isset($file_info['User']) ? $file_info['User']['username'] : ''
+						'user' => $file_info && isset($file_info['User']) ? $file_info['User']['username'] : '',
+						'type' => $type
 					),
 					'type' => $type,
 				);
@@ -653,19 +739,23 @@ class ProjectAclComponent extends Component {
 	}
 
 	public function recurseCopyDir($src, $dst) {
-		$dir = opendir($src); 
-		@mkdir($dst); 
-		while(false !== ( $file = readdir($dir)) ) { 
-			if (( $file != '.' ) && ( $file != '..' )) { 
-				if ( is_dir($src . '/' . $file) ) { 
-					$this->recurseCopyDir($src . '/' . $file,$dst . '/' . $file); 
-				} else { 
-					copy($src . '/' . $file,$dst . '/' . $file); 
-				} 
-			} 
-		} 
-		closedir($dir); 
+		$dir = opendir($src);
+		@mkdir($dst);
+		while(false !== ( $file = readdir($dir)) ) {
+			if (( $file != '.' ) && ( $file != '..' )) {
+				if ( is_dir($src . '/' . $file) ) {
+					$this->recurseCopyDir($src . '/' . $file,$dst . '/' . $file);
+				} else {
+					copy($src . '/' . $file,$dst . '/' . $file);
+				}
+			}
+		}
+		closedir($dir);
 		return true;
+	}
+
+	public function relativePath($path) {
+		return preg_replace('/^' . $this->acoAlias . '\/' . $this->projectDir() . '/', '', $path);
 	}
 
 	public function roles($as_id = false) {
@@ -685,15 +775,15 @@ class ProjectAclComponent extends Component {
 	}
 
 	public function rrmdir($dir) {
-   if (is_dir($dir)) { 
-     $objects = scandir($dir); 
-     foreach ($objects as $object) { 
-       if ($object != "." && $object != "..") { 
-         if (filetype($dir."/".$object) == "dir") $this->rrmdir($dir."/".$object); else unlink($dir."/".$object); 
-       } 
-     } 
-     reset($objects); 
-     rmdir($dir); 
+   if (is_dir($dir)) {
+     $objects = scandir($dir);
+     foreach ($objects as $object) {
+       if ($object != "." && $object != "..") {
+         if (filetype($dir."/".$object) == "dir") $this->rrmdir($dir."/".$object); else unlink($dir."/".$object);
+       }
+     }
+     reset($objects);
+     rmdir($dir);
    }
 	}
 
@@ -710,7 +800,7 @@ class ProjectAclComponent extends Component {
 			if ($parent_aco_path == $aco_path) {
 				continue;
 			}
-			
+
 			if ($deny && !$this->isRootPath($aco_path)) {
 				if ($this->Acl->check($aro_alias, $aco_path, $permission)) {
 					$this->Acl->deny($aro_alias, $aco_path, $permission);
@@ -756,7 +846,7 @@ class ProjectAclComponent extends Component {
 			$response = $this->ProjectUpload->process($request, $response, $options);
 
 			if (isset($response['files'])) {
-				$this->LogHandler->log('Project', 'Files were added to the project.', array(
+				$this->LogHandler->log('Files were added to the project !project by !author.', array(
 					'project_id' => $this->projectId,
 					'files' => $response['files']
 				));
@@ -768,19 +858,44 @@ class ProjectAclComponent extends Component {
 
 					$aco_path = str_replace(WWW_ROOT, '', $this->preparePath($upload_dir, true, true)) . $file->name;
 					$node = $this->Acl->Aco->node($aco_path);
+					$FileInfo = ClassRegistry::init('FileInfo');
 
 					if (!$node) {
 						if ($this->acoCreate($aco_path)) {
 							$node = $this->Acl->Aco->node($aco_path);
 							$this->defaultPermissions($aco_path);
-							$FileInfo = ClassRegistry::init('FileInfo');
-							
+
+							$FileInfo->create();
 							$FileInfo->save(array(
 								'user_id' => $user['id'],
 								'aco_id' => $node[0]['Aco']['id'],
 								'passphrase' => $passphrase,
 							));
 						}
+					} else {
+						$file_info = $FileInfo->find(
+							'first',
+							array(
+								'conditions' => array(
+									'aco_id' => $node[0]['Aco']['id']
+								)
+							)
+						);
+
+						if ($file_info) {
+							$FileInfo->id = $file_info['FileInfo']['id'];
+							$FileInfo->save(array(
+								'user_id' => $user['id'],
+								'passphrase' => $passphrase
+							));
+						}
+					}
+
+					$FileHistory = ClassRegistry::init('FileHistory');
+					if (isset($file->overwrite_method) && $file->overwrite_method == 'overwrite') {
+						$FileHistory->save_history('modify', $user['id'], $node[0]['Aco']['id']);
+					} else {
+						$FileHistory->save_history('create', $user['id'], $node[0]['Aco']['id']);
 					}
 
 					$file->url = $aco_path;
@@ -824,7 +939,7 @@ class ProjectAclComponent extends Component {
 				// Normalize path
 				$aco_path = str_replace(WWW_ROOT . $this->acoAlias . DS . $this->projectDir(TRUE), '', $path);
 				$aco_path = $this->acoAlias . '/' . $this->projectDir() . $aco_path;
-				
+
 				$aro_checks = array();
 
 				if ($role) {
@@ -864,10 +979,10 @@ class ProjectAclComponent extends Component {
 		if (!$user) {
 			$user = $this->Auth->user();
 		}
-		
+
 		if (!isset($users[$user['id']])) {
 			$user_project_roles = $this->userProjectRoles();
-			$users[$user['id']] = $user['admin'] || in_array('project_manager', $user_project_roles);	
+			$users[$user['id']] = $user['admin'] || in_array('project_manager', $user_project_roles);
 		}
 
 		return $users[$user['id']];
@@ -891,7 +1006,7 @@ class ProjectAclComponent extends Component {
 		if (!$user) {
 			return;
 		}
-		
+
 		$options = array(
 			'conditions' => array(
 				'user_id' => $user['id'],

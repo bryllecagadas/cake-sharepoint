@@ -11,7 +11,7 @@ class ProjectsController extends AppController {
 			$this->Project->set($this->request->data);
 			if ($this->Project->validates()) {
 				if ($this->Project->save($this->request->data)) {
-					$this->LogHandler->log('Project', 'Project has been modified.', array('project_id' => $this->Project->id));
+					$this->LogHandler->log('Project !project has been added by !author.', array('project_id' => $this->Project->id));
 					$project = $this->Project->findByid($this->Project->id);
 
 					if (!$this->ProjectAcl->projectInit($project)) {
@@ -30,17 +30,17 @@ class ProjectsController extends AppController {
  		$this->loadModel('User');
  		$this->loadModel('Role');
  		$this->loadModel('UserProjectRole');
-	
+
  		if ($this->request->is('post')) {
  			$user = $this->User->findByid($this->request->data['UserProjectRole']['user_id']);
  			$this->request->data['UserProjectRole']['project_id'] = $project_id;
  			$this->UserProjectRole->set($this->request->data);
- 			
+
 			if ($user && $this->UserProjectRole->validates()) {
 				$this->UserProjectRole->save($this->request->data);
 
-				$this->LogHandler->log('Project', 'User was added to the project.', array(
-					'project_id' => $this->request->data['UserProjectRole']['project_id'], 
+				$this->LogHandler->log('User !user was added to project !project with role !role by !author.', array(
+					'project_id' => $this->request->data['UserProjectRole']['project_id'],
 					'user_id' => $this->request->data['UserProjectRole']['user_id'],
 					'role_id' => $this->request->data['UserProjectRole']['role_id'],
 				));
@@ -48,14 +48,14 @@ class ProjectsController extends AppController {
 				$this->redirect(array('action' => 'users', $project_id));
 			}
  		}
- 		
+
  		$options = array(
  			'fields' => array(
  				'user_id',
 			),
  			'conditions' => array(
  				'project_id' => $project_id
- 			), 
+ 			),
  			'order' => array(
  				'role_id' => 'ASC'
 			)
@@ -73,8 +73,38 @@ class ProjectsController extends AppController {
 		));
 
  		$roles = $this->Role->find('list', array('fields' => 'title'));
-		
+
 		$this->set(compact('users', 'project', 'roles'));
+	}
+
+	public function ajax_file_history($project_id = 0) {
+		$project_id = null;
+
+		if ($this->request->is('post')) {
+			$project_id = $this->request->data['project_id'];
+		}
+
+		$project = $this->verify('Project', $project_id, true);
+		$this->ProjectAcl->setProject($project);
+		$secureId = $this->ProjectAcl->secureProjectId;
+
+		$response = $this->ProjectAcl->fileHistory($this->request, $this->response);
+
+
+		foreach($response['logs'] as &$log) {
+			$variables = array();
+
+			if (strpos($log['FileHistory']['message'], '!user') !== FALSE) {
+				$variables['user'] = $log['User']['username'];
+			}
+
+			$log['variables'] = $variables + (array) unserialize($log['FileHistory']['data']);
+		}
+
+		$this->layout = 'ajax';
+		$this->autoRender = true;
+		$this->helpers[] = 'String';
+		$this->set(compact('response'));
 	}
 
 	public function ajax_file_upload($project_id = 0) {
@@ -83,8 +113,8 @@ class ProjectsController extends AppController {
 		if ($this->request->is('post')) {
 			$project_id = $this->request->data['project_id'];
 		}
-	
-		$project = $this->verify('Project', $project_id, true);		
+
+		$project = $this->verify('Project', $project_id, true);
 		$this->ProjectAcl->setProject($project);
 		$secureId = $this->ProjectAcl->secureProjectId;
 
@@ -114,7 +144,7 @@ class ProjectsController extends AppController {
 			if (isset($data['role'])) {
 				$this->ProjectAcl->highlightRole($data['role'], 'disable');
 			}
-			
+
 			$items = $this->ProjectAcl->projectFiles($node_id);
 		} else {
 			$items = $this->ProjectAcl->processAction($action, $data);
@@ -159,14 +189,14 @@ class ProjectsController extends AppController {
 			if ($file) {
 				$success = $this->ProjectAcl->download($this->response, $file['Token']['path']);
 				$this->Token->delete($file['Token']['id']);
-				
+
 				if ($success) {
 					$this->autoRender = false;
 					$this->layout = null;
 					return $this->response;
 				}
 			}
-				
+
 		}
 
 		$this->set(compact('message'));
@@ -185,7 +215,7 @@ class ProjectsController extends AppController {
 					$this->ProjectAcl->modifyName($project, $this->request->data);
 				}
 
-				$this->LogHandler->log('Project', 'Project was modified.', array('project_id' => $project_id));
+				$this->LogHandler->log('Project !project was modified by !author.', array('project_id' => $project_id));
 				$this->Session->setFlash('Successfully modified project.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			}
@@ -216,12 +246,12 @@ class ProjectsController extends AppController {
  			$this->UserProjectRole->set($this->request->data);
 			if ($this->UserProjectRole->validates()) {
 				$this->UserProjectRole->save($this->request->data);
-	
-				$this->LogHandler->log('Project', 'User role was modified.', array(
+
+				$this->LogHandler->log('User !user role was modified from !old_role to !new_role in project !project.', array(
 					'project_id' => $project_id,
 					'user_id' => $user_id,
-					'old_role' => $user_project_role['UserProjectRole']['project_id'],
-					'new_role' => $this->request->data['UserProjectRole']['project_id'],
+					'old_role' => $user_project_role['UserProjectRole']['role_id'],
+					'new_role' => $this->request->data['UserProjectRole']['role_id'],
 				));
 				$this->Session->setFlash('User role was modified.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'users', $project_id));
@@ -229,7 +259,7 @@ class ProjectsController extends AppController {
  		} else {
  			$this->request->data = $user_project_role;
  		}
- 		
+
  		$users = $this->User->find('list', array('fields' => 'username'));
  		$roles = $this->Role->find('list', array('fields' => 'name'));
 
@@ -296,7 +326,7 @@ class ProjectsController extends AppController {
 			$projects[] = $project + $links;
 		}
 
-		$this->set(compact('projects', 'add_project'));		
+		$this->set(compact('projects', 'add_project'));
 	}
 
 	public function remove_user($project_id, $user_id) {
@@ -311,7 +341,7 @@ class ProjectsController extends AppController {
 		));
 
 		if ($user_project_role && $this->UserProjectRole->delete($user_project_role['UserProjectRole']['id'])) {
-			$this->LogHandler->log('Project', 'User was removed.', array(
+			$this->LogHandler->log('User !user was removed.', array(
 				'project_id' => $project_id,
 				'user_id' => $user_id,
 			));
@@ -332,7 +362,7 @@ class ProjectsController extends AppController {
  		$options = array(
  			'conditions' => array(
  				'project_id' => $project_id
- 			), 
+ 			),
  			'order' => array(
  				'role_id' => 'ASC'
 			)

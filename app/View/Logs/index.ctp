@@ -1,7 +1,7 @@
 <h2>Activity Logs</h2>
 <span class='small'>Click Variables and Location to view the full value</span>
 <div class="row">
-	<?php 
+	<?php
 		echo $this->Form->create(false, array(
 			'url' => array('action' => 'process'),
 			'class' => array('form-inline'),
@@ -10,7 +10,7 @@
 				'wrapInput' => false,
 				'class' => 'form-control'
 			),
-		)); 
+		));
 	?>
 	<div class='col-xs-5 col-md-offset-7'>
 		<span class='pull-right'>
@@ -25,7 +25,6 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>User</th>
 				<th>Message</th>
 				<th>Details</th>
 				<th>Timestamp</th>
@@ -35,14 +34,13 @@
 		<?php foreach($logs as $log) : ?>
 			<tr>
 				<td><?php echo $log['Log']['id']; ?></td>
-				<td><?php echo $log['User']['username']; ?></td>
-				<td><?php echo $log['Log']['message']; ?></td>
+				<td><?php echo $this->String->format($log['Log']['message'], $log['replacement'] + unserialize($log['Log']['variables'])); ?></td>
 				<td>
-                    <a class='hover' href='#'>+ Details</a><br />
-                    <pre class='hover-item'>
-                        <?php echo print_r(unserialize($log['Log']['variables']) + array('location' => $log['Log']['location'], 'referer' => $log['Log']['referer']), 1); ?>
-                    </pre>
-                </td>
+					<a class='hover' href='#'>+ Details</a><br />
+					<pre class='hover-item'>
+				    <?php echo print_r(unserialize($log['Log']['variables']) + array('location' => $log['Log']['location'], 'referer' => $log['Log']['referer']), 1); ?>
+					</pre>
+				</td>
 				<td><?php echo $log['Log']['created']; ?></td>
 			</tr>
 		<?php endforeach; ?>
@@ -51,14 +49,16 @@
 </div>
 <div class='paginator'>
 	<ul class='pagination'>
-		<?php echo $this->Paginator->first( __('First'), array('tag' => 'li')); ?>
-		<?php echo $this->Paginator->prev( __('Prev'), array('tag' => 'li'), null, array('class' => 'prev disabled',)); ?>
-		<?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a')); ?>
-		<?php echo $this->Paginator->next( __('Next'), array('tag' => 'li'), null, array('class' => 'next disabled')); ?>
-		<?php echo $this->Paginator->last( __('Last'), array('tag' => 'li')); ?>
+		<?php if ($this->Paginator->hasPage()): ?>
+			<?php echo $this->Paginator->first( __('First'), array('tag' => 'li')); ?>
+			<?php echo $this->Paginator->prev( __('Prev'), array('tag' => 'li'), null, array('class' => 'prev disabled',)); ?>
+			<?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a')); ?>
+			<?php echo $this->Paginator->next( __('Next'), array('tag' => 'li'), null, array('class' => 'next disabled')); ?>
+			<?php echo $this->Paginator->last( __('Last'), array('tag' => 'li')); ?>
+		<?php endif; ?>
 	</ul>
 </div>
-<?php 
+<?php
 $script = <<<JS
 (function($) {
 	$(document).ready(function() {
@@ -78,5 +78,5 @@ $script = <<<JS
 })(jQuery);
 JS;
 
-$this->Html->scriptBlock($script, array('inline' => false)); 
+$this->Html->scriptBlock($script, array('inline' => false));
 ?>

@@ -125,6 +125,10 @@ class ProjectUploadComponent extends Component {
 		$file->size = intval($size);
 		$file->type = $type;
 
+		if (isset($this->request->data['overwrite_method'])) {
+			$file->overwrite_method = $this->request->data['overwrite_method'];
+		}
+
 		if (!$error && $file->name) {
 			$file_path = $this->options['upload_dir'] . $file->name;
 			move_uploaded_file($tmp_name, $file_path);

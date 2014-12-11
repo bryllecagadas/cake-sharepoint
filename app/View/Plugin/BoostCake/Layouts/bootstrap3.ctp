@@ -32,6 +32,7 @@
 		echo $this->Html->css('bootstrap.min');
 		echo $this->Html->css('styles');
 	?>
+	<base href='<?php echo Router::url('/', true); ?>' />
 </head>
 
 <body>

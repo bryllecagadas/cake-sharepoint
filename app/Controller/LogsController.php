@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class LogsController extends AppController {
 	private $log_options = array(
@@ -8,6 +8,8 @@ class LogsController extends AppController {
 	);
 
 	public function index() {
+		$this->helpers[] = 'String';
+
 		$this->paginate = array(
 			'limit' => 20,
 			'order' => array(
@@ -16,6 +18,11 @@ class LogsController extends AppController {
 		);
 
 		$logs = $this->paginate();
+
+		foreach ($logs as &$log) {
+			$this->LogHandler->prepare($log);
+		}
+
 		$options = $this->log_options;
 
 		$this->set(compact('logs', 'options'));
@@ -33,7 +40,7 @@ class LogsController extends AppController {
 				$action = $parts[0];
 				$value = $parts[1];
 				$process_message = $this->log_options[$process];
-				$message = 'Are you sure you want to ' . strtolower($process_message) . '?';
+				$message = 'Are you sure you want to <em>' . strtolower($process_message) . '</em>?';
 				$redirect = false;
 				$this->set(compact('action', 'message', 'process'));
 				if ($proceed) {
