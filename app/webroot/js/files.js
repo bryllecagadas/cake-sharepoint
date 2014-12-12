@@ -519,14 +519,20 @@
 				new_parent: inst.get_node(data.parent).data.path,
 				old_parent: inst.get_node(data.old_parent).data.path,
 				parents: parents
-			}, data);
+			}, data, function(response, data) {
+				var inst = data.instance;
+				inst.refresh_node(data.node.parent);
+			});
 		})
 		.on('copy_node.jstree', function (e, data) {
 			var inst = data.instance;
 			Files.request('copy', {
 				id: data.original.data.path,
 				new_parent: inst.get_node(data.parent).data.path
-			}, data);
+			}, data, function(response, data) {
+				var inst = data.instance;
+				inst.refresh_node(data.node.parent);
+			});
 		});
 	};
 
