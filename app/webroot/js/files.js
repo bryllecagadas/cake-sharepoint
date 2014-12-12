@@ -76,12 +76,16 @@
 	Files.overwrite_files = {};
 	Files.modal_on_hide_attached = false;
 
-	Files.is_unique = function(filename) {
+	Files.is_unique = function(filename, parent_id) {
 		var jstree = Files.jstree.data('jstree'), files = [];
+		
+		if (typeof parent_id == 'undefined') {
+			parent_id = Files.selectedId;
+		}
 
 		for (var i in jstree._model.data) {
 			var node = jstree._model.data[i];
-			if (node.type != 'folder' && node.parent == Files.selectedId) {
+			if (node.type != 'folder' && node.parent == parent_id) {
 				files.push(node.text);
 			}
 		}
